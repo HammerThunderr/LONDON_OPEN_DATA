@@ -36,13 +36,15 @@ from pathlib import Path
 
 import requests
 
-DATASET_PAGE = (
-    "https://data.london.gov.uk/dataset/mps-recorded-crime-geographic-breakdown-exy3m"
-)
-LINK_RE = re.compile(
-    r'href="(https://data\.london\.gov\.uk/download/[^"]*Borough%20Level%20Crime'
-    r'%20\(most%20recent%2024%20months\)\.csv)"'
-)
+BASE = "https://data.london.gov.uk"
+DATASET_SLUG = "mps-recorded-crime-geographic-breakdown-exy3m"
+DATASET_ID = "exy3m"
+DATASET_PAGE = f"{BASE}/dataset/{DATASET_SLUG}"
+
+# DataPress blocks scraping but provides a JSON API; also send a real UA.
+HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)"}
+WANTED = ("borough level crime", "24 months")
+
 MONTH_COL_RE = re.compile(r"^\d{6}$")
 MONTHS_TO_SUM = 12
 
@@ -71,15 +73,54 @@ def norm(name: str) -> str:
     return name.strip().lower().replace("&", "and")
 
 
+def _wanted(text: str) -> bool:
+    t = (text or "").lower()
+    return all(w in t for w in WANTED)
+
+
+def pick_resource(payload: dict) -> str | None:
+    """Pick the newest matching resource URL from a DataPress dataset JSON."""
+    res = payload.get("resources") or {}
+    items = list(res.values()) if isinstance(res, dict) else list(res)
+    matches = [
+        r for r in items
+        if _wanted(r.get("title", "")) or _wanted(r.get("filename", ""))
+    ]
+    if not matches:
+        return None
+    matches.sort(key=lambda r: r.get("timestamp") or r.get("timeFrameTo") or "")
+    url = matches[-1].get("url") or ""
+    if url.startswith("/"):
+        url = BASE + url
+    return url or None
+
+
 def discover_csv_url() -> str:
-    html = requests.get(DATASET_PAGE, timeout=60).text
-    m = LINK_RE.search(html)
-    if not m:
-        raise SystemExit(
-            "Could not find a 'Borough Level Crime (most recent 24 months)' link "
-            "on the dataset page — the page layout may have changed."
-        )
-    return m.group(1)
+    # Primary: DataPress JSON API (scraping the HTML page gets blocked).
+    for ident in (DATASET_ID, DATASET_SLUG):
+        try:
+            resp = requests.get(f"{BASE}/api/dataset/{ident}", headers=HEADERS, timeout=60)
+            if resp.status_code == 200:
+                url = pick_resource(resp.json())
+                if url:
+                    return url
+        except (requests.RequestException, ValueError):
+            pass
+
+    # Fallback: tolerant scan of the dataset page HTML.
+    from urllib.parse import unquote
+    html = requests.get(DATASET_PAGE, headers=HEADERS, timeout=60).text
+    candidates = re.findall(
+        r'href="((?:https://data\.london\.gov\.uk)?/download/[^"]+\.csv)"', html
+    )
+    for href in candidates:  # page lists newest first
+        if _wanted(unquote(href)):
+            return href if href.startswith("http") else BASE + href
+    raise SystemExit(
+        "Could not locate the 'Borough Level Crime (most recent 24 months)' file "
+        "via the DataPress API or the dataset page — check the dataset:\n"
+        f"  {DATASET_PAGE}"
+    )
 
 
 def build(csv_text: str, geography: dict) -> dict:
@@ -151,7 +192,7 @@ def main() -> None:
     else:
         url = discover_csv_url()
         print(f"Fetching {url}")
-        resp = requests.get(url, timeout=120)
+        resp = requests.get(url, headers=HEADERS, timeout=120)
         resp.raise_for_status()
         csv_text = resp.content.decode("utf-8-sig")
 
