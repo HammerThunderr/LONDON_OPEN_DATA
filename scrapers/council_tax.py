@@ -40,6 +40,7 @@ SLUG_TMPL = "council-tax-levels-set-by-local-authorities-in-england-{y1}-to-{y2}
 HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)"}
 
 E09_RE = re.compile(r"^E09\d{6}$")
+GSS_RE = re.compile(r"^[EW]\d{8}$")  # any LA-type code: E06/E07/E08/E09/W06...
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUT_PATH = DATA_DIR / "council_tax.json"
@@ -139,10 +140,19 @@ def parse_ods(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
             continue
 
         e09_rows = [i for i in range(len(grid)) if is_code(cell(i, code_col))]
-        first_data_row = min(e09_rows)
+
+        # The sheet lists authorities alphabetically, so non-London districts
+        # (E06/E07/...) appear BEFORE the first E09 borough. The real header
+        # sits above the first row holding ANY authority code, not the first
+        # E09 row.
+        def is_any_gss(v) -> bool:
+            return isinstance(v, str) and bool(GSS_RE.match(v.strip()))
+
+        first_data_row = min(i for i in range(len(grid))
+                             if is_any_gss(cell(i, code_col)))
 
         # build flattened header labels from the rows above the data
-        header_rows = range(max(0, first_data_row - 6), first_data_row)
+        header_rows = range(max(0, first_data_row - 8), first_data_row)
         labels: dict[int, str] = {}
         for c in range(width):
             parts = [str(cell(r, c)).strip() for r in header_rows
