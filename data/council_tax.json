@@ -1,0 +1,174 @@
+{
+  "source": "https://assets.publishing.service.gov.uk/media/6a02eeeccd2e0e8b5b20b449/Table_10_2026-27.ods",
+  "scraped_at": "2026-06-12T23:24:10+00:00",
+  "financial_year": "2026-27",
+  "column_used": "17. Average (Band D 2 adult equivalent) council tax for area of the billing authority including both local and major precepts.   (Lines 8+ 16(a) + 16(b) + 16(c) +16(d)) / [z] / 1747.51 / 2279.41 / 2409.47 / 2490.05 / 2452.0",
+  "note": "Area Band D council tax (includes GLA precept). MHCLG, OGL.",
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "band_d": 2198.51
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "band_d": 2132.6
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "band_d": 2366.36
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "band_d": 2235.27
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "band_d": 2140.04
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "band_d": 2207.55
+    },
+    {
+      "code": "E09000001",
+      "name": "City of London",
+      "band_d": 1329.56
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "band_d": 2599.91
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "band_d": 2138.53
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "band_d": 2267.67
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "band_d": 2107.86
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "band_d": 2060.3
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "band_d": 1519.51
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "band_d": 2313.78
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "band_d": 2511.07
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "band_d": 2424.66
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "band_d": 2045.46
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "band_d": 2185.56
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "band_d": 2108.15
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "band_d": 1666.65
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "band_d": 2609.2
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "band_d": 2047.11
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "band_d": 2237.33
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "band_d": 2146.76
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "band_d": 1944.23
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "band_d": 2294.58
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "band_d": 2486.1
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "band_d": 1967.26
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "band_d": 2378.64
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "band_d": 1837.78
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "band_d": 2386.96
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "band_d": 1028.21
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "band_d": 1049.55
+    }
+  ]
+}

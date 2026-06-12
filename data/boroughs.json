@@ -1,8 +1,9 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-12T18:01:02+00:00",
+  "scraped_at": "2026-06-12T23:24:11+00:00",
   "metrics": [
-    "crime"
+    "crime",
+    "council_tax"
   ],
   "boroughs": [
     {
@@ -13,6 +14,11 @@
           "raw": 92.3,
           "unit": "per 1,000",
           "percentile": 51.6
+        },
+        "council_tax": {
+          "raw": 2198.51,
+          "unit": "£ Band D",
+          "percentile": 43.8
         }
       }
     },
@@ -24,6 +30,11 @@
           "raw": 75.5,
           "unit": "per 1,000",
           "percentile": 74.2
+        },
+        "council_tax": {
+          "raw": 2132.6,
+          "unit": "£ Band D",
+          "percentile": 59.4
         }
       }
     },
@@ -35,6 +46,11 @@
           "raw": 64.6,
           "unit": "per 1,000",
           "percentile": 90.3
+        },
+        "council_tax": {
+          "raw": 2366.36,
+          "unit": "£ Band D",
+          "percentile": 21.9
         }
       }
     },
@@ -46,6 +62,11 @@
           "raw": 98.6,
           "unit": "per 1,000",
           "percentile": 41.9
+        },
+        "council_tax": {
+          "raw": 2235.27,
+          "unit": "£ Band D",
+          "percentile": 37.5
         }
       }
     },
@@ -57,6 +78,11 @@
           "raw": 72.8,
           "unit": "per 1,000",
           "percentile": 80.6
+        },
+        "council_tax": {
+          "raw": 2140.04,
+          "unit": "£ Band D",
+          "percentile": 53.1
         }
       }
     },
@@ -68,13 +94,24 @@
           "raw": 189.6,
           "unit": "per 1,000",
           "percentile": 3.2
+        },
+        "council_tax": {
+          "raw": 2207.55,
+          "unit": "£ Band D",
+          "percentile": 40.6
         }
       }
     },
     {
       "code": "E09000001",
       "name": "City of London",
-      "metrics": {}
+      "metrics": {
+        "council_tax": {
+          "raw": 1329.56,
+          "unit": "£ Band D",
+          "percentile": 93.8
+        }
+      }
     },
     {
       "code": "E09000008",
@@ -84,6 +121,11 @@
           "raw": 87.8,
           "unit": "per 1,000",
           "percentile": 61.3
+        },
+        "council_tax": {
+          "raw": 2599.91,
+          "unit": "£ Band D",
+          "percentile": 3.1
         }
       }
     },
@@ -95,6 +137,11 @@
           "raw": 88.9,
           "unit": "per 1,000",
           "percentile": 54.8
+        },
+        "council_tax": {
+          "raw": 2138.53,
+          "unit": "£ Band D",
+          "percentile": 56.2
         }
       }
     },
@@ -106,6 +153,11 @@
           "raw": 88.6,
           "unit": "per 1,000",
           "percentile": 58.1
+        },
+        "council_tax": {
+          "raw": 2267.67,
+          "unit": "£ Band D",
+          "percentile": 31.2
         }
       }
     },
@@ -117,6 +169,11 @@
           "raw": 95.4,
           "unit": "per 1,000",
           "percentile": 45.2
+        },
+        "council_tax": {
+          "raw": 2107.86,
+          "unit": "£ Band D",
+          "percentile": 65.6
         }
       }
     },
@@ -128,6 +185,11 @@
           "raw": 127.5,
           "unit": "per 1,000",
           "percentile": 16.1
+        },
+        "council_tax": {
+          "raw": 2060.3,
+          "unit": "£ Band D",
+          "percentile": 68.8
         }
       }
     },
@@ -139,6 +201,11 @@
           "raw": 114.7,
           "unit": "per 1,000",
           "percentile": 29.0
+        },
+        "council_tax": {
+          "raw": 1519.51,
+          "unit": "£ Band D",
+          "percentile": 90.6
         }
       }
     },
@@ -150,6 +217,11 @@
           "raw": 107.8,
           "unit": "per 1,000",
           "percentile": 32.3
+        },
+        "council_tax": {
+          "raw": 2313.78,
+          "unit": "£ Band D",
+          "percentile": 25.0
         }
       }
     },
@@ -161,6 +233,11 @@
           "raw": 65.3,
           "unit": "per 1,000",
           "percentile": 87.1
+        },
+        "council_tax": {
+          "raw": 2511.07,
+          "unit": "£ Band D",
+          "percentile": 6.2
         }
       }
     },
@@ -172,6 +249,11 @@
           "raw": 74.9,
           "unit": "per 1,000",
           "percentile": 77.4
+        },
+        "council_tax": {
+          "raw": 2424.66,
+          "unit": "£ Band D",
+          "percentile": 12.5
         }
       }
     },
@@ -183,6 +265,11 @@
           "raw": 102.1,
           "unit": "per 1,000",
           "percentile": 35.5
+        },
+        "council_tax": {
+          "raw": 2045.46,
+          "unit": "£ Band D",
+          "percentile": 75.0
         }
       }
     },
@@ -194,6 +281,11 @@
           "raw": 94.7,
           "unit": "per 1,000",
           "percentile": 48.4
+        },
+        "council_tax": {
+          "raw": 2185.56,
+          "unit": "£ Band D",
+          "percentile": 46.9
         }
       }
     },
@@ -205,6 +297,11 @@
           "raw": 142.7,
           "unit": "per 1,000",
           "percentile": 9.7
+        },
+        "council_tax": {
+          "raw": 2108.15,
+          "unit": "£ Band D",
+          "percentile": 62.5
         }
       }
     },
@@ -216,6 +313,11 @@
           "raw": 153.0,
           "unit": "per 1,000",
           "percentile": 6.5
+        },
+        "council_tax": {
+          "raw": 1666.65,
+          "unit": "£ Band D",
+          "percentile": 87.5
         }
       }
     },
@@ -227,6 +329,11 @@
           "raw": 71.4,
           "unit": "per 1,000",
           "percentile": 83.9
+        },
+        "council_tax": {
+          "raw": 2609.2,
+          "unit": "£ Band D",
+          "percentile": 0.0
         }
       }
     },
@@ -238,6 +345,11 @@
           "raw": 120.8,
           "unit": "per 1,000",
           "percentile": 19.4
+        },
+        "council_tax": {
+          "raw": 2047.11,
+          "unit": "£ Band D",
+          "percentile": 71.9
         }
       }
     },
@@ -249,6 +361,11 @@
           "raw": 99.7,
           "unit": "per 1,000",
           "percentile": 38.7
+        },
+        "council_tax": {
+          "raw": 2237.33,
+          "unit": "£ Band D",
+          "percentile": 34.4
         }
       }
     },
@@ -260,6 +377,11 @@
           "raw": 61.8,
           "unit": "per 1,000",
           "percentile": 96.8
+        },
+        "council_tax": {
+          "raw": 2146.76,
+          "unit": "£ Band D",
+          "percentile": 50.0
         }
       }
     },
@@ -271,6 +393,11 @@
           "raw": 116.1,
           "unit": "per 1,000",
           "percentile": 25.8
+        },
+        "council_tax": {
+          "raw": 1944.23,
+          "unit": "£ Band D",
+          "percentile": 81.2
         }
       }
     },
@@ -282,6 +409,11 @@
           "raw": 80.7,
           "unit": "per 1,000",
           "percentile": 71.0
+        },
+        "council_tax": {
+          "raw": 2294.58,
+          "unit": "£ Band D",
+          "percentile": 28.1
         }
       }
     },
@@ -293,6 +425,11 @@
           "raw": 58.7,
           "unit": "per 1,000",
           "percentile": 100.0
+        },
+        "council_tax": {
+          "raw": 2486.1,
+          "unit": "£ Band D",
+          "percentile": 9.4
         }
       }
     },
@@ -304,6 +441,11 @@
           "raw": 129.2,
           "unit": "per 1,000",
           "percentile": 12.9
+        },
+        "council_tax": {
+          "raw": 1967.26,
+          "unit": "£ Band D",
+          "percentile": 78.1
         }
       }
     },
@@ -315,6 +457,11 @@
           "raw": 63.7,
           "unit": "per 1,000",
           "percentile": 93.5
+        },
+        "council_tax": {
+          "raw": 2378.64,
+          "unit": "£ Band D",
+          "percentile": 18.8
         }
       }
     },
@@ -326,6 +473,11 @@
           "raw": 116.4,
           "unit": "per 1,000",
           "percentile": 22.6
+        },
+        "council_tax": {
+          "raw": 1837.78,
+          "unit": "£ Band D",
+          "percentile": 84.4
         }
       }
     },
@@ -337,6 +489,11 @@
           "raw": 83.6,
           "unit": "per 1,000",
           "percentile": 64.5
+        },
+        "council_tax": {
+          "raw": 2386.96,
+          "unit": "£ Band D",
+          "percentile": 15.6
         }
       }
     },
@@ -348,6 +505,11 @@
           "raw": 82.7,
           "unit": "per 1,000",
           "percentile": 67.7
+        },
+        "council_tax": {
+          "raw": 1028.21,
+          "unit": "£ Band D",
+          "percentile": 100.0
         }
       }
     },
@@ -359,6 +521,11 @@
           "raw": 379.1,
           "unit": "per 1,000",
           "percentile": 0.0
+        },
+        "council_tax": {
+          "raw": 1049.55,
+          "unit": "£ Band D",
+          "percentile": 96.9
         }
       }
     }
