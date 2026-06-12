@@ -79,33 +79,42 @@ def _wanted(text: str) -> bool:
 
 
 def pick_resource(payload: dict) -> str | None:
-    """Pick the newest matching resource URL from a DataPress dataset JSON."""
+    """Pick the matching resource covering the latest month, per the DataPress
+    v3 shape: resources is a dict keyed by file id; each entry has title, url,
+    order, and timeFrame {gte, lte} (ISO month strings)."""
     res = payload.get("resources") or {}
     items = list(res.values()) if isinstance(res, dict) else list(res)
-    matches = [
-        r for r in items
-        if _wanted(r.get("title", "")) or _wanted(r.get("filename", ""))
-    ]
+    matches = [r for r in items if _wanted(r.get("title", ""))]
     if not matches:
         return None
-    matches.sort(key=lambda r: r.get("timestamp") or r.get("timeFrameTo") or "")
-    url = matches[-1].get("url") or ""
+
+    def key(r: dict):
+        lte = (r.get("timeFrame") or {}).get("lte") or ""
+        order = r.get("order")
+        # Higher lte (later coverage) wins; tiebreak: lower order (listed first).
+        return (lte, -(order if isinstance(order, int) else 10**6))
+
+    best = max(matches, key=key)
+    url = best.get("url") or ""
     if url.startswith("/"):
         url = BASE + url
     return url or None
 
 
 def discover_csv_url() -> str:
-    # Primary: DataPress JSON API (scraping the HTML page gets blocked).
+    # Primary: DataPress JSON API, v3 (scraping the HTML page gets blocked).
     for ident in (DATASET_ID, DATASET_SLUG):
         try:
-            resp = requests.get(f"{BASE}/api/dataset/{ident}", headers=HEADERS, timeout=60)
+            resp = requests.get(f"{BASE}/api/v3/dataset/{ident}", headers=HEADERS, timeout=60)
             if resp.status_code == 200:
                 url = pick_resource(resp.json())
                 if url:
                     return url
-        except (requests.RequestException, ValueError):
-            pass
+                print(f"API ok for '{ident}' but no matching resource found.")
+            else:
+                print(f"API status {resp.status_code} for '{ident}'")
+        except (requests.RequestException, ValueError) as e:
+            print(f"API attempt '{ident}' failed: {e}")
 
     # Fallback: tolerant scan of the dataset page HTML.
     from urllib.parse import unquote
