@@ -146,7 +146,7 @@ def build(csv_text: str) -> dict:
 def main() -> None:
     # Allow `python scrapers/geography.py path/to/local.csv` for offline testing.
     if len(sys.argv) > 1:
-        csv_text = Path(sys.argv[1]).read_text(encoding="utf-8")
+        csv_text = Path(sys.argv[1]).read_text(encoding="utf-8-sig")
     else:
         print(f"Fetching lookup from {SOURCE}")
         csv_text = fetch_csv(SOURCE)
