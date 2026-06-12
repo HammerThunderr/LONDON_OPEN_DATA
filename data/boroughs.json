@@ -1,0 +1,366 @@
+{
+  "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
+  "scraped_at": "2026-06-12T18:01:02+00:00",
+  "metrics": [
+    "crime"
+  ],
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "metrics": {
+        "crime": {
+          "raw": 92.3,
+          "unit": "per 1,000",
+          "percentile": 51.6
+        }
+      }
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "metrics": {
+        "crime": {
+          "raw": 75.5,
+          "unit": "per 1,000",
+          "percentile": 74.2
+        }
+      }
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "metrics": {
+        "crime": {
+          "raw": 64.6,
+          "unit": "per 1,000",
+          "percentile": 90.3
+        }
+      }
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "metrics": {
+        "crime": {
+          "raw": 98.6,
+          "unit": "per 1,000",
+          "percentile": 41.9
+        }
+      }
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "metrics": {
+        "crime": {
+          "raw": 72.8,
+          "unit": "per 1,000",
+          "percentile": 80.6
+        }
+      }
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "metrics": {
+        "crime": {
+          "raw": 189.6,
+          "unit": "per 1,000",
+          "percentile": 3.2
+        }
+      }
+    },
+    {
+      "code": "E09000001",
+      "name": "City of London",
+      "metrics": {}
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "metrics": {
+        "crime": {
+          "raw": 87.8,
+          "unit": "per 1,000",
+          "percentile": 61.3
+        }
+      }
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "metrics": {
+        "crime": {
+          "raw": 88.9,
+          "unit": "per 1,000",
+          "percentile": 54.8
+        }
+      }
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "metrics": {
+        "crime": {
+          "raw": 88.6,
+          "unit": "per 1,000",
+          "percentile": 58.1
+        }
+      }
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "metrics": {
+        "crime": {
+          "raw": 95.4,
+          "unit": "per 1,000",
+          "percentile": 45.2
+        }
+      }
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "metrics": {
+        "crime": {
+          "raw": 127.5,
+          "unit": "per 1,000",
+          "percentile": 16.1
+        }
+      }
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "metrics": {
+        "crime": {
+          "raw": 114.7,
+          "unit": "per 1,000",
+          "percentile": 29.0
+        }
+      }
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "metrics": {
+        "crime": {
+          "raw": 107.8,
+          "unit": "per 1,000",
+          "percentile": 32.3
+        }
+      }
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "metrics": {
+        "crime": {
+          "raw": 65.3,
+          "unit": "per 1,000",
+          "percentile": 87.1
+        }
+      }
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "metrics": {
+        "crime": {
+          "raw": 74.9,
+          "unit": "per 1,000",
+          "percentile": 77.4
+        }
+      }
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "metrics": {
+        "crime": {
+          "raw": 102.1,
+          "unit": "per 1,000",
+          "percentile": 35.5
+        }
+      }
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "metrics": {
+        "crime": {
+          "raw": 94.7,
+          "unit": "per 1,000",
+          "percentile": 48.4
+        }
+      }
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "metrics": {
+        "crime": {
+          "raw": 142.7,
+          "unit": "per 1,000",
+          "percentile": 9.7
+        }
+      }
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "metrics": {
+        "crime": {
+          "raw": 153.0,
+          "unit": "per 1,000",
+          "percentile": 6.5
+        }
+      }
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "metrics": {
+        "crime": {
+          "raw": 71.4,
+          "unit": "per 1,000",
+          "percentile": 83.9
+        }
+      }
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "metrics": {
+        "crime": {
+          "raw": 120.8,
+          "unit": "per 1,000",
+          "percentile": 19.4
+        }
+      }
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "metrics": {
+        "crime": {
+          "raw": 99.7,
+          "unit": "per 1,000",
+          "percentile": 38.7
+        }
+      }
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "metrics": {
+        "crime": {
+          "raw": 61.8,
+          "unit": "per 1,000",
+          "percentile": 96.8
+        }
+      }
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "metrics": {
+        "crime": {
+          "raw": 116.1,
+          "unit": "per 1,000",
+          "percentile": 25.8
+        }
+      }
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "metrics": {
+        "crime": {
+          "raw": 80.7,
+          "unit": "per 1,000",
+          "percentile": 71.0
+        }
+      }
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "metrics": {
+        "crime": {
+          "raw": 58.7,
+          "unit": "per 1,000",
+          "percentile": 100.0
+        }
+      }
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "metrics": {
+        "crime": {
+          "raw": 129.2,
+          "unit": "per 1,000",
+          "percentile": 12.9
+        }
+      }
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "metrics": {
+        "crime": {
+          "raw": 63.7,
+          "unit": "per 1,000",
+          "percentile": 93.5
+        }
+      }
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "metrics": {
+        "crime": {
+          "raw": 116.4,
+          "unit": "per 1,000",
+          "percentile": 22.6
+        }
+      }
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "metrics": {
+        "crime": {
+          "raw": 83.6,
+          "unit": "per 1,000",
+          "percentile": 64.5
+        }
+      }
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "metrics": {
+        "crime": {
+          "raw": 82.7,
+          "unit": "per 1,000",
+          "percentile": 67.7
+        }
+      }
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "metrics": {
+        "crime": {
+          "raw": 379.1,
+          "unit": "per 1,000",
+          "percentile": 0.0
+        }
+      }
+    }
+  ]
+}

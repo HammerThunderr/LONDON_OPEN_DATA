@@ -1,0 +1,239 @@
+{
+  "source": "https://data.london.gov.uk/dataset/mps-recorded-crime-geographic-breakdown-exy3m",
+  "scraped_at": "2026-06-12T18:01:02+00:00",
+  "period": {
+    "from": "202506",
+    "to": "202605",
+    "months": 12
+  },
+  "note": "MPS data only: the City of London has its own police force and is not covered. Rates use rounded ONS mid-year population estimates.",
+  "unmatched_bocus": [
+    "Unknown"
+  ],
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "crimes_12mo": 20220,
+      "population_used": 219000,
+      "rate_per_1000": 92.3
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "crimes_12mo": 29381,
+      "population_used": 389000,
+      "rate_per_1000": 75.5
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "crimes_12mo": 15950,
+      "population_used": 247000,
+      "rate_per_1000": 64.6
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "crimes_12mo": 33524,
+      "population_used": 340000,
+      "rate_per_1000": 98.6
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "crimes_12mo": 24027,
+      "population_used": 330000,
+      "rate_per_1000": 72.8
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "crimes_12mo": 39819,
+      "population_used": 210000,
+      "rate_per_1000": 189.6
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "crimes_12mo": 34249,
+      "population_used": 390000,
+      "rate_per_1000": 87.8
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "crimes_12mo": 32611,
+      "population_used": 367000,
+      "rate_per_1000": 88.9
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "crimes_12mo": 29243,
+      "population_used": 330000,
+      "rate_per_1000": 88.6
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "crimes_12mo": 27767,
+      "population_used": 291000,
+      "rate_per_1000": 95.4
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "crimes_12mo": 33029,
+      "population_used": 259000,
+      "rate_per_1000": 127.5
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "crimes_12mo": 20996,
+      "population_used": 183000,
+      "rate_per_1000": 114.7
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "crimes_12mo": 28450,
+      "population_used": 264000,
+      "rate_per_1000": 107.8
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "crimes_12mo": 17050,
+      "population_used": 261000,
+      "rate_per_1000": 65.3
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "crimes_12mo": 19624,
+      "population_used": 262000,
+      "rate_per_1000": 74.9
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "crimes_12mo": 31557,
+      "population_used": 309000,
+      "rate_per_1000": 102.1
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "crimes_12mo": 27265,
+      "population_used": 288000,
+      "rate_per_1000": 94.7
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "crimes_12mo": 30829,
+      "population_used": 216000,
+      "rate_per_1000": 142.7
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "crimes_12mo": 21886,
+      "population_used": 143000,
+      "rate_per_1000": 153.0
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "crimes_12mo": 11991,
+      "population_used": 168000,
+      "rate_per_1000": 71.4
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "crimes_12mo": 38282,
+      "population_used": 317000,
+      "rate_per_1000": 120.8
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "crimes_12mo": 29898,
+      "population_used": 300000,
+      "rate_per_1000": 99.7
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "crimes_12mo": 13297,
+      "population_used": 215000,
+      "rate_per_1000": 61.8
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "crimes_12mo": 41559,
+      "population_used": 358000,
+      "rate_per_1000": 116.1
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "crimes_12mo": 25005,
+      "population_used": 310000,
+      "rate_per_1000": 80.7
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "crimes_12mo": 11454,
+      "population_used": 195000,
+      "rate_per_1000": 58.7
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "crimes_12mo": 40186,
+      "population_used": 311000,
+      "rate_per_1000": 129.2
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "crimes_12mo": 13315,
+      "population_used": 209000,
+      "rate_per_1000": 63.7
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "crimes_12mo": 37830,
+      "population_used": 325000,
+      "rate_per_1000": 116.4
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "crimes_12mo": 23230,
+      "population_used": 278000,
+      "rate_per_1000": 83.6
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "crimes_12mo": 27119,
+      "population_used": 328000,
+      "rate_per_1000": 82.7
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "crimes_12mo": 77711,
+      "population_used": 205000,
+      "rate_per_1000": 379.1
+    }
+  ]
+}
