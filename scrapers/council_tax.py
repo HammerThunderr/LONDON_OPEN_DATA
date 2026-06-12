@@ -30,8 +30,10 @@ import sys
 from datetime import date, datetime, timezone
 from pathlib import Path
 
-import pandas as pd
 import requests
+from odf.opendocument import load as odf_load
+from odf.table import Table, TableCell, TableRow
+from odf import teletype
 
 API_BASE = "https://www.gov.uk/api/content/government/statistics"
 SLUG_TMPL = "council-tax-levels-set-by-local-authorities-in-england-{y1}-to-{y2}"
@@ -73,36 +75,78 @@ def find_release() -> tuple[str, str, str]:
     raise SystemExit("No usable council tax release found via the gov.uk content API.")
 
 
+def _ods_sheets(content: bytes) -> dict[str, list[list]]:
+    """Read an ODS into {sheet_name: rows-of-cells} using odfpy directly.
+
+    pandas' ODS reader crashes on cells of value-type 'error' (formula errors
+    MHCLG leaves in published files). Here any cell that isn't a recognised
+    number simply falls back to its text (or None) — never an exception.
+    """
+    doc = odf_load(io.BytesIO(content))
+    sheets: dict[str, list[list]] = {}
+    for table in doc.spreadsheet.getElementsByType(Table):
+        rows: list[list] = []
+        for tr in table.getElementsByType(TableRow):
+            row: list = []
+            for tc in tr.getElementsByType(TableCell):
+                try:
+                    rep = int(tc.getAttribute("numbercolumnsrepeated") or 1)
+                except (TypeError, ValueError):
+                    rep = 1
+                vtype = tc.getAttribute("valuetype")
+                value = None
+                if vtype in ("float", "currency", "percentage"):
+                    try:
+                        value = float(tc.getAttribute("value"))
+                    except (TypeError, ValueError):
+                        value = None
+                if value is None:
+                    text = teletype.extractText(tc).strip()
+                    value = text or None
+                # empty cells can claim huge repeats (whole-row padding) — cap
+                row.extend([value] * min(rep, 1 if value is None else 64, 256))
+                if len(row) > 256:
+                    break
+            rows.append(row)
+        sheets[str(table.getAttribute("name"))] = rows
+    return sheets
+
+
 def parse_ods(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
     """Find London borough rows by E09 code and the area Band D column by
     header text. Returns ({code: band_d}, column_label_used)."""
-    sheets = pd.read_excel(io.BytesIO(content), engine="odf",
-                           sheet_name=None, header=None)
     valid = {b["code"] for b in geography["boroughs"]}
 
-    for sheet_name, df in sheets.items():
-        df = df.astype(object).where(pd.notna(df), None)
+    for sheet_name, rows in _ods_sheets(content).items():
+        if not rows:
+            continue
+        width = max(len(r) for r in rows)
+        grid = [r + [None] * (width - len(r)) for r in rows]
+
+        def cell(i: int, c: int):
+            return grid[i][c]
+
+        def is_code(v) -> bool:
+            return isinstance(v, str) and bool(E09_RE.match(v.strip()))
+
         # locate the column holding ONS codes
         code_col = None
-        for c in df.columns:
-            col = df[c].map(lambda v: isinstance(v, str) and bool(E09_RE.match(v.strip())))
-            if col.sum() >= 25:  # most of the 33 boroughs present
+        for c in range(width):
+            if sum(1 for i in range(len(grid)) if is_code(cell(i, c))) >= 25:
                 code_col = c
                 break
         if code_col is None:
             continue
 
-        e09_rows = [i for i in df.index
-                    if isinstance(df.at[i, code_col], str)
-                    and E09_RE.match(df.at[i, code_col].strip())]
+        e09_rows = [i for i in range(len(grid)) if is_code(cell(i, code_col))]
         first_data_row = min(e09_rows)
 
         # build flattened header labels from the rows above the data
         header_rows = range(max(0, first_data_row - 6), first_data_row)
         labels: dict[int, str] = {}
-        for c in df.columns:
-            parts = [str(df.at[r, c]).strip() for r in header_rows
-                     if df.at[r, c] is not None and str(df.at[r, c]).strip()]
+        for c in range(width):
+            parts = [str(cell(r, c)).strip() for r in header_rows
+                     if cell(r, c) is not None and str(cell(r, c)).strip()]
             labels[c] = " / ".join(parts)
 
         def is_band_d(label: str) -> bool:
@@ -129,12 +173,11 @@ def parse_ods(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
 
         out: dict[str, float] = {}
         for i in e09_rows:
-            code = df.at[i, code_col].strip()
+            code = cell(i, code_col).strip()
             if code not in valid:
                 continue
-            v = df.at[i, col]
             try:
-                out[code] = round(float(v), 2)
+                out[code] = round(float(cell(i, col)), 2)
             except (TypeError, ValueError):
                 pass
         if len(out) >= 25:
