@@ -1,9 +1,10 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-12T23:24:11+00:00",
+  "scraped_at": "2026-06-12T23:27:51+00:00",
   "metrics": [
     "crime",
-    "council_tax"
+    "council_tax",
+    "transport"
   ],
   "boroughs": [
     {
@@ -19,6 +20,11 @@
           "raw": 2198.51,
           "unit": "£ Band D",
           "percentile": 43.8
+        },
+        "transport": {
+          "raw": 9.27,
+          "unit": "PTAL avg",
+          "percentile": 37.5
         }
       }
     },
@@ -35,6 +41,11 @@
           "raw": 2132.6,
           "unit": "£ Band D",
           "percentile": 59.4
+        },
+        "transport": {
+          "raw": 8.93,
+          "unit": "PTAL avg",
+          "percentile": 31.2
         }
       }
     },
@@ -51,6 +62,11 @@
           "raw": 2366.36,
           "unit": "£ Band D",
           "percentile": 21.9
+        },
+        "transport": {
+          "raw": 5.99,
+          "unit": "PTAL avg",
+          "percentile": 3.1
         }
       }
     },
@@ -67,6 +83,11 @@
           "raw": 2235.27,
           "unit": "£ Band D",
           "percentile": 37.5
+        },
+        "transport": {
+          "raw": 11.96,
+          "unit": "PTAL avg",
+          "percentile": 56.2
         }
       }
     },
@@ -83,6 +104,11 @@
           "raw": 2140.04,
           "unit": "£ Band D",
           "percentile": 53.1
+        },
+        "transport": {
+          "raw": 6.92,
+          "unit": "PTAL avg",
+          "percentile": 9.4
         }
       }
     },
@@ -99,6 +125,11 @@
           "raw": 2207.55,
           "unit": "£ Band D",
           "percentile": 40.6
+        },
+        "transport": {
+          "raw": 28.88,
+          "unit": "PTAL avg",
+          "percentile": 93.8
         }
       }
     },
@@ -110,6 +141,11 @@
           "raw": 1329.56,
           "unit": "£ Band D",
           "percentile": 93.8
+        },
+        "transport": {
+          "raw": 76.51,
+          "unit": "PTAL avg",
+          "percentile": 100.0
         }
       }
     },
@@ -126,6 +162,11 @@
           "raw": 2599.91,
           "unit": "£ Band D",
           "percentile": 3.1
+        },
+        "transport": {
+          "raw": 9.75,
+          "unit": "PTAL avg",
+          "percentile": 40.6
         }
       }
     },
@@ -142,6 +183,11 @@
           "raw": 2138.53,
           "unit": "£ Band D",
           "percentile": 56.2
+        },
+        "transport": {
+          "raw": 9.93,
+          "unit": "PTAL avg",
+          "percentile": 43.8
         }
       }
     },
@@ -158,6 +204,11 @@
           "raw": 2267.67,
           "unit": "£ Band D",
           "percentile": 31.2
+        },
+        "transport": {
+          "raw": 8.09,
+          "unit": "PTAL avg",
+          "percentile": 21.9
         }
       }
     },
@@ -174,6 +225,11 @@
           "raw": 2107.86,
           "unit": "£ Band D",
           "percentile": 65.6
+        },
+        "transport": {
+          "raw": 11.48,
+          "unit": "PTAL avg",
+          "percentile": 53.1
         }
       }
     },
@@ -190,6 +246,11 @@
           "raw": 2060.3,
           "unit": "£ Band D",
           "percentile": 68.8
+        },
+        "transport": {
+          "raw": 16.38,
+          "unit": "PTAL avg",
+          "percentile": 71.9
         }
       }
     },
@@ -206,6 +267,11 @@
           "raw": 1519.51,
           "unit": "£ Band D",
           "percentile": 90.6
+        },
+        "transport": {
+          "raw": 18.19,
+          "unit": "PTAL avg",
+          "percentile": 75.0
         }
       }
     },
@@ -222,6 +288,11 @@
           "raw": 2313.78,
           "unit": "£ Band D",
           "percentile": 25.0
+        },
+        "transport": {
+          "raw": 14.37,
+          "unit": "PTAL avg",
+          "percentile": 62.5
         }
       }
     },
@@ -238,6 +309,11 @@
           "raw": 2511.07,
           "unit": "£ Band D",
           "percentile": 6.2
+        },
+        "transport": {
+          "raw": 8.53,
+          "unit": "PTAL avg",
+          "percentile": 28.1
         }
       }
     },
@@ -254,6 +330,11 @@
           "raw": 2424.66,
           "unit": "£ Band D",
           "percentile": 12.5
+        },
+        "transport": {
+          "raw": 6.13,
+          "unit": "PTAL avg",
+          "percentile": 6.2
         }
       }
     },
@@ -270,6 +351,11 @@
           "raw": 2045.46,
           "unit": "£ Band D",
           "percentile": 75.0
+        },
+        "transport": {
+          "raw": 5.8,
+          "unit": "PTAL avg",
+          "percentile": 0.0
         }
       }
     },
@@ -286,6 +372,11 @@
           "raw": 2185.56,
           "unit": "£ Band D",
           "percentile": 46.9
+        },
+        "transport": {
+          "raw": 9.1,
+          "unit": "PTAL avg",
+          "percentile": 34.4
         }
       }
     },
@@ -302,6 +393,11 @@
           "raw": 2108.15,
           "unit": "£ Band D",
           "percentile": 62.5
+        },
+        "transport": {
+          "raw": 24.81,
+          "unit": "PTAL avg",
+          "percentile": 90.6
         }
       }
     },
@@ -318,6 +414,11 @@
           "raw": 1666.65,
           "unit": "£ Band D",
           "percentile": 87.5
+        },
+        "transport": {
+          "raw": 22.73,
+          "unit": "PTAL avg",
+          "percentile": 84.4
         }
       }
     },
@@ -334,6 +435,11 @@
           "raw": 2609.2,
           "unit": "£ Band D",
           "percentile": 0.0
+        },
+        "transport": {
+          "raw": 7.44,
+          "unit": "PTAL avg",
+          "percentile": 18.8
         }
       }
     },
@@ -350,6 +456,11 @@
           "raw": 2047.11,
           "unit": "£ Band D",
           "percentile": 71.9
+        },
+        "transport": {
+          "raw": 20.23,
+          "unit": "PTAL avg",
+          "percentile": 78.1
         }
       }
     },
@@ -366,6 +477,11 @@
           "raw": 2237.33,
           "unit": "£ Band D",
           "percentile": 34.4
+        },
+        "transport": {
+          "raw": 12.79,
+          "unit": "PTAL avg",
+          "percentile": 59.4
         }
       }
     },
@@ -381,6 +497,11 @@
         "council_tax": {
           "raw": 2146.76,
           "unit": "£ Band D",
+          "percentile": 50.0
+        },
+        "transport": {
+          "raw": 10.41,
+          "unit": "PTAL avg",
           "percentile": 50.0
         }
       }
@@ -398,6 +519,11 @@
           "raw": 1944.23,
           "unit": "£ Band D",
           "percentile": 81.2
+        },
+        "transport": {
+          "raw": 15.48,
+          "unit": "PTAL avg",
+          "percentile": 68.8
         }
       }
     },
@@ -414,6 +540,11 @@
           "raw": 2294.58,
           "unit": "£ Band D",
           "percentile": 28.1
+        },
+        "transport": {
+          "raw": 8.15,
+          "unit": "PTAL avg",
+          "percentile": 25.0
         }
       }
     },
@@ -430,6 +561,11 @@
           "raw": 2486.1,
           "unit": "£ Band D",
           "percentile": 9.4
+        },
+        "transport": {
+          "raw": 7.38,
+          "unit": "PTAL avg",
+          "percentile": 15.6
         }
       }
     },
@@ -446,6 +582,11 @@
           "raw": 1967.26,
           "unit": "£ Band D",
           "percentile": 78.1
+        },
+        "transport": {
+          "raw": 22.85,
+          "unit": "PTAL avg",
+          "percentile": 87.5
         }
       }
     },
@@ -462,6 +603,11 @@
           "raw": 2378.64,
           "unit": "£ Band D",
           "percentile": 18.8
+        },
+        "transport": {
+          "raw": 7.12,
+          "unit": "PTAL avg",
+          "percentile": 12.5
         }
       }
     },
@@ -478,6 +624,11 @@
           "raw": 1837.78,
           "unit": "£ Band D",
           "percentile": 84.4
+        },
+        "transport": {
+          "raw": 22.44,
+          "unit": "PTAL avg",
+          "percentile": 81.2
         }
       }
     },
@@ -494,6 +645,11 @@
           "raw": 2386.96,
           "unit": "£ Band D",
           "percentile": 15.6
+        },
+        "transport": {
+          "raw": 10.04,
+          "unit": "PTAL avg",
+          "percentile": 46.9
         }
       }
     },
@@ -510,6 +666,11 @@
           "raw": 1028.21,
           "unit": "£ Band D",
           "percentile": 100.0
+        },
+        "transport": {
+          "raw": 15.11,
+          "unit": "PTAL avg",
+          "percentile": 65.6
         }
       }
     },
@@ -525,6 +686,11 @@
         "council_tax": {
           "raw": 1049.55,
           "unit": "£ Band D",
+          "percentile": 96.9
+        },
+        "transport": {
+          "raw": 32.96,
+          "unit": "PTAL avg",
           "percentile": 96.9
         }
       }

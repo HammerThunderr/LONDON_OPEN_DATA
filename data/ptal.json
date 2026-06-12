@@ -1,0 +1,206 @@
+{
+  "source": "https://gis-tfl.opendata.arcgis.com/api/download/v1/items/a1ac85edd51a42c9a7f86e2763bb7bdf/csv?layers=30",
+  "dataset": "LSOA aggregated PTAL stats 2023",
+  "scraped_at": "2026-06-12T23:27:51+00:00",
+  "note": "Mean PTAL per borough: unweighted mean of LSOA mean values (grades mapped 1a=1, 1b=1.5, ... 6a=6, 6b=6.5). TfL WebCAT.",
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "ptal_mean": 9.27,
+      "lsoas": 115
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "ptal_mean": 8.93,
+      "lsoas": 220
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "ptal_mean": 5.99,
+      "lsoas": 148
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "ptal_mean": 11.96,
+      "lsoas": 181
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "ptal_mean": 6.92,
+      "lsoas": 199
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "ptal_mean": 28.88,
+      "lsoas": 130
+    },
+    {
+      "code": "E09000001",
+      "name": "City of London",
+      "ptal_mean": 76.51,
+      "lsoas": 6
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "ptal_mean": 9.75,
+      "lsoas": 229
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "ptal_mean": 9.93,
+      "lsoas": 199
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "ptal_mean": 8.09,
+      "lsoas": 183
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "ptal_mean": 11.48,
+      "lsoas": 164
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "ptal_mean": 16.38,
+      "lsoas": 149
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "ptal_mean": 18.19,
+      "lsoas": 115
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "ptal_mean": 14.37,
+      "lsoas": 147
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "ptal_mean": 8.53,
+      "lsoas": 144
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "ptal_mean": 6.13,
+      "lsoas": 153
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "ptal_mean": 5.8,
+      "lsoas": 170
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "ptal_mean": 9.1,
+      "lsoas": 150
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "ptal_mean": 24.81,
+      "lsoas": 126
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "ptal_mean": 22.73,
+      "lsoas": 101
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "ptal_mean": 7.44,
+      "lsoas": 99
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "ptal_mean": 20.23,
+      "lsoas": 181
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "ptal_mean": 12.79,
+      "lsoas": 175
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "ptal_mean": 10.41,
+      "lsoas": 126
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "ptal_mean": 15.48,
+      "lsoas": 185
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "ptal_mean": 8.15,
+      "lsoas": 164
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "ptal_mean": 7.38,
+      "lsoas": 115
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "ptal_mean": 22.85,
+      "lsoas": 173
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "ptal_mean": 7.12,
+      "lsoas": 123
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "ptal_mean": 22.44,
+      "lsoas": 169
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "ptal_mean": 10.04,
+      "lsoas": 146
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "ptal_mean": 15.11,
+      "lsoas": 186
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "ptal_mean": 32.96,
+      "lsoas": 123
+    }
+  ]
+}
