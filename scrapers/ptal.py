@@ -73,7 +73,7 @@ def find_csv_url() -> tuple[str, str]:
                 matches.append((int(m.group(1)) if m else 0, title, d))
         if not matches:
             continue
-        matches.sort()
+        matches.sort(key=lambda m: (m[0], m[1]))
         year, title, d = matches[-1]
 
         csv_url = geojson_url = None
