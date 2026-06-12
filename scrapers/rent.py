@@ -45,18 +45,48 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUT_PATH = DATA_DIR / "rent.json"
 
 
-def find_download_url() -> str:
-    resp = requests.get(f"{PAGE}/data", headers=HEADERS, timeout=60)
-    resp.raise_for_status()
-    payload = resp.json()
-    downloads = payload.get("downloads") or []
-    for d in downloads:
+def _xlsx_from(payload: dict) -> str | None:
+    for d in payload.get("downloads") or []:
         f = d.get("file") or ""
         if f.lower().endswith((".xlsx", ".xls")):
             return f if f.startswith("http") else f"https://www.ons.gov.uk/file?uri={f}"
+    return None
+
+
+def find_download_url() -> str:
+    """ONS pages have a JSON twin at <page>/data. The dataset LANDING page
+    carries no downloads itself — its 'datasets' list points at the version
+    page that does. Check the landing page first, then follow the children."""
+    resp = requests.get(f"{PAGE}/data", headers=HEADERS, timeout=60)
+    resp.raise_for_status()
+    payload = resp.json()
+
+    url = _xlsx_from(payload)
+    if url:
+        return url
+
+    children = payload.get("datasets") or []
+    print(f"  landing page has no downloads; following {len(children)} child link(s)")
+    for child in children:
+        uri = (child.get("uri") or "").strip()
+        if not uri:
+            continue
+        child_url = f"https://www.ons.gov.uk{uri}/data"
+        try:
+            r = requests.get(child_url, headers=HEADERS, timeout=60)
+            if r.status_code != 200:
+                print(f"  {child_url} -> status {r.status_code}")
+                continue
+            url = _xlsx_from(r.json())
+            if url:
+                return url
+            print(f"  {uri}: no xlsx in downloads "
+                  f"({[d.get('file') for d in r.json().get('downloads') or []]})")
+        except (requests.RequestException, ValueError) as e:
+            print(f"  {child_url} failed: {e}")
+
     print(f"  page JSON keys: {list(payload.keys())}")
-    print(f"  downloads entries: {downloads}")
-    raise SystemExit("No xlsx download found in the ONS dataset page JSON.")
+    raise SystemExit("No xlsx download found via the ONS dataset page JSON.")
 
 
 def _label_date(label: str):
