@@ -30,7 +30,7 @@ METRICS = {
     "rent": ("rent.json", "monthly_rent", "£/month", False),
     "council_tax": ("council_tax.json", "band_d", "£ Band D", False),
     "transport": ("ptal.json", "ptal_mean", "PTAL avg", True),
-    "air_quality": ("air_quality.json", "no2_annual_mean", "µg/m³ NO2", False),
+    "air_quality": ("air_quality.json", "pm25_total", "µg/m³ PM2.5", False),
     "green_space": ("green_space.json", "green_pct", "% green", True),
     "schools": ("schools.json", "progress8_mean", "Progress 8", True),
 }
