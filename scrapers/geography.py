@@ -74,7 +74,7 @@ def detect_vintage(cols: dict[str, str]) -> dict[str, str]:
 def fetch_csv(url: str) -> str:
     resp = requests.get(url, timeout=120)
     resp.raise_for_status()
-    return resp.text
+    return resp.content.decode("utf-8-sig")
 
 
 def build(csv_text: str) -> dict:
