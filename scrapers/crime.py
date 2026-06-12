@@ -33,6 +33,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.parse import unquote
 
 import requests
 
@@ -74,18 +75,26 @@ def norm(name: str) -> str:
 
 
 def _wanted(text: str) -> bool:
-    t = (text or "").lower()
-    return all(w in t for w in WANTED)
+    t = unquote(text or "").lower()
+    return all(w in t for w in WANTED) and "historical" not in t
 
 
 def pick_resource(payload: dict) -> str | None:
     """Pick the matching resource covering the latest month, per the DataPress
     v3 shape: resources is a dict keyed by file id; each entry has title, url,
-    order, and timeFrame {gte, lte} (ISO month strings)."""
+    order, and timeFrame {gte, lte} (ISO month strings). The '(most recent 24
+    months)' marker lives in the URL filename, not the title, so match on
+    title and URL combined."""
     res = payload.get("resources") or {}
     items = list(res.values()) if isinstance(res, dict) else list(res)
-    matches = [r for r in items if _wanted(r.get("title", ""))]
+    matches = [
+        r for r in items
+        if _wanted(f"{r.get('title', '')} {r.get('url', '')}")
+    ]
     if not matches:
+        seen = sorted({unquote(r.get("url", "")).rsplit("/", 1)[-1] or r.get("title", "?")
+                       for r in items})
+        print(f"  resources present but none matched; files were: {seen[:12]}")
         return None
 
     def key(r: dict):
@@ -117,7 +126,6 @@ def discover_csv_url() -> str:
             print(f"API attempt '{ident}' failed: {e}")
 
     # Fallback: tolerant scan of the dataset page HTML.
-    from urllib.parse import unquote
     html = requests.get(DATASET_PAGE, headers=HEADERS, timeout=60).text
     candidates = re.findall(
         r'href="((?:https://data\.london\.gov\.uk)?/download/[^"]+\.csv)"', html
