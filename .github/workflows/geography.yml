@@ -1,0 +1,44 @@
+name: Update geography spine
+
+on:
+  schedule:
+    # 03:11 on the 5th monthly. Annual data, but a cheap monthly poke picks up
+    # the new ONS vintage within weeks. Minute is offset from other workflows so
+    # two jobs don't hit the push at the same instant.
+    - cron: "11 3 5 * *"
+  workflow_dispatch: {}        # allow manual "Run workflow"
+
+permissions:
+  contents: write              # needed to commit the refreshed JSON
+
+jobs:
+  update-geography:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build geography spine
+        run: python scrapers/geography.py
+
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/geography.json
+          if git diff --staged --quiet; then
+            echo "No geography changes."
+          else
+            git commit -m "data: refresh geography spine ($(date -u +%Y-%m-%d))"
+            git push
+          fi
