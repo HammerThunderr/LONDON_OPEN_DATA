@@ -45,11 +45,19 @@ DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUT_PATH = DATA_DIR / "rent.json"
 
 
-def _xlsx_from(payload: dict) -> str | None:
+def _xlsx_from(payload: dict, base_uri: str = "") -> str | None:
+    """Build the download URL. ONS 'file' entries come in three shapes:
+    absolute URLs, absolute /paths, or BARE FILENAMES that must be joined
+    onto the page's own uri."""
     for d in payload.get("downloads") or []:
-        f = d.get("file") or ""
-        if f.lower().endswith((".xlsx", ".xls")):
-            return f if f.startswith("http") else f"https://www.ons.gov.uk/file?uri={f}"
+        f = (d.get("file") or "").strip()
+        if not f.lower().endswith((".xlsx", ".xls")):
+            continue
+        if f.startswith("http"):
+            return f
+        if not f.startswith("/"):
+            f = f"{base_uri.rstrip('/')}/{f}"
+        return f"https://www.ons.gov.uk/file?uri={f}"
     return None
 
 
@@ -61,7 +69,7 @@ def find_download_url() -> str:
     resp.raise_for_status()
     payload = resp.json()
 
-    url = _xlsx_from(payload)
+    url = _xlsx_from(payload, payload.get("uri") or "")
     if url:
         return url
 
@@ -77,11 +85,12 @@ def find_download_url() -> str:
             if r.status_code != 200:
                 print(f"  {child_url} -> status {r.status_code}")
                 continue
-            url = _xlsx_from(r.json())
+            child_payload = r.json()
+            url = _xlsx_from(child_payload, child_payload.get("uri") or uri)
             if url:
                 return url
             print(f"  {uri}: no xlsx in downloads "
-                  f"({[d.get('file') for d in r.json().get('downloads') or []]})")
+                  f"({[d.get('file') for d in child_payload.get('downloads') or []]})")
         except (requests.RequestException, ValueError) as e:
             print(f"  {child_url} failed: {e}")
 
