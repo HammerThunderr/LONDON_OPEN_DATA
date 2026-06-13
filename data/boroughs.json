@@ -1,12 +1,13 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-13T07:49:45+00:00",
+  "scraped_at": "2026-06-13T09:29:17+00:00",
   "metrics": [
     "crime",
     "rent",
     "council_tax",
     "transport",
-    "air_quality"
+    "air_quality",
+    "schools"
   ],
   "boroughs": [
     {
@@ -30,13 +31,18 @@
         },
         "transport": {
           "raw": 9.27,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 37.5
         },
         "air_quality": {
           "raw": 9.13,
           "unit": "µg/m³ PM2.5",
           "percentile": 34.4
+        },
+        "schools": {
+          "raw": 50.5,
+          "unit": "Attainment 8",
+          "percentile": 29.0
         }
       }
     },
@@ -61,13 +67,18 @@
         },
         "transport": {
           "raw": 8.93,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 31.2
         },
         "air_quality": {
           "raw": 8.54,
           "unit": "µg/m³ PM2.5",
           "percentile": 68.8
+        },
+        "schools": {
+          "raw": 58.6,
+          "unit": "Attainment 8",
+          "percentile": 93.5
         }
       }
     },
@@ -92,13 +103,18 @@
         },
         "transport": {
           "raw": 5.99,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 3.1
         },
         "air_quality": {
           "raw": 8.51,
           "unit": "µg/m³ PM2.5",
           "percentile": 75.0
+        },
+        "schools": {
+          "raw": 54.0,
+          "unit": "Attainment 8",
+          "percentile": 66.1
         }
       }
     },
@@ -123,13 +139,18 @@
         },
         "transport": {
           "raw": 11.96,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 56.2
         },
         "air_quality": {
           "raw": 8.91,
           "unit": "µg/m³ PM2.5",
           "percentile": 53.1
+        },
+        "schools": {
+          "raw": 51.4,
+          "unit": "Attainment 8",
+          "percentile": 43.5
         }
       }
     },
@@ -154,13 +175,18 @@
         },
         "transport": {
           "raw": 6.92,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 9.4
         },
         "air_quality": {
           "raw": 8.13,
           "unit": "µg/m³ PM2.5",
           "percentile": 100.0
+        },
+        "schools": {
+          "raw": 55.2,
+          "unit": "Attainment 8",
+          "percentile": 79.0
         }
       }
     },
@@ -185,13 +211,18 @@
         },
         "transport": {
           "raw": 28.88,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 93.8
         },
         "air_quality": {
           "raw": 9.55,
           "unit": "µg/m³ PM2.5",
           "percentile": 18.8
+        },
+        "schools": {
+          "raw": 48.0,
+          "unit": "Attainment 8",
+          "percentile": 4.8
         }
       }
     },
@@ -206,7 +237,7 @@
         },
         "transport": {
           "raw": 76.51,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 100.0
         },
         "air_quality": {
@@ -237,13 +268,18 @@
         },
         "transport": {
           "raw": 9.75,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 40.6
         },
         "air_quality": {
           "raw": 8.42,
           "unit": "µg/m³ PM2.5",
           "percentile": 78.1
+        },
+        "schools": {
+          "raw": 46.1,
+          "unit": "Attainment 8",
+          "percentile": 0.0
         }
       }
     },
@@ -268,13 +304,18 @@
         },
         "transport": {
           "raw": 9.93,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 43.8
         },
         "air_quality": {
           "raw": 8.75,
           "unit": "µg/m³ PM2.5",
           "percentile": 59.4
+        },
+        "schools": {
+          "raw": 53.6,
+          "unit": "Attainment 8",
+          "percentile": 61.3
         }
       }
     },
@@ -299,13 +340,18 @@
         },
         "transport": {
           "raw": 8.09,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 21.9
         },
         "air_quality": {
           "raw": 8.52,
           "unit": "µg/m³ PM2.5",
           "percentile": 71.9
+        },
+        "schools": {
+          "raw": 48.0,
+          "unit": "Attainment 8",
+          "percentile": 4.8
         }
       }
     },
@@ -330,13 +376,18 @@
         },
         "transport": {
           "raw": 11.48,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 53.1
         },
         "air_quality": {
           "raw": 9.07,
           "unit": "µg/m³ PM2.5",
           "percentile": 40.6
+        },
+        "schools": {
+          "raw": 48.1,
+          "unit": "Attainment 8",
+          "percentile": 9.7
         }
       }
     },
@@ -361,13 +412,18 @@
         },
         "transport": {
           "raw": 16.38,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 71.9
         },
         "air_quality": {
           "raw": 9.65,
           "unit": "µg/m³ PM2.5",
           "percentile": 12.5
+        },
+        "schools": {
+          "raw": 54.0,
+          "unit": "Attainment 8",
+          "percentile": 66.1
         }
       }
     },
@@ -392,13 +448,18 @@
         },
         "transport": {
           "raw": 18.19,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 75.0
         },
         "air_quality": {
           "raw": 9.15,
           "unit": "µg/m³ PM2.5",
           "percentile": 31.2
+        },
+        "schools": {
+          "raw": 55.0,
+          "unit": "Attainment 8",
+          "percentile": 74.2
         }
       }
     },
@@ -423,13 +484,18 @@
         },
         "transport": {
           "raw": 14.37,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 62.5
         },
         "air_quality": {
           "raw": 8.94,
           "unit": "µg/m³ PM2.5",
           "percentile": 50.0
+        },
+        "schools": {
+          "raw": 51.4,
+          "unit": "Attainment 8",
+          "percentile": 43.5
         }
       }
     },
@@ -454,13 +520,18 @@
         },
         "transport": {
           "raw": 8.53,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 28.1
         },
         "air_quality": {
           "raw": 8.26,
           "unit": "µg/m³ PM2.5",
           "percentile": 84.4
+        },
+        "schools": {
+          "raw": 54.8,
+          "unit": "Attainment 8",
+          "percentile": 71.0
         }
       }
     },
@@ -485,13 +556,18 @@
         },
         "transport": {
           "raw": 6.13,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 6.2
         },
         "air_quality": {
           "raw": 8.24,
           "unit": "µg/m³ PM2.5",
           "percentile": 90.6
+        },
+        "schools": {
+          "raw": 49.3,
+          "unit": "Attainment 8",
+          "percentile": 25.8
         }
       }
     },
@@ -516,13 +592,18 @@
         },
         "transport": {
           "raw": 5.8,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 0.0
         },
         "air_quality": {
           "raw": 8.18,
           "unit": "µg/m³ PM2.5",
           "percentile": 96.9
+        },
+        "schools": {
+          "raw": 52.8,
+          "unit": "Attainment 8",
+          "percentile": 58.1
         }
       }
     },
@@ -547,13 +628,18 @@
         },
         "transport": {
           "raw": 9.1,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 34.4
         },
         "air_quality": {
           "raw": 8.58,
           "unit": "µg/m³ PM2.5",
           "percentile": 65.6
+        },
+        "schools": {
+          "raw": 51.0,
+          "unit": "Attainment 8",
+          "percentile": 37.1
         }
       }
     },
@@ -578,13 +664,18 @@
         },
         "transport": {
           "raw": 24.81,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 90.6
         },
         "air_quality": {
           "raw": 9.69,
           "unit": "µg/m³ PM2.5",
           "percentile": 9.4
+        },
+        "schools": {
+          "raw": 50.8,
+          "unit": "Attainment 8",
+          "percentile": 32.3
         }
       }
     },
@@ -609,13 +700,18 @@
         },
         "transport": {
           "raw": 22.73,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 84.4
         },
         "air_quality": {
           "raw": 9.42,
           "unit": "µg/m³ PM2.5",
           "percentile": 25.0
+        },
+        "schools": {
+          "raw": 57.9,
+          "unit": "Attainment 8",
+          "percentile": 90.3
         }
       }
     },
@@ -640,13 +736,18 @@
         },
         "transport": {
           "raw": 7.44,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 18.8
         },
         "air_quality": {
           "raw": 8.25,
           "unit": "µg/m³ PM2.5",
           "percentile": 87.5
+        },
+        "schools": {
+          "raw": 61.4,
+          "unit": "Attainment 8",
+          "percentile": 96.8
         }
       }
     },
@@ -671,13 +772,18 @@
         },
         "transport": {
           "raw": 20.23,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 78.1
         },
         "air_quality": {
           "raw": 9.28,
           "unit": "µg/m³ PM2.5",
           "percentile": 28.1
+        },
+        "schools": {
+          "raw": 48.6,
+          "unit": "Attainment 8",
+          "percentile": 16.1
         }
       }
     },
@@ -702,13 +808,18 @@
         },
         "transport": {
           "raw": 12.79,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 59.4
         },
         "air_quality": {
           "raw": 9.02,
           "unit": "µg/m³ PM2.5",
           "percentile": 43.8
+        },
+        "schools": {
+          "raw": 49.1,
+          "unit": "Attainment 8",
+          "percentile": 19.4
         }
       }
     },
@@ -733,13 +844,18 @@
         },
         "transport": {
           "raw": 10.41,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 50.0
         },
         "air_quality": {
           "raw": 8.61,
           "unit": "µg/m³ PM2.5",
           "percentile": 62.5
+        },
+        "schools": {
+          "raw": 51.0,
+          "unit": "Attainment 8",
+          "percentile": 37.1
         }
       }
     },
@@ -764,13 +880,18 @@
         },
         "transport": {
           "raw": 15.48,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 68.8
         },
         "air_quality": {
           "raw": 9.64,
           "unit": "µg/m³ PM2.5",
           "percentile": 15.6
+        },
+        "schools": {
+          "raw": 52.0,
+          "unit": "Attainment 8",
+          "percentile": 51.6
         }
       }
     },
@@ -795,13 +916,18 @@
         },
         "transport": {
           "raw": 8.15,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 25.0
         },
         "air_quality": {
           "raw": 8.97,
           "unit": "µg/m³ PM2.5",
           "percentile": 46.9
+        },
+        "schools": {
+          "raw": 56.8,
+          "unit": "Attainment 8",
+          "percentile": 83.9
         }
       }
     },
@@ -826,13 +952,18 @@
         },
         "transport": {
           "raw": 7.38,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 15.6
         },
         "air_quality": {
           "raw": 8.33,
           "unit": "µg/m³ PM2.5",
           "percentile": 81.2
+        },
+        "schools": {
+          "raw": 55.2,
+          "unit": "Attainment 8",
+          "percentile": 79.0
         }
       }
     },
@@ -857,13 +988,18 @@
         },
         "transport": {
           "raw": 22.85,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 87.5
         },
         "air_quality": {
           "raw": 9.51,
           "unit": "µg/m³ PM2.5",
           "percentile": 21.9
+        },
+        "schools": {
+          "raw": 52.4,
+          "unit": "Attainment 8",
+          "percentile": 54.8
         }
       }
     },
@@ -888,13 +1024,18 @@
         },
         "transport": {
           "raw": 7.12,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 12.5
         },
         "air_quality": {
           "raw": 8.2,
           "unit": "µg/m³ PM2.5",
           "percentile": 93.8
+        },
+        "schools": {
+          "raw": 62.0,
+          "unit": "Attainment 8",
+          "percentile": 100.0
         }
       }
     },
@@ -919,13 +1060,18 @@
         },
         "transport": {
           "raw": 22.44,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 81.2
         },
         "air_quality": {
           "raw": 9.81,
           "unit": "µg/m³ PM2.5",
           "percentile": 3.1
+        },
+        "schools": {
+          "raw": 51.7,
+          "unit": "Attainment 8",
+          "percentile": 48.4
         }
       }
     },
@@ -950,13 +1096,18 @@
         },
         "transport": {
           "raw": 10.04,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 46.9
         },
         "air_quality": {
           "raw": 9.12,
           "unit": "µg/m³ PM2.5",
           "percentile": 37.5
+        },
+        "schools": {
+          "raw": 48.4,
+          "unit": "Attainment 8",
+          "percentile": 12.9
         }
       }
     },
@@ -981,13 +1132,18 @@
         },
         "transport": {
           "raw": 15.11,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 65.6
         },
         "air_quality": {
           "raw": 8.89,
           "unit": "µg/m³ PM2.5",
           "percentile": 56.2
+        },
+        "schools": {
+          "raw": 49.2,
+          "unit": "Attainment 8",
+          "percentile": 22.6
         }
       }
     },
@@ -1012,13 +1168,18 @@
         },
         "transport": {
           "raw": 32.96,
-          "unit": "PTAL avg",
+          "unit": "access score",
           "percentile": 96.9
         },
         "air_quality": {
           "raw": 9.71,
           "unit": "µg/m³ PM2.5",
           "percentile": 6.2
+        },
+        "schools": {
+          "raw": 57.6,
+          "unit": "Attainment 8",
+          "percentile": 87.1
         }
       }
     }

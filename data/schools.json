@@ -1,0 +1,169 @@
+{
+  "source": "https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/ce0ff638-7b30-45d3-b264-34ecf5cddb9b/csv",
+  "dataset": "KS4 local authority data (ce0ff638-7b30-45d3-b264-34ecf5cddb9b)",
+  "scraped_at": "2026-06-13T09:29:17+00:00",
+  "period": "202021",
+  "note": "DfE Key Stage 4: average Attainment 8 per pupil, state-funded schools. City of London has no state secondary schools.",
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "attainment8": 50.5
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "attainment8": 58.6
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "attainment8": 54.0
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "attainment8": 51.4
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "attainment8": 55.2
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "attainment8": 48.0
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "attainment8": 46.1
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "attainment8": 53.6
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "attainment8": 48.0
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "attainment8": 48.1
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "attainment8": 54.0
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "attainment8": 55.0
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "attainment8": 51.4
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "attainment8": 54.8
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "attainment8": 49.3
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "attainment8": 52.8
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "attainment8": 51.0
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "attainment8": 50.8
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "attainment8": 57.9
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "attainment8": 61.4
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "attainment8": 48.6
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "attainment8": 49.1
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "attainment8": 51.0
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "attainment8": 52.0
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "attainment8": 56.8
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "attainment8": 55.2
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "attainment8": 52.4
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "attainment8": 62.0
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "attainment8": 51.7
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "attainment8": 48.4
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "attainment8": 49.2
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "attainment8": 57.6
+    }
+  ]
+}
