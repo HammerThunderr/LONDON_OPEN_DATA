@@ -1,8 +1,9 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-12T23:27:51+00:00",
+  "scraped_at": "2026-06-13T07:46:23+00:00",
   "metrics": [
     "crime",
+    "rent",
     "council_tax",
     "transport"
   ],
@@ -15,6 +16,11 @@
           "raw": 92.3,
           "unit": "per 1,000",
           "percentile": 51.6
+        },
+        "rent": {
+          "raw": 1688.0,
+          "unit": "£/month",
+          "percentile": 80.6
         },
         "council_tax": {
           "raw": 2198.51,
@@ -37,6 +43,11 @@
           "unit": "per 1,000",
           "percentile": 74.2
         },
+        "rent": {
+          "raw": 1931.0,
+          "unit": "£/month",
+          "percentile": 51.6
+        },
         "council_tax": {
           "raw": 2132.6,
           "unit": "£ Band D",
@@ -57,6 +68,11 @@
           "raw": 64.6,
           "unit": "per 1,000",
           "percentile": 90.3
+        },
+        "rent": {
+          "raw": 1525.0,
+          "unit": "£/month",
+          "percentile": 100.0
         },
         "council_tax": {
           "raw": 2366.36,
@@ -79,6 +95,11 @@
           "unit": "per 1,000",
           "percentile": 41.9
         },
+        "rent": {
+          "raw": 1990.0,
+          "unit": "£/month",
+          "percentile": 45.2
+        },
         "council_tax": {
           "raw": 2235.27,
           "unit": "£ Band D",
@@ -100,6 +121,11 @@
           "unit": "per 1,000",
           "percentile": 80.6
         },
+        "rent": {
+          "raw": 1673.0,
+          "unit": "£/month",
+          "percentile": 83.9
+        },
         "council_tax": {
           "raw": 2140.04,
           "unit": "£ Band D",
@@ -120,6 +146,11 @@
           "raw": 189.6,
           "unit": "per 1,000",
           "percentile": 3.2
+        },
+        "rent": {
+          "raw": 2724.0,
+          "unit": "£/month",
+          "percentile": 12.9
         },
         "council_tax": {
           "raw": 2207.55,
@@ -158,6 +189,11 @@
           "unit": "per 1,000",
           "percentile": 61.3
         },
+        "rent": {
+          "raw": 1565.0,
+          "unit": "£/month",
+          "percentile": 88.7
+        },
         "council_tax": {
           "raw": 2599.91,
           "unit": "£ Band D",
@@ -178,6 +214,11 @@
           "raw": 88.9,
           "unit": "per 1,000",
           "percentile": 54.8
+        },
+        "rent": {
+          "raw": 2057.0,
+          "unit": "£/month",
+          "percentile": 41.9
         },
         "council_tax": {
           "raw": 2138.53,
@@ -200,6 +241,11 @@
           "unit": "per 1,000",
           "percentile": 58.1
         },
+        "rent": {
+          "raw": 1775.0,
+          "unit": "£/month",
+          "percentile": 67.7
+        },
         "council_tax": {
           "raw": 2267.67,
           "unit": "£ Band D",
@@ -221,6 +267,11 @@
           "unit": "per 1,000",
           "percentile": 45.2
         },
+        "rent": {
+          "raw": 1949.0,
+          "unit": "£/month",
+          "percentile": 48.4
+        },
         "council_tax": {
           "raw": 2107.86,
           "unit": "£ Band D",
@@ -240,6 +291,11 @@
         "crime": {
           "raw": 127.5,
           "unit": "per 1,000",
+          "percentile": 16.1
+        },
+        "rent": {
+          "raw": 2615.0,
+          "unit": "£/month",
           "percentile": 16.1
         },
         "council_tax": {
@@ -263,6 +319,11 @@
           "unit": "per 1,000",
           "percentile": 29.0
         },
+        "rent": {
+          "raw": 2755.0,
+          "unit": "£/month",
+          "percentile": 9.7
+        },
         "council_tax": {
           "raw": 1519.51,
           "unit": "£ Band D",
@@ -283,6 +344,11 @@
           "raw": 107.8,
           "unit": "per 1,000",
           "percentile": 32.3
+        },
+        "rent": {
+          "raw": 2214.0,
+          "unit": "£/month",
+          "percentile": 35.5
         },
         "council_tax": {
           "raw": 2313.78,
@@ -305,6 +371,11 @@
           "unit": "per 1,000",
           "percentile": 87.1
         },
+        "rent": {
+          "raw": 1755.0,
+          "unit": "£/month",
+          "percentile": 74.2
+        },
         "council_tax": {
           "raw": 2511.07,
           "unit": "£ Band D",
@@ -325,6 +396,11 @@
           "raw": 74.9,
           "unit": "per 1,000",
           "percentile": 77.4
+        },
+        "rent": {
+          "raw": 1565.0,
+          "unit": "£/month",
+          "percentile": 88.7
         },
         "council_tax": {
           "raw": 2424.66,
@@ -347,6 +423,11 @@
           "unit": "per 1,000",
           "percentile": 35.5
         },
+        "rent": {
+          "raw": 1553.0,
+          "unit": "£/month",
+          "percentile": 93.5
+        },
         "council_tax": {
           "raw": 2045.46,
           "unit": "£ Band D",
@@ -367,6 +448,11 @@
           "raw": 94.7,
           "unit": "per 1,000",
           "percentile": 48.4
+        },
+        "rent": {
+          "raw": 1922.0,
+          "unit": "£/month",
+          "percentile": 54.8
         },
         "council_tax": {
           "raw": 2185.56,
@@ -389,6 +475,11 @@
           "unit": "per 1,000",
           "percentile": 9.7
         },
+        "rent": {
+          "raw": 2811.0,
+          "unit": "£/month",
+          "percentile": 6.5
+        },
         "council_tax": {
           "raw": 2108.15,
           "unit": "£ Band D",
@@ -409,6 +500,11 @@
           "raw": 153.0,
           "unit": "per 1,000",
           "percentile": 6.5
+        },
+        "rent": {
+          "raw": 3597.0,
+          "unit": "£/month",
+          "percentile": 0.0
         },
         "council_tax": {
           "raw": 1666.65,
@@ -431,6 +527,11 @@
           "unit": "per 1,000",
           "percentile": 83.9
         },
+        "rent": {
+          "raw": 1799.0,
+          "unit": "£/month",
+          "percentile": 64.5
+        },
         "council_tax": {
           "raw": 2609.2,
           "unit": "£ Band D",
@@ -451,6 +552,11 @@
           "raw": 120.8,
           "unit": "per 1,000",
           "percentile": 19.4
+        },
+        "rent": {
+          "raw": 2529.0,
+          "unit": "£/month",
+          "percentile": 22.6
         },
         "council_tax": {
           "raw": 2047.11,
@@ -473,6 +579,11 @@
           "unit": "per 1,000",
           "percentile": 38.7
         },
+        "rent": {
+          "raw": 1816.0,
+          "unit": "£/month",
+          "percentile": 61.3
+        },
         "council_tax": {
           "raw": 2237.33,
           "unit": "£ Band D",
@@ -493,6 +604,11 @@
           "raw": 61.8,
           "unit": "per 1,000",
           "percentile": 96.8
+        },
+        "rent": {
+          "raw": 2097.0,
+          "unit": "£/month",
+          "percentile": 38.7
         },
         "council_tax": {
           "raw": 2146.76,
@@ -515,6 +631,11 @@
           "unit": "per 1,000",
           "percentile": 25.8
         },
+        "rent": {
+          "raw": 1918.0,
+          "unit": "£/month",
+          "percentile": 58.1
+        },
         "council_tax": {
           "raw": 1944.23,
           "unit": "£ Band D",
@@ -535,6 +656,11 @@
           "raw": 80.7,
           "unit": "per 1,000",
           "percentile": 71.0
+        },
+        "rent": {
+          "raw": 1724.0,
+          "unit": "£/month",
+          "percentile": 77.4
         },
         "council_tax": {
           "raw": 2294.58,
@@ -557,6 +683,11 @@
           "unit": "per 1,000",
           "percentile": 100.0
         },
+        "rent": {
+          "raw": 2307.0,
+          "unit": "£/month",
+          "percentile": 32.3
+        },
         "council_tax": {
           "raw": 2486.1,
           "unit": "£ Band D",
@@ -577,6 +708,11 @@
           "raw": 129.2,
           "unit": "per 1,000",
           "percentile": 12.9
+        },
+        "rent": {
+          "raw": 2395.0,
+          "unit": "£/month",
+          "percentile": 29.0
         },
         "council_tax": {
           "raw": 1967.26,
@@ -599,6 +735,11 @@
           "unit": "per 1,000",
           "percentile": 93.5
         },
+        "rent": {
+          "raw": 1547.0,
+          "unit": "£/month",
+          "percentile": 96.8
+        },
         "council_tax": {
           "raw": 2378.64,
           "unit": "£ Band D",
@@ -619,6 +760,11 @@
           "raw": 116.4,
           "unit": "per 1,000",
           "percentile": 22.6
+        },
+        "rent": {
+          "raw": 2410.0,
+          "unit": "£/month",
+          "percentile": 25.8
         },
         "council_tax": {
           "raw": 1837.78,
@@ -641,6 +787,11 @@
           "unit": "per 1,000",
           "percentile": 64.5
         },
+        "rent": {
+          "raw": 1758.0,
+          "unit": "£/month",
+          "percentile": 71.0
+        },
         "council_tax": {
           "raw": 2386.96,
           "unit": "£ Band D",
@@ -662,6 +813,11 @@
           "unit": "per 1,000",
           "percentile": 67.7
         },
+        "rent": {
+          "raw": 2599.0,
+          "unit": "£/month",
+          "percentile": 19.4
+        },
         "council_tax": {
           "raw": 1028.21,
           "unit": "£ Band D",
@@ -682,6 +838,11 @@
           "raw": 379.1,
           "unit": "per 1,000",
           "percentile": 0.0
+        },
+        "rent": {
+          "raw": 3149.0,
+          "unit": "£/month",
+          "percentile": 3.2
         },
         "council_tax": {
           "raw": 1049.55,
