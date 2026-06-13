@@ -31,7 +31,7 @@ METRICS = {
     "council_tax": ("council_tax.json", "band_d", "£ Band D", False),
     "transport": ("ptal.json", "ptal_mean", "access score", True),
     "air_quality": ("air_quality.json", "pm25_total", "µg/m³ PM2.5", False),
-    "green_space": ("green_space.json", "green_pct", "% green", True),
+    "green_space": ("green_space.json", "green_access_pct", "% near green space", True),
     "schools": ("schools.json", "attainment8", "Attainment 8", True),
 }
 
