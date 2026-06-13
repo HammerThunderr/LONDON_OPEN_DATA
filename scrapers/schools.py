@@ -36,9 +36,17 @@ from pathlib import Path
 
 import requests
 
-API = "https://explore-education-statistics.service.gov.uk/api/data-catalogue"
+API = "https://api.education.gov.uk/statistics/v1"
 EES = "https://explore-education-statistics.service.gov.uk"
-HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)"}
+HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)",
+           "Accept": "application/json"}
+
+# Fallback: a known KS4 'local authority' data-set id on the main EES site,
+# used only if the API listing doesn't surface one (the API doesn't host every
+# dataset). The /csv endpoint on the main service is stable.
+FALLBACK_DATASET_IDS = [
+    "ce0ff638-7b30-45d3-b264-34ecf5cddb9b",  # KS4 LA data (gender breakdown)
+]
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUT_PATH = DATA_DIR / "schools.json"
@@ -50,43 +58,57 @@ def _get(url: str, **kw):
     return r
 
 
+def _results(payload) -> list:
+    if isinstance(payload, list):
+        return payload
+    return payload.get("results") or payload.get("content") or []
+
+
+def _csv_url(dataset_id: str) -> str:
+    # Documented CSV download for a data set (main EES service).
+    return f"{EES}/data-catalogue/data-set/{dataset_id}/csv"
+
+
 def find_csv_url() -> tuple[str, str]:
-    """Resolve the latest KS4 'local authority' data set CSV via the EES API.
+    """Resolve the latest KS4 'local authority' data set via the documented
+    EES v1 API (https://api.education.gov.uk/statistics/v1). Falls back to a
+    known data-set id if the API doesn't list one (not all EES datasets are
+    on the API)."""
+    try:
+        # 1) find the KS4 performance publication (paginate a little)
+        pub_id = None
+        for page in range(1, 6):
+            payload = _get(f"{API}/publications",
+                           params={"page": page, "pageSize": 40}).json()
+            results = _results(payload)
+            for p in results:
+                if "key stage 4" in (p.get("title") or "").lower():
+                    pub_id = p.get("id")
+                    break
+            if pub_id or not results:
+                break
+            paging = payload.get("paging") or {}
+            if page >= (paging.get("totalPages") or page):
+                break
 
-    The public data-set CSV endpoint is stable:
-      {EES}/data-catalogue/data-set/{id}/csv
-    We just need the right {id}. The API shape has shifted before, so we try
-    the documented catalogue listing and fall back to the published-datasets
-    endpoint, matching on title text rather than position.
-    """
-    # 1) find the KS4 performance publication id
-    pubs = _get(f"{API}/publications").json()
-    items = pubs.get("results") or pubs.get("content") or pubs if isinstance(pubs, list) else \
-        (pubs.get("results") or pubs.get("content") or [])
-    pub_id = None
-    for p in items:
-        if "key stage 4" in (p.get("title") or "").lower():
-            pub_id = p.get("id")
-            break
-    if not pub_id:
-        raise SystemExit("Could not find the 'Key stage 4 performance' publication "
-                         f"in the EES catalogue (saw {len(items)} publications).")
+        if pub_id:
+            # 2) list its data sets, choose 'local authority' (not AP)
+            ds_payload = _get(f"{API}/publications/{pub_id}/data-sets",
+                              params={"pageSize": 60}).json()
+            for d in _results(ds_payload):
+                t = (d.get("title") or "").lower()
+                if "local authority" in t and "alternative provision" not in t:
+                    return _csv_url(d["id"]), d.get("title", "")
+            print("  API listed the publication but no LA data set; using fallback")
+        else:
+            print("  KS4 publication not found via API; using fallback id")
+    except requests.RequestException as e:
+        print(f"  API discovery failed ({e}); using fallback id")
 
-    # 2) list its data sets (latest release by default), pick 'local authority'
-    ds = _get(f"{API}/data-sets", params={"publicationId": pub_id}).json()
-    ds_items = ds.get("results") or ds.get("content") or (ds if isinstance(ds, list) else [])
-    pick = None
-    for d in ds_items:
-        t = (d.get("title") or "").lower()
-        if "local authority" in t and "alternative provision" not in t:
-            pick = d
-            break
-    if not pick:
-        titles = [d.get("title") for d in ds_items]
-        raise SystemExit(f"No KS4 'local authority' data set found; saw: {titles}")
-
-    ds_id = pick.get("id")
-    return f"{EES}/data-catalogue/data-set/{ds_id}/csv", pick.get("title", "")
+    # 3) fallback: known KS4 LA data-set id(s)
+    for ds_id in FALLBACK_DATASET_IDS:
+        return _csv_url(ds_id), f"KS4 local authority data ({ds_id})"
+    raise SystemExit("No KS4 local authority data set could be resolved.")
 
 
 def build(csv_text: str, geography: dict, source: str, title: str) -> dict:
