@@ -1,12 +1,13 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-13T09:29:17+00:00",
+  "scraped_at": "2026-06-13T09:42:18+00:00",
   "metrics": [
     "crime",
     "rent",
     "council_tax",
     "transport",
     "air_quality",
+    "green_space",
     "schools"
   ],
   "boroughs": [
@@ -38,6 +39,11 @@
           "raw": 9.13,
           "unit": "µg/m³ PM2.5",
           "percentile": 34.4
+        },
+        "green_space": {
+          "raw": 87.3,
+          "unit": "% near green space",
+          "percentile": 84.4
         },
         "schools": {
           "raw": 50.5,
@@ -75,6 +81,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 68.8
         },
+        "green_space": {
+          "raw": 65.6,
+          "unit": "% near green space",
+          "percentile": 28.1
+        },
         "schools": {
           "raw": 58.6,
           "unit": "Attainment 8",
@@ -110,6 +121,11 @@
           "raw": 8.51,
           "unit": "µg/m³ PM2.5",
           "percentile": 75.0
+        },
+        "green_space": {
+          "raw": 70.5,
+          "unit": "% near green space",
+          "percentile": 46.9
         },
         "schools": {
           "raw": 54.0,
@@ -147,6 +163,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 53.1
         },
+        "green_space": {
+          "raw": 69.8,
+          "unit": "% near green space",
+          "percentile": 43.8
+        },
         "schools": {
           "raw": 51.4,
           "unit": "Attainment 8",
@@ -182,6 +203,11 @@
           "raw": 8.13,
           "unit": "µg/m³ PM2.5",
           "percentile": 100.0
+        },
+        "green_space": {
+          "raw": 69.1,
+          "unit": "% near green space",
+          "percentile": 40.6
         },
         "schools": {
           "raw": 55.2,
@@ -219,6 +245,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 18.8
         },
+        "green_space": {
+          "raw": 62.3,
+          "unit": "% near green space",
+          "percentile": 18.8
+        },
         "schools": {
           "raw": 48.0,
           "unit": "Attainment 8",
@@ -244,6 +275,11 @@
           "raw": 10.96,
           "unit": "µg/m³ PM2.5",
           "percentile": 0.0
+        },
+        "green_space": {
+          "raw": 45.5,
+          "unit": "% near green space",
+          "percentile": 3.1
         }
       }
     },
@@ -275,6 +311,11 @@
           "raw": 8.42,
           "unit": "µg/m³ PM2.5",
           "percentile": 78.1
+        },
+        "green_space": {
+          "raw": 52.7,
+          "unit": "% near green space",
+          "percentile": 6.2
         },
         "schools": {
           "raw": 46.1,
@@ -312,6 +353,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 59.4
         },
+        "green_space": {
+          "raw": 78.5,
+          "unit": "% near green space",
+          "percentile": 65.6
+        },
         "schools": {
           "raw": 53.6,
           "unit": "Attainment 8",
@@ -347,6 +393,11 @@
           "raw": 8.52,
           "unit": "µg/m³ PM2.5",
           "percentile": 71.9
+        },
+        "green_space": {
+          "raw": 76.8,
+          "unit": "% near green space",
+          "percentile": 62.5
         },
         "schools": {
           "raw": 48.0,
@@ -384,6 +435,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 40.6
         },
+        "green_space": {
+          "raw": 81.9,
+          "unit": "% near green space",
+          "percentile": 75.0
+        },
         "schools": {
           "raw": 48.1,
           "unit": "Attainment 8",
@@ -419,6 +475,11 @@
           "raw": 9.65,
           "unit": "µg/m³ PM2.5",
           "percentile": 12.5
+        },
+        "green_space": {
+          "raw": 93.5,
+          "unit": "% near green space",
+          "percentile": 100.0
         },
         "schools": {
           "raw": 54.0,
@@ -456,6 +517,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 31.2
         },
+        "green_space": {
+          "raw": 63.2,
+          "unit": "% near green space",
+          "percentile": 21.9
+        },
         "schools": {
           "raw": 55.0,
           "unit": "Attainment 8",
@@ -491,6 +557,11 @@
           "raw": 8.94,
           "unit": "µg/m³ PM2.5",
           "percentile": 50.0
+        },
+        "green_space": {
+          "raw": 89.0,
+          "unit": "% near green space",
+          "percentile": 90.6
         },
         "schools": {
           "raw": 51.4,
@@ -528,6 +599,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 84.4
         },
+        "green_space": {
+          "raw": 36.3,
+          "unit": "% near green space",
+          "percentile": 0.0
+        },
         "schools": {
           "raw": 54.8,
           "unit": "Attainment 8",
@@ -563,6 +639,11 @@
           "raw": 8.24,
           "unit": "µg/m³ PM2.5",
           "percentile": 90.6
+        },
+        "green_space": {
+          "raw": 68.3,
+          "unit": "% near green space",
+          "percentile": 37.5
         },
         "schools": {
           "raw": 49.3,
@@ -600,6 +681,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 96.9
         },
+        "green_space": {
+          "raw": 66.8,
+          "unit": "% near green space",
+          "percentile": 31.2
+        },
         "schools": {
           "raw": 52.8,
           "unit": "Attainment 8",
@@ -635,6 +721,11 @@
           "raw": 8.58,
           "unit": "µg/m³ PM2.5",
           "percentile": 65.6
+        },
+        "green_space": {
+          "raw": 80.2,
+          "unit": "% near green space",
+          "percentile": 71.9
         },
         "schools": {
           "raw": 51.0,
@@ -672,6 +763,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 9.4
         },
+        "green_space": {
+          "raw": 67.3,
+          "unit": "% near green space",
+          "percentile": 34.4
+        },
         "schools": {
           "raw": 50.8,
           "unit": "Attainment 8",
@@ -707,6 +803,11 @@
           "raw": 9.42,
           "unit": "µg/m³ PM2.5",
           "percentile": 25.0
+        },
+        "green_space": {
+          "raw": 72.7,
+          "unit": "% near green space",
+          "percentile": 54.7
         },
         "schools": {
           "raw": 57.9,
@@ -744,6 +845,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 87.5
         },
+        "green_space": {
+          "raw": 61.3,
+          "unit": "% near green space",
+          "percentile": 12.5
+        },
         "schools": {
           "raw": 61.4,
           "unit": "Attainment 8",
@@ -779,6 +885,11 @@
           "raw": 9.28,
           "unit": "µg/m³ PM2.5",
           "percentile": 28.1
+        },
+        "green_space": {
+          "raw": 72.7,
+          "unit": "% near green space",
+          "percentile": 54.7
         },
         "schools": {
           "raw": 48.6,
@@ -816,6 +927,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 43.8
         },
+        "green_space": {
+          "raw": 63.4,
+          "unit": "% near green space",
+          "percentile": 25.0
+        },
         "schools": {
           "raw": 49.1,
           "unit": "Attainment 8",
@@ -851,6 +967,11 @@
           "raw": 8.61,
           "unit": "µg/m³ PM2.5",
           "percentile": 62.5
+        },
+        "green_space": {
+          "raw": 75.8,
+          "unit": "% near green space",
+          "percentile": 59.4
         },
         "schools": {
           "raw": 51.0,
@@ -888,6 +1009,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 15.6
         },
+        "green_space": {
+          "raw": 70.9,
+          "unit": "% near green space",
+          "percentile": 50.0
+        },
         "schools": {
           "raw": 52.0,
           "unit": "Attainment 8",
@@ -923,6 +1049,11 @@
           "raw": 8.97,
           "unit": "µg/m³ PM2.5",
           "percentile": 46.9
+        },
+        "green_space": {
+          "raw": 84.1,
+          "unit": "% near green space",
+          "percentile": 78.1
         },
         "schools": {
           "raw": 56.8,
@@ -960,6 +1091,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 81.2
         },
+        "green_space": {
+          "raw": 89.4,
+          "unit": "% near green space",
+          "percentile": 93.8
+        },
         "schools": {
           "raw": 55.2,
           "unit": "Attainment 8",
@@ -995,6 +1131,11 @@
           "raw": 9.51,
           "unit": "µg/m³ PM2.5",
           "percentile": 21.9
+        },
+        "green_space": {
+          "raw": 78.8,
+          "unit": "% near green space",
+          "percentile": 68.8
         },
         "schools": {
           "raw": 52.4,
@@ -1032,6 +1173,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 93.8
         },
+        "green_space": {
+          "raw": 62.0,
+          "unit": "% near green space",
+          "percentile": 15.6
+        },
         "schools": {
           "raw": 62.0,
           "unit": "Attainment 8",
@@ -1067,6 +1213,11 @@
           "raw": 9.81,
           "unit": "µg/m³ PM2.5",
           "percentile": 3.1
+        },
+        "green_space": {
+          "raw": 86.9,
+          "unit": "% near green space",
+          "percentile": 81.2
         },
         "schools": {
           "raw": 51.7,
@@ -1104,6 +1255,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 37.5
         },
+        "green_space": {
+          "raw": 56.9,
+          "unit": "% near green space",
+          "percentile": 9.4
+        },
         "schools": {
           "raw": 48.4,
           "unit": "Attainment 8",
@@ -1140,6 +1296,11 @@
           "unit": "µg/m³ PM2.5",
           "percentile": 56.2
         },
+        "green_space": {
+          "raw": 88.0,
+          "unit": "% near green space",
+          "percentile": 87.5
+        },
         "schools": {
           "raw": 49.2,
           "unit": "Attainment 8",
@@ -1175,6 +1336,11 @@
           "raw": 9.71,
           "unit": "µg/m³ PM2.5",
           "percentile": 6.2
+        },
+        "green_space": {
+          "raw": 92.5,
+          "unit": "% near green space",
+          "percentile": 96.9
         },
         "schools": {
           "raw": 57.6,

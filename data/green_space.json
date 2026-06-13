@@ -1,0 +1,173 @@
+{
+  "source": "https://www.gov.uk/government/statistics/access-to-green-and-blue-space-in-england",
+  "scraped_at": "2026-06-13T09:42:18+00:00",
+  "value_label": "77.3575801680087 / 91.954734469733 / 80.4992264722503 / 74.7501463255777 / 85.7909553449211 / 83.3563110796828 / 64.96628531254 / 78.8929494607362",
+  "note": "Defra: % of households with access to green/blue space within a 15-minute walk (Official Statistics in Development, 2025 data).",
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "green_access_pct": 87.3
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "green_access_pct": 65.6
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "green_access_pct": 70.5
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "green_access_pct": 69.8
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "green_access_pct": 69.1
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "green_access_pct": 62.3
+    },
+    {
+      "code": "E09000001",
+      "name": "City of London",
+      "green_access_pct": 45.5
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "green_access_pct": 52.7
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "green_access_pct": 78.5
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "green_access_pct": 76.8
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "green_access_pct": 81.9
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "green_access_pct": 93.5
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "green_access_pct": 63.2
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "green_access_pct": 89.0
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "green_access_pct": 36.3
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "green_access_pct": 68.3
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "green_access_pct": 66.8
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "green_access_pct": 80.2
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "green_access_pct": 67.3
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "green_access_pct": 72.7
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "green_access_pct": 61.3
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "green_access_pct": 72.7
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "green_access_pct": 63.4
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "green_access_pct": 75.8
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "green_access_pct": 70.9
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "green_access_pct": 84.1
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "green_access_pct": 89.4
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "green_access_pct": 78.8
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "green_access_pct": 62.0
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "green_access_pct": 86.9
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "green_access_pct": 56.9
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "green_access_pct": 88.0
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "green_access_pct": 92.5
+    }
+  ]
+}
