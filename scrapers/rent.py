@@ -107,8 +107,28 @@ def _label_date(label: str):
         return None
 
 
+GSS_ANY_RE = re.compile(r"^[EKWSNJ]\d{8}$")  # any ONS geography code
+
+
+def _as_date(v):
+    """Read a cell as a date (openpyxl datetimes or strings)."""
+    if v is None:
+        return None
+    try:
+        ts = pd.to_datetime(v, errors="coerce")
+        return None if pd.isna(ts) else ts
+    except Exception:
+        return None
+
+
 def parse_xlsx(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
-    """Returns ({borough_code: monthly_rent}, value_label)."""
+    """PIPR layout (verified Jun 2026): LONG format. Each row is one area for
+    one month: [date, area code, area name, region, then repeating 4-column
+    blocks of (index, monthly change, annual change, average rent) per
+    category, all-properties block first]. Strategy: find the code and date
+    columns, keep only the latest month's London rows, then take the leftmost
+    column whose values look like monthly rents (£200–8,000), preferring one
+    whose header mentions rent/all."""
     sheets = pd.read_excel(io.BytesIO(content), engine="openpyxl",
                            sheet_name=None, header=None)
     valid = {b["code"] for b in geography["boroughs"]}
@@ -116,75 +136,112 @@ def parse_xlsx(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
     for sheet_name, df in sheets.items():
         df = df.astype(object).where(pd.notna(df), None)
 
+        # column holding E09 codes
         code_col = None
         for c in df.columns:
-            col = df[c].map(lambda v: isinstance(v, str) and bool(E09_RE.match(v.strip())))
-            if col.sum() >= 25:
+            n = df[c].map(lambda v: isinstance(v, str) and bool(E09_RE.match(v.strip()))).sum()
+            if n >= 25:
                 code_col = c
                 break
         if code_col is None:
             continue
 
-        rows = [i for i in df.index
-                if isinstance(df.at[i, code_col], str)
-                and E09_RE.match(df.at[i, code_col].strip())]
-        first = min(rows)
+        e09_rows = [i for i in df.index
+                    if isinstance(df.at[i, code_col], str)
+                    and E09_RE.match(df.at[i, code_col].strip())]
 
-        # flattened header labels from up to 6 rows above the data
+        # date column: parses as a date on most E09 rows
+        date_col = None
+        for c in df.columns:
+            if c == code_col:
+                continue
+            hits = sum(1 for i in e09_rows[:60] if _as_date(df.at[i, c]) is not None)
+            if hits >= min(40, len(e09_rows[:60])):
+                date_col = c
+                break
+
+        # keep only the latest month's rows (each area repeats per month)
+        if date_col is not None:
+            dates = {i: _as_date(df.at[i, date_col]) for i in e09_rows}
+            latest = max(d for d in dates.values() if d is not None)
+            e09_rows = [i for i, d in dates.items() if d == latest]
+            period = latest.strftime("%b %Y")
+        else:
+            period = "latest"
+
+        # real header sits above the first row holding ANY geography code
+        def is_any(v) -> bool:
+            return isinstance(v, str) and bool(GSS_ANY_RE.match(v.strip()))
+        first_data_row = min(i for i in df.index if is_any(df.at[i, code_col]))
         labels: dict[int, str] = {}
         for c in df.columns:
             parts = [str(df.at[r, c]).strip()
-                     for r in range(max(0, first - 6), first)
+                     for r in range(max(0, first_data_row - 6), first_data_row)
                      if df.at[r, c] is not None and str(df.at[r, c]).strip()]
             labels[c] = " / ".join(parts)
 
-        # optional category column (bedrooms / property type): keep "All ..."
-        cat_col = None
-        for c in df.columns:
-            vals = {str(df.at[i, c]).strip().lower() for i in rows[:300]
-                    if isinstance(df.at[i, c], str)}
-            if any(v.startswith("all") for v in vals) and len(vals) > 1:
-                cat_col = c
-                break
-        if cat_col is not None:
-            rows = [i for i in rows
-                    if isinstance(df.at[i, cat_col], str)
-                    and ALL_CATEGORY_RE.match(df.at[i, cat_col].strip())]
-            print(f"  sheet '{sheet_name}': filtering category column "
-                  f"{labels.get(cat_col) or cat_col!r} to 'All ...' "
-                  f"({len(rows)} rows kept)")
+        # candidate value columns: look like monthly £ on the kept rows
+        def rentish_fraction(c) -> float:
+            ok = total = 0
+            for i in e09_rows:
+                v = df.at[i, c]
+                try:
+                    f = float(v)
+                except (TypeError, ValueError):
+                    continue
+                total += 1
+                if 200 <= f <= 8000:
+                    ok += 1
+            return ok / total if total else 0.0
 
-        # value column: latest date-labelled column, else rightmost rent/price
-        dated = [(d, c) for c, l in labels.items()
-                 if (d := _label_date(l)) is not None]
-        if dated:
-            dated.sort()
-            val_col, val_label = dated[-1][1], labels[dated[-1][1]]
-        else:
-            rentish = [c for c, l in labels.items()
-                       if any(w in l.lower() for w in ("rent", "price"))]
-            if not rentish:
-                print(f"  sheet '{sheet_name}': E09 rows but no usable value "
-                      f"column. Headers seen:")
-                for c, l in labels.items():
-                    if l:
-                        print(f"    col {c}: {l}")
-                continue
-            val_col, val_label = rentish[-1], labels[rentish[-1]]
+        candidates = [c for c in df.columns
+                      if c not in (code_col, date_col) and rentish_fraction(c) >= 0.8]
+        if not candidates:
+            print(f"  sheet '{sheet_name}': code_col={code_col}, date_col={date_col}, "
+                  f"period={period}, London rows after date filter={len(e09_rows)}")
+            # Dump one London row in full so we can see exactly where the £ rent sits.
+            sample = next((i for i in e09_rows
+                           if df.at[i, code_col].strip() in valid), None)
+            if sample is None and date_col is not None:
+                # date filter may have emptied it — show a pre-filter London row
+                allrows = [i for i in df.index
+                           if isinstance(df.at[i, code_col], str)
+                           and df.at[i, code_col].strip() in valid]
+                sample = allrows[0] if allrows else None
+                print(f"  (date filter left 0 London rows; showing an unfiltered one)")
+            if sample is not None:
+                print(f"  full values for London row {sample} "
+                      f"(code={df.at[sample, code_col]}):")
+                for c in df.columns:
+                    v = df.at[sample, c]
+                    if v is not None and str(v).strip():
+                        print(f"    col {c}: {v!r}   header={labels.get(c) or ''!r}")
+            continue
+
+        def pref(c) -> tuple:
+            l = labels.get(c, "").lower()
+            return ("rent" in l and "all" in l, "rent" in l)
+
+        labelled = [c for c in candidates if any(pref(c))]
+        col = (sorted(labelled, key=lambda c: (pref(c), -c), reverse=True)[0]
+               if labelled else min(candidates))  # leftmost = all-properties block
+        print(f"  sheet '{sheet_name}': period {period}; value column {col} "
+              f"({labels.get(col) or 'unlabelled — leftmost rent-like block'}); "
+              f"{len(candidates)} candidate column(s)")
 
         out: dict[str, float] = {}
-        for i in rows:
+        for i in e09_rows:
             code = df.at[i, code_col].strip()
             if code not in valid:
                 continue
             try:
-                v = float(df.at[i, val_col])
+                v = float(df.at[i, col])
             except (TypeError, ValueError):
                 continue
-            if 200 <= v <= 8000:  # sanity: monthly £ not an index value
+            if 200 <= v <= 8000:
                 out[code] = round(v, 0)
         if len(out) >= 25:
-            return out, val_label
+            return out, f"{labels.get(col) or f'column {col}'} ({period})"
         if out:
             print(f"  sheet '{sheet_name}': only {len(out)} boroughs parsed; "
                   f"trying next sheet.")
