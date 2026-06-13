@@ -1,0 +1,173 @@
+{
+  "source": "https://uk-air.defra.gov.uk/datastore/pcm/popwmpm252024byUKlocalauthority.csv",
+  "scraped_at": "2026-06-13T07:49:45+00:00",
+  "year": 2024,
+  "note": "Defra PCM model: population-weighted annual mean PM2.5 (total), µg/m³. Weighted to where residents live.",
+  "boroughs": [
+    {
+      "code": "E09000002",
+      "name": "Barking and Dagenham",
+      "pm25_total": 9.13
+    },
+    {
+      "code": "E09000003",
+      "name": "Barnet",
+      "pm25_total": 8.54
+    },
+    {
+      "code": "E09000004",
+      "name": "Bexley",
+      "pm25_total": 8.51
+    },
+    {
+      "code": "E09000005",
+      "name": "Brent",
+      "pm25_total": 8.91
+    },
+    {
+      "code": "E09000006",
+      "name": "Bromley",
+      "pm25_total": 8.13
+    },
+    {
+      "code": "E09000007",
+      "name": "Camden",
+      "pm25_total": 9.55
+    },
+    {
+      "code": "E09000001",
+      "name": "City of London",
+      "pm25_total": 10.96
+    },
+    {
+      "code": "E09000008",
+      "name": "Croydon",
+      "pm25_total": 8.42
+    },
+    {
+      "code": "E09000009",
+      "name": "Ealing",
+      "pm25_total": 8.75
+    },
+    {
+      "code": "E09000010",
+      "name": "Enfield",
+      "pm25_total": 8.52
+    },
+    {
+      "code": "E09000011",
+      "name": "Greenwich",
+      "pm25_total": 9.07
+    },
+    {
+      "code": "E09000012",
+      "name": "Hackney",
+      "pm25_total": 9.65
+    },
+    {
+      "code": "E09000013",
+      "name": "Hammersmith and Fulham",
+      "pm25_total": 9.15
+    },
+    {
+      "code": "E09000014",
+      "name": "Haringey",
+      "pm25_total": 8.94
+    },
+    {
+      "code": "E09000015",
+      "name": "Harrow",
+      "pm25_total": 8.26
+    },
+    {
+      "code": "E09000016",
+      "name": "Havering",
+      "pm25_total": 8.24
+    },
+    {
+      "code": "E09000017",
+      "name": "Hillingdon",
+      "pm25_total": 8.18
+    },
+    {
+      "code": "E09000018",
+      "name": "Hounslow",
+      "pm25_total": 8.58
+    },
+    {
+      "code": "E09000019",
+      "name": "Islington",
+      "pm25_total": 9.69
+    },
+    {
+      "code": "E09000020",
+      "name": "Kensington and Chelsea",
+      "pm25_total": 9.42
+    },
+    {
+      "code": "E09000021",
+      "name": "Kingston upon Thames",
+      "pm25_total": 8.25
+    },
+    {
+      "code": "E09000022",
+      "name": "Lambeth",
+      "pm25_total": 9.28
+    },
+    {
+      "code": "E09000023",
+      "name": "Lewisham",
+      "pm25_total": 9.02
+    },
+    {
+      "code": "E09000024",
+      "name": "Merton",
+      "pm25_total": 8.61
+    },
+    {
+      "code": "E09000025",
+      "name": "Newham",
+      "pm25_total": 9.64
+    },
+    {
+      "code": "E09000026",
+      "name": "Redbridge",
+      "pm25_total": 8.97
+    },
+    {
+      "code": "E09000027",
+      "name": "Richmond upon Thames",
+      "pm25_total": 8.33
+    },
+    {
+      "code": "E09000028",
+      "name": "Southwark",
+      "pm25_total": 9.51
+    },
+    {
+      "code": "E09000029",
+      "name": "Sutton",
+      "pm25_total": 8.2
+    },
+    {
+      "code": "E09000030",
+      "name": "Tower Hamlets",
+      "pm25_total": 9.81
+    },
+    {
+      "code": "E09000031",
+      "name": "Waltham Forest",
+      "pm25_total": 9.12
+    },
+    {
+      "code": "E09000032",
+      "name": "Wandsworth",
+      "pm25_total": 8.89
+    },
+    {
+      "code": "E09000033",
+      "name": "Westminster",
+      "pm25_total": 9.71
+    }
+  ]
+}
