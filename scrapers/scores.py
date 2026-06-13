@@ -32,7 +32,7 @@ METRICS = {
     "transport": ("ptal.json", "ptal_mean", "access score", True),
     "air_quality": ("air_quality.json", "pm25_total", "µg/m³ PM2.5", False),
     "green_space": ("green_space.json", "green_pct", "% green", True),
-    "schools": ("schools.json", "progress8_mean", "Progress 8", True),
+    "schools": ("schools.json", "attainment8", "Attainment 8", True),
 }
 
 
