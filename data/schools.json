@@ -1,7 +1,7 @@
 {
   "source": "https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/ce0ff638-7b30-45d3-b264-34ecf5cddb9b/csv",
   "dataset": "KS4 local authority data (ce0ff638-7b30-45d3-b264-34ecf5cddb9b)",
-  "scraped_at": "2026-06-13T09:29:17+00:00",
+  "scraped_at": "2026-06-19T22:12:09+00:00",
   "period": "202021",
   "note": "DfE Key Stage 4: average Attainment 8 per pupil, state-funded schools. City of London has no state secondary schools.",
   "boroughs": [
