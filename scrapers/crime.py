@@ -1,227 +1,181 @@
 #!/usr/bin/env python3
 """
-crime.py — crime counts per borough, from the London Datastore.
+crime.py — recorded crime rate per 1,000 population, per local authority.
 
-Source: "MPS Recorded Crime: Geographic Breakdown" (Metropolitan Police via
-London Datastore, OGL, updated monthly):
-  https://data.london.gov.uk/dataset/mps-recorded-crime-geographic-breakdown-exy3m
+Source: ONS "Recorded crime data by Community Safety Partnership area"
+(CSP areas equate to local authorities). Carries offence counts and a
+PRE-CALCULATED rate per 1,000 population for the latest year, every police
+force in England & Wales — so this one national file covers every city in the
+app, replacing the old London-only MPS feed and giving one consistent measure.
 
-We use the pre-aggregated "MPS Borough Level Crime (most recent 24 months)"
-CSV. Each monthly refresh is uploaded as a NEW file with a NEW short URL, so we
-parse the dataset page at runtime and take the FIRST matching link (the page
-lists newest first) instead of hardcoding a URL.
+Discovery: ONS page-JSON convention (landing -> version -> file), same as
+rent.py. The data file is xlsx/ods; we locate borough rows by LAD (E0x) code
+and the rate column by header ('rate per 1,000'). Defensive + noisy on
+mismatch.
 
-CSV layout (verified Jun 2026):
-  Group,SubGroup,BOCU,202406,202407,...,202605
-BOCU is the borough NAME. We sum the most recent 12 month-columns per borough,
-map names -> E09 codes via data/geography.json, and emit a per-1,000 rate.
-
-Caveats baked in:
-- MPS does not police the City of London, so E09000001 gets no value here.
-  scores.py / the app handle missing metrics gracefully.
-- Populations below are ONS mid-year estimates ROUNDED to the nearest 1,000,
-  embedded as a stopgap. TODO: replace with a population scraper; rounding
-  shifts rates by well under 1% and does not materially affect ranking.
+Joins on the geography spine (data/geography.json), so it automatically covers
+exactly the local authorities the spine contains — London + GM + WM + WY.
 """
 
 from __future__ import annotations
 
-import csv
 import io
 import json
 import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from urllib.parse import unquote
 
+import pandas as pd
 import requests
 
-BASE = "https://data.london.gov.uk"
-DATASET_SLUG = "mps-recorded-crime-geographic-breakdown-exy3m"
-DATASET_ID = "exy3m"
-DATASET_PAGE = f"{BASE}/dataset/{DATASET_SLUG}"
+PAGE = ("https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/"
+        "datasets/recordedcrimedataatcommunitysafetypartnershiplocalauthoritylevel")
+HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)",
+           "Accept": "application/json"}
 
-# DataPress blocks scraping but provides a JSON API; also send a real UA.
-HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)"}
-WANTED = ("borough level crime", "24 months")
-
-MONTH_COL_RE = re.compile(r"^\d{6}$")
-MONTHS_TO_SUM = 12
+LAD_RE = re.compile(r"^E0[6-9]\d{6}$")  # E06/E07/E08/E09 local authorities
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 OUT_PATH = DATA_DIR / "crime.json"
 
-# ONS mid-year population estimates, rounded to nearest 1,000. Stopgap — see
-# module docstring. Keyed by borough name as it appears in geography.json.
-POPULATIONS = {
-    "Barking and Dagenham": 219000, "Barnet": 389000, "Bexley": 247000,
-    "Brent": 340000, "Bromley": 330000, "Camden": 210000,
-    "City of London": 9000, "Croydon": 390000, "Ealing": 367000,
-    "Enfield": 330000, "Greenwich": 291000, "Hackney": 259000,
-    "Hammersmith and Fulham": 183000, "Haringey": 264000, "Harrow": 261000,
-    "Havering": 262000, "Hillingdon": 309000, "Hounslow": 288000,
-    "Islington": 216000, "Kensington and Chelsea": 143000,
-    "Kingston upon Thames": 168000, "Lambeth": 317000, "Lewisham": 300000,
-    "Merton": 215000, "Newham": 358000, "Redbridge": 310000,
-    "Richmond upon Thames": 195000, "Southwark": 311000, "Sutton": 209000,
-    "Tower Hamlets": 325000, "Waltham Forest": 278000, "Wandsworth": 328000,
-    "Westminster": 205000,
-}
+
+def _xlsx_from(payload: dict, base_uri: str = "") -> str | None:
+    for d in payload.get("downloads") or []:
+        f = (d.get("file") or "").strip()
+        if not f.lower().endswith((".xlsx", ".xls", ".csv")):
+            continue
+        if f.startswith("http"):
+            return f
+        if not f.startswith("/"):
+            f = f"{base_uri.rstrip('/')}/{f}"
+        return f"https://www.ons.gov.uk/file?uri={f}"
+    return None
 
 
-def norm(name: str) -> str:
-    return name.strip().lower().replace("&", "and")
-
-
-def _wanted(text: str) -> bool:
-    t = unquote(text or "").lower()
-    return all(w in t for w in WANTED) and "historical" not in t
-
-
-def pick_resource(payload: dict) -> str | None:
-    """Pick the matching resource covering the latest month, per the DataPress
-    v3 shape: resources is a dict keyed by file id; each entry has title, url,
-    order, and timeFrame {gte, lte} (ISO month strings). The '(most recent 24
-    months)' marker lives in the URL filename, not the title, so match on
-    title and URL combined."""
-    res = payload.get("resources") or {}
-    items = list(res.values()) if isinstance(res, dict) else list(res)
-    matches = [
-        r for r in items
-        if _wanted(f"{r.get('title', '')} {r.get('url', '')}")
-    ]
-    if not matches:
-        seen = sorted({unquote(r.get("url", "")).rsplit("/", 1)[-1] or r.get("title", "?")
-                       for r in items})
-        print(f"  resources present but none matched; files were: {seen[:12]}")
-        return None
-
-    def key(r: dict):
-        lte = (r.get("timeFrame") or {}).get("lte") or ""
-        order = r.get("order")
-        # Higher lte (later coverage) wins; tiebreak: lower order (listed first).
-        return (lte, -(order if isinstance(order, int) else 10**6))
-
-    best = max(matches, key=key)
-    url = best.get("url") or ""
-    if url.startswith("/"):
-        url = BASE + url
-    return url or None
-
-
-def discover_csv_url() -> str:
-    # Primary: DataPress JSON API, v3 (scraping the HTML page gets blocked).
-    for ident in (DATASET_ID, DATASET_SLUG):
+def find_download_url() -> str:
+    resp = requests.get(f"{PAGE}/data", headers=HEADERS, timeout=60)
+    resp.raise_for_status()
+    payload = resp.json()
+    url = _xlsx_from(payload, payload.get("uri") or "")
+    if url:
+        return url
+    children = payload.get("datasets") or []
+    print(f"  landing page has no downloads; following {len(children)} child link(s)")
+    for child in children:
+        uri = (child.get("uri") or "").strip()
+        if not uri:
+            continue
         try:
-            resp = requests.get(f"{BASE}/api/v3/dataset/{ident}", headers=HEADERS, timeout=60)
-            if resp.status_code == 200:
-                url = pick_resource(resp.json())
-                if url:
-                    return url
-                print(f"API ok for '{ident}' but no matching resource found.")
-            else:
-                print(f"API status {resp.status_code} for '{ident}'")
-        except (requests.RequestException, ValueError) as e:
-            print(f"API attempt '{ident}' failed: {e}")
-
-    # Fallback: tolerant scan of the dataset page HTML.
-    html = requests.get(DATASET_PAGE, headers=HEADERS, timeout=60).text
-    candidates = re.findall(
-        r'href="((?:https://data\.london\.gov\.uk)?/download/[^"]+\.csv)"', html
-    )
-    for href in candidates:  # page lists newest first
-        if _wanted(unquote(href)):
-            return href if href.startswith("http") else BASE + href
-    raise SystemExit(
-        "Could not locate the 'Borough Level Crime (most recent 24 months)' file "
-        "via the DataPress API or the dataset page — check the dataset:\n"
-        f"  {DATASET_PAGE}"
-    )
-
-
-def build(csv_text: str, geography: dict) -> dict:
-    reader = csv.DictReader(io.StringIO(csv_text))
-    header = reader.fieldnames or []
-    month_cols = sorted(c for c in header if MONTH_COL_RE.match(c))
-    if len(month_cols) < MONTHS_TO_SUM:
-        raise SystemExit(f"Expected >= {MONTHS_TO_SUM} month columns, got: {month_cols}")
-    recent = month_cols[-MONTHS_TO_SUM:]
-    if "BOCU" not in header:
-        raise SystemExit(f"Expected a BOCU column; header was: {header}")
-
-    totals: dict[str, int] = {}
-    for row in reader:
-        bocu = (row["BOCU"] or "").strip()
-        if not bocu:
+            r = requests.get(f"https://www.ons.gov.uk{uri}/data", headers=HEADERS, timeout=60)
+            if r.status_code != 200:
+                continue
+            cp = r.json()
+            url = _xlsx_from(cp, cp.get("uri") or uri)
+            if url:
+                return url
+        except (requests.RequestException, ValueError):
             continue
-        s = 0
-        for c in recent:
-            v = (row.get(c) or "").strip()
-            if v.isdigit():
-                s += int(v)
-        totals[bocu] = totals.get(bocu, 0) + s
+    print(f"  page JSON keys: {list(payload.keys())}")
+    raise SystemExit("No data file found via the ONS dataset page JSON.")
 
-    name_to_code = {norm(b["name"]): (b["code"], b["name"]) for b in geography["boroughs"]}
 
-    boroughs, unmatched = [], []
-    for bocu, total in totals.items():
-        hit = name_to_code.get(norm(bocu))
-        if not hit:
-            unmatched.append(bocu)
+def parse(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
+    valid = {b["code"] for b in geography["boroughs"]}
+    # try every sheet; find LAD-code col + a 'rate per 1,000' col
+    sheets = pd.read_excel(io.BytesIO(content), engine="openpyxl",
+                           sheet_name=None, header=None)
+    for sheet_name, df in sheets.items():
+        df = df.astype(object).where(pd.notna(df), None)
+        ncol = df.shape[1]
+        code_col = None
+        for c in range(ncol):
+            if sum(1 for v in df[c] if isinstance(v, str) and LAD_RE.match(str(v).strip())) >= 20:
+                code_col = c
+                break
+        if code_col is None:
             continue
-        code, name = hit
-        pop = POPULATIONS.get(name)
-        boroughs.append({
-            "code": code,
-            "name": name,
-            "crimes_12mo": total,
-            "population_used": pop,
-            "rate_per_1000": round(total / pop * 1000, 1) if pop else None,
-        })
-    boroughs.sort(key=lambda b: b["name"])
+        rows = [i for i in df.index
+                if isinstance(df.at[i, code_col], str) and LAD_RE.match(df.at[i, code_col].strip())]
+        first = min(rows)
+        labels = {}
+        for c in range(ncol):
+            parts = [str(df.at[r, c]).strip() for r in range(max(0, first - 8), first)
+                     if df.at[r, c] is not None and str(df.at[r, c]).strip()]
+            labels[c] = " / ".join(parts)
 
-    return {
-        "source": DATASET_PAGE,
-        "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "period": {"from": recent[0], "to": recent[-1], "months": MONTHS_TO_SUM},
-        "note": (
-            "MPS data only: the City of London has its own police force and is "
-            "not covered. Rates use rounded ONS mid-year population estimates."
-        ),
-        "unmatched_bocus": sorted(unmatched),
-        "boroughs": boroughs,
-    }
+        def col_vals(c):
+            out = {}
+            for i in rows:
+                code = df.at[i, code_col].strip()
+                if code not in valid:
+                    continue
+                try:
+                    v = float(df.at[i, c])
+                except (TypeError, ValueError):
+                    continue
+                if 0 < v < 1000:  # plausible crimes per 1,000
+                    out[code] = round(v, 1)
+            return out
+
+        rate_cols = [c for c, l in labels.items()
+                     if "rate" in l.lower() and "1,000" in l.replace(" ", "").replace("000", ",000").lower()
+                     or ("rate" in l.lower() and "1000" in l.replace(",", ""))]
+        # fallback: any column literally mentioning 'rate per'
+        if not rate_cols:
+            rate_cols = [c for c, l in labels.items() if "rate per" in l.lower()]
+        scored = []
+        for c in (rate_cols or range(ncol)):
+            vals = col_vals(c)
+            if len(vals) >= 20:
+                # 'total'/'all offences' rate preferred over a single category
+                pref = any(w in labels[c].lower() for w in ("total", "all offence", "all recorded"))
+                scored.append((pref, len(vals), c, vals))
+        if scored:
+            scored.sort(key=lambda t: (t[0], t[1]))
+            _, _, c, vals = scored[-1]
+            return vals, labels[c] or f"{sheet_name} col {c}"
+        print(f"  sheet '{sheet_name}': LAD rows found but no rate column. Headers:")
+        for c, l in labels.items():
+            if l:
+                print(f"    col {c}: {l}")
+    raise SystemExit("Could not find a 'rate per 1,000' column — see headers above.")
 
 
 def main() -> None:
-    geo_path = DATA_DIR / "geography.json"
-    if not geo_path.exists():
-        raise SystemExit(
-            "data/geography.json not found — run scrapers/geography.py first "
-            "(or trigger the geography workflow)."
-        )
-    geography = json.loads(geo_path.read_text(encoding="utf-8"))
+    geography = json.loads((DATA_DIR / "geography.json").read_text(encoding="utf-8"))
+    name_by_code = {b["code"]: b["name"] for b in geography["boroughs"]}
 
-    if len(sys.argv) > 1:  # offline test: python scrapers/crime.py local.csv
-        csv_text = Path(sys.argv[1]).read_text(encoding="utf-8-sig")
-        print(f"Using local file {sys.argv[1]}")
+    if len(sys.argv) > 1:
+        content = Path(sys.argv[1]).read_bytes()
+        src = sys.argv[1]
+        print(f"Using local file {src}")
     else:
-        url = discover_csv_url()
+        url = find_download_url()
         print(f"Fetching {url}")
-        resp = requests.get(url, headers=HEADERS, timeout=120)
+        resp = requests.get(url, headers={k: v for k, v in HEADERS.items() if k != "Accept"}, timeout=180)
         resp.raise_for_status()
-        csv_text = resp.content.decode("utf-8-sig")
+        content = resp.content
+        src = url
 
-    result = build(csv_text, geography)
-    OUT_PATH.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    n = len(result["boroughs"])
-    print(f"Wrote crime.json: {n} boroughs, period {result['period']['from']}–{result['period']['to']}")
-    if result["unmatched_bocus"]:
-        print(f"  NOTE: unmatched BOCUs (skipped): {result['unmatched_bocus']}")
-    if n < 32:
-        print(f"  WARNING: expected 32 MPS boroughs, got {n}.")
+    values, label = parse(content, geography)
+    boroughs = [{"code": code, "name": name_by_code[code], "rate_per_1000": v}
+                for code, v in sorted(values.items(), key=lambda kv: name_by_code[kv[0]])]
+    OUT_PATH.write_text(json.dumps({
+        "source": PAGE,
+        "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "value_label": label,
+        "note": ("ONS recorded crime by Community Safety Partnership (= local "
+                 "authority): total offences rate per 1,000 residents, latest year. "
+                 "One national source across all cities."),
+        "boroughs": boroughs,
+    }, ensure_ascii=False, indent=2), encoding="utf-8")
+    vals = [b["rate_per_1000"] for b in boroughs]
+    mean = sum(vals) / len(vals) if vals else 0
+    print(f"Wrote crime.json: {len(boroughs)} LADs, mean {mean:.0f}/1,000 "
+          f"(range {min(vals):.0f}–{max(vals):.0f}, column {label!r})")
+    if not 40 <= mean <= 200:
+        print(f"  WARNING: mean {mean:.0f}/1,000 outside usual band — check column.")
 
 
 if __name__ == "__main__":
