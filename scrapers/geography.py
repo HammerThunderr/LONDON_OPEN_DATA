@@ -35,15 +35,16 @@ LSOA_ITEM_ID = "f29a49574cc84f6d8e6e59ce2d8efb18"
 LSOA_URL = (f"https://open-geography-portalx-ons.hub.arcgis.com"
             f"/api/download/v1/items/{LSOA_ITEM_ID}/csv?layers=0")
 
-# LAD -> Combined Authority lookup (England). Served from the ONS ArcGIS
-# FeatureServer query API. Service names carry the vintage (LAD25_CAUTH25...);
-# we try recent vintages newest-first so a yearly bump needs no code change.
-CAUTH_BASE = ("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/"
-              "services/{svc}/FeatureServer/0/query"
-              "?where=1%3D1&outFields=*&f=csv")
-CAUTH_VINTAGES = ["LAD25_CAUTH25_EN_LU", "LAD24_CAUTH24_EN_LU",
-                  "LAD23_CAUTH23_EN_LU", "LAD22_CAUTH22_EN_LU"]
-CAUTH_URL = CAUTH_BASE.format(svc=CAUTH_VINTAGES[0])  # default; main() may probe
+# LAD -> Combined Authority lookup (England). Served from data.gov.uk CKAN,
+# which gives permanent resource-UUID download URLs (far more stable than the
+# ArcGIS service-name guessing). Newest first; columns auto-detect by pattern,
+# so when ONS publishes a newer vintage just prepend its CSV resource UUID.
+CKAN_RESOURCE = "https://ckan.publishing.service.gov.uk/dataset/{ds}/resource/{rid}/download"
+CAUTH_SOURCES = [
+    # May 2024 LAD->CAUTH, CSV resource (LAD24CD, LAD24NM, CAUTH24CD, CAUTH24NM)
+    ("local-authority-district-to-combined-authority-may-2024-lookup-in-en",
+     "b7b39ed9-e6b2-4036-87b5-d8c40b9ff057"),
+]
 
 HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)"}
 OUT_PATH = Path(__file__).resolve().parent.parent / "data" / "geography.json"
@@ -85,18 +86,18 @@ def _read(path_or_none, url):
 
 
 def _fetch_cauth() -> str:
-    """Fetch the LAD->CAUTH lookup, trying recent vintages newest-first."""
-    for svc in CAUTH_VINTAGES:
-        url = CAUTH_BASE.format(svc=svc)
+    """Fetch the LAD->CAUTH lookup from data.gov.uk CKAN (stable resource URLs)."""
+    for ds, rid in CAUTH_SOURCES:
+        url = CKAN_RESOURCE.format(ds=ds, rid=rid)
         try:
-            r = requests.get(url, headers=HEADERS, timeout=120)
-            if r.status_code == 200 and "CAUTH" in r.text[:2000].upper():
-                print(f"  CAUTH source: {svc}")
+            r = requests.get(url, headers=HEADERS, timeout=120, allow_redirects=True)
+            if r.status_code == 200 and "CAUTH" in r.text[:4000].upper():
+                print(f"  CAUTH source: {ds}")
                 return r.content.decode("utf-8-sig")
-            print(f"  CAUTH {svc}: status {r.status_code}")
+            print(f"  CAUTH {ds}: status {r.status_code}")
         except requests.RequestException as e:
-            print(f"  CAUTH {svc}: {e}")
-    raise SystemExit("Could not fetch any LAD->CAUTH vintage from ONS ArcGIS.")
+            print(f"  CAUTH {ds}: {e}")
+    raise SystemExit("Could not fetch the LAD->CAUTH lookup from CKAN.")
 
 
 def lad_to_city(cauth_text: str):
@@ -157,7 +158,8 @@ def build(lsoa_text: str, cauth_text: str) -> dict:
                              "city": b["city"], "lsoa_count": len(b["_lsoas"])})
 
     return {
-        "source": {"lsoa": LSOA_URL, "cauth": CAUTH_URL},
+        "source": {"lsoa": LSOA_URL, "cauth": CKAN_RESOURCE.format(
+            ds=CAUTH_SOURCES[0][0], rid=CAUTH_SOURCES[0][1])},
         "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "cities": [{"id": c["id"], "name": c["name"], "has_ptal": c["has_ptal"],
                     "lad_count": by_city.get(c["id"], 0)} for c in CITIES],
