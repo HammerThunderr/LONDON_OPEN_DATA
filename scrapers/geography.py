@@ -1,19 +1,20 @@
 #!/usr/bin/env python3
 """
-geography.py — the geography spine.
+geography.py — the multi-city geography spine.
 
-Produces data/geography.json: the canonical LSOA -> Ward -> Borough lookup that
-EVERY other scraper joins against. Crime, PTAL, air quality and green space all
-arrive at LSOA level and roll up to ward/borough via the lsoa_to_* maps below.
-Rent and council tax arrive at borough level and key onto the borough codes.
+Produces data/geography.json: the canonical lookup every other scraper joins
+to. Now multi-city: each local authority is tagged with the city it belongs to
+(per scrapers/cities.py), and LSOA-level sources roll up to LAD via the maps
+below.
 
-Source: ONS Open Geography Portal
-  "LSOA (2021) to Electoral Ward (YYYY) to LAD (YYYY) Best Fit Lookup in EW"
+Two ONS sources:
+  1. LSOA(2021) -> Ward -> LAD best-fit lookup  (the LSOA rollup spine)
+  2. LAD -> Combined Authority lookup           (assigns LADs to city regions)
 
-The ward/LAD vintage bumps every year and the item id changes with it. When it
-does, find the latest on the portal and update ITEM_ID. The column names carry
-the vintage (WD25CD, LAD25CD, ...) so we DETECT them by pattern rather than
-hardcode the year — that is what stops this breaking each spring.
+London is matched by E09 prefix (no CAUTH); other cities by their CAUTH code.
+
+Vintages bump yearly and column names carry the year (WD25CD, LAD25CD,
+CAUTH24CD...), so columns are detected by PATTERN, not hardcoded.
 """
 
 from __future__ import annotations
@@ -28,140 +29,161 @@ from pathlib import Path
 
 import requests
 
-# 2025 vintage lookup (LSOA 2021 -> Ward 2025 -> LAD 2025), England & Wales.
-ITEM_ID = "f29a49574cc84f6d8e6e59ce2d8efb18"
-SOURCE = (
-    f"https://open-geography-portalx-ons.hub.arcgis.com"
-    f"/api/download/v1/items/{ITEM_ID}/csv?layers=0"
-)
+from cities import CITIES
 
-# London boroughs are the only LADs with an E09 code, so this one prefix is the
-# entire "is this London?" test. 32 boroughs + City of London = 33.
-LONDON_LAD_PREFIX = "E09"
+LSOA_ITEM_ID = "f29a49574cc84f6d8e6e59ce2d8efb18"
+LSOA_URL = (f"https://open-geography-portalx-ons.hub.arcgis.com"
+            f"/api/download/v1/items/{LSOA_ITEM_ID}/csv?layers=0")
 
+# LAD -> Combined Authority lookup (England). Served from the ONS ArcGIS
+# FeatureServer query API. Service names carry the vintage (LAD25_CAUTH25...);
+# we try recent vintages newest-first so a yearly bump needs no code change.
+CAUTH_BASE = ("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/"
+              "services/{svc}/FeatureServer/0/query"
+              "?where=1%3D1&outFields=*&f=csv")
+CAUTH_VINTAGES = ["LAD25_CAUTH25_EN_LU", "LAD24_CAUTH24_EN_LU",
+                  "LAD23_CAUTH23_EN_LU", "LAD22_CAUTH22_EN_LU"]
+CAUTH_URL = CAUTH_BASE.format(svc=CAUTH_VINTAGES[0])  # default; main() may probe
+
+HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)"}
 OUT_PATH = Path(__file__).resolve().parent.parent / "data" / "geography.json"
 
-COLS = {
+LSOA_COLS = {
     "lsoa_cd": re.compile(r"^LSOA\d+CD$"),
-    "lsoa_nm": re.compile(r"^LSOA\d+NM$"),
     "ward_cd": re.compile(r"^WD\d+CD$"),
-    "ward_nm": re.compile(r"^WD\d+NM$"),   # NM (English); deliberately not NMW
+    "ward_nm": re.compile(r"^WD\d+NM$"),
     "lad_cd": re.compile(r"^LAD\d+CD$"),
     "lad_nm": re.compile(r"^LAD\d+NM$"),
 }
+CAUTH_COLS = {
+    "lad_cd": re.compile(r"^LAD\d+CD$"),
+    "cauth_cd": re.compile(r"^CAUTH\d+CD$"),
+}
 
 
-def resolve_columns(header: list[str]) -> dict[str, str]:
-    found: dict[str, str] = {}
-    for key, pattern in COLS.items():
-        matches = [h for h in header if pattern.match(h)]
-        if not matches:
-            raise SystemExit(
-                f"Could not find a column for '{key}' in header: {header}\n"
-                f"The lookup layout may have changed — check the source."
-            )
-        found[key] = matches[0]
-    return found
+def _resolve(header, patterns):
+    out = {}
+    for key, pat in patterns.items():
+        hit = [h for h in header if pat.match(h)]
+        if not hit:
+            raise SystemExit(f"Column '{key}' not found in header: {header}")
+        out[key] = hit[0]
+    return out
 
 
-def detect_vintage(cols: dict[str, str]) -> dict[str, str]:
-    def yr(name: str) -> str:
-        m = re.search(r"\d+", name)
-        return m.group(0) if m else "?"
-    return {"lsoa": yr(cols["lsoa_cd"]), "ward": yr(cols["ward_cd"]), "lad": yr(cols["lad_cd"])}
+def _fetch(url):
+    r = requests.get(url, headers=HEADERS, timeout=120)
+    r.raise_for_status()
+    return r.content.decode("utf-8-sig")
 
 
-def fetch_csv(url: str) -> str:
-    resp = requests.get(url, timeout=120)
-    resp.raise_for_status()
-    return resp.content.decode("utf-8-sig")
+def _read(path_or_none, url):
+    if path_or_none:
+        return Path(path_or_none).read_text(encoding="utf-8-sig")
+    print(f"Fetching {url}")
+    return _fetch(url)
 
 
-def build(csv_text: str) -> dict:
-    reader = csv.DictReader(io.StringIO(csv_text))
-    cols = resolve_columns(reader.fieldnames or [])
+def _fetch_cauth() -> str:
+    """Fetch the LAD->CAUTH lookup, trying recent vintages newest-first."""
+    for svc in CAUTH_VINTAGES:
+        url = CAUTH_BASE.format(svc=svc)
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=120)
+            if r.status_code == 200 and "CAUTH" in r.text[:2000].upper():
+                print(f"  CAUTH source: {svc}")
+                return r.content.decode("utf-8-sig")
+            print(f"  CAUTH {svc}: status {r.status_code}")
+        except requests.RequestException as e:
+            print(f"  CAUTH {svc}: {e}")
+    raise SystemExit("Could not fetch any LAD->CAUTH vintage from ONS ArcGIS.")
 
-    boroughs: dict[str, dict] = {}
-    wards: dict[str, dict] = {}
-    lsoa_to_ward: dict[str, str] = {}
-    lsoa_to_borough: dict[str, str] = {}
+
+def lad_to_city(cauth_text: str):
+    reader = csv.DictReader(io.StringIO(cauth_text))
+    cols = _resolve(reader.fieldnames or [], CAUTH_COLS)
+    cauth_to_city = {c["match"]["value"]: c["id"]
+                     for c in CITIES if c["match"]["type"] == "cauth"}
+    mapping = {}
+    for row in reader:
+        lad = (row[cols["lad_cd"]] or "").strip()
+        cauth = (row[cols["cauth_cd"]] or "").strip()
+        if cauth in cauth_to_city:
+            mapping[lad] = cauth_to_city[cauth]
+    return mapping
+
+
+def build(lsoa_text: str, cauth_text: str) -> dict:
+    lad_city = lad_to_city(cauth_text)
+    prefix_cities = [(c["match"]["value"], c["id"])
+                     for c in CITIES if c["match"]["type"] == "prefix"]
+
+    reader = csv.DictReader(io.StringIO(lsoa_text))
+    cols = _resolve(reader.fieldnames or [], LSOA_COLS)
+
+    def city_of(lad_cd):
+        if lad_cd in lad_city:
+            return lad_city[lad_cd]
+        for prefix, cid in prefix_cities:
+            if lad_cd.startswith(prefix):
+                return cid
+        return None
+
+    lads, wards = {}, {}
+    lsoa_to_ward, lsoa_to_lad = {}, {}
 
     for row in reader:
         lad_cd = (row[cols["lad_cd"]] or "").strip()
-        if not lad_cd.startswith(LONDON_LAD_PREFIX):
+        city = city_of(lad_cd)
+        if not city:
             continue
-
         lad_nm = row[cols["lad_nm"]].strip()
         wd_cd = row[cols["ward_cd"]].strip()
         wd_nm = row[cols["ward_nm"]].strip()
         ls_cd = row[cols["lsoa_cd"]].strip()
-
-        b = boroughs.setdefault(
-            lad_cd, {"code": lad_cd, "name": lad_nm, "_wards": set(), "_lsoas": set()}
-        )
-        b["_wards"].add(wd_cd)
+        b = lads.setdefault(lad_cd, {"code": lad_cd, "name": lad_nm,
+                                     "city": city, "_lsoas": set()})
         b["_lsoas"].add(ls_cd)
-
-        w = wards.setdefault(
-            wd_cd,
-            {"code": wd_cd, "name": wd_nm, "borough_code": lad_cd,
-             "borough_name": lad_nm, "_lsoas": set()},
-        )
-        w["_lsoas"].add(ls_cd)
-
+        wards.setdefault(wd_cd, {"code": wd_cd, "name": wd_nm,
+                                 "lad_code": lad_cd, "city": city})
         lsoa_to_ward[ls_cd] = wd_cd
-        lsoa_to_borough[ls_cd] = lad_cd
+        lsoa_to_lad[ls_cd] = lad_cd
 
-    borough_list = [
-        {"code": b["code"], "name": b["name"],
-         "ward_count": len(b["_wards"]), "lsoa_count": len(b["_lsoas"])}
-        for b in sorted(boroughs.values(), key=lambda x: x["name"])
-    ]
-    ward_list = [
-        {"code": w["code"], "name": w["name"],
-         "borough_code": w["borough_code"], "borough_name": w["borough_name"],
-         "lsoa_count": len(w["_lsoas"])}
-        for w in sorted(wards.values(), key=lambda x: (x["borough_name"], x["name"]))
-    ]
+    by_city = {}
+    borough_list = []
+    for b in sorted(lads.values(), key=lambda x: (x["city"], x["name"])):
+        by_city[b["city"]] = by_city.get(b["city"], 0) + 1
+        borough_list.append({"code": b["code"], "name": b["name"],
+                             "city": b["city"], "lsoa_count": len(b["_lsoas"])})
 
-    # Flat envelope, same shape convention as the rest of the repo:
-    # source / scraped_at / counts at the top, then the body.
     return {
-        "source": SOURCE,
-        "source_item_id": ITEM_ID,
+        "source": {"lsoa": LSOA_URL, "cauth": CAUTH_URL},
         "scraped_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "vintage": detect_vintage(cols),
-        "counts": {
-            "boroughs": len(borough_list),
-            "wards": len(ward_list),
-            "lsoas": len(lsoa_to_ward),
-        },
+        "cities": [{"id": c["id"], "name": c["name"], "has_ptal": c["has_ptal"],
+                    "lad_count": by_city.get(c["id"], 0)} for c in CITIES],
         "boroughs": borough_list,
-        "wards": ward_list,
+        "wards": [{"code": w["code"], "name": w["name"],
+                   "lad_code": w["lad_code"], "city": w["city"]}
+                  for w in sorted(wards.values(), key=lambda x: (x["city"], x["name"]))],
         "lsoa_to_ward": lsoa_to_ward,
-        "lsoa_to_borough": lsoa_to_borough,
+        "lsoa_to_borough": lsoa_to_lad,
+        "lsoa_to_lad": lsoa_to_lad,
     }
 
 
 def main() -> None:
-    # Allow `python scrapers/geography.py path/to/local.csv` for offline testing.
-    if len(sys.argv) > 1:
-        csv_text = Path(sys.argv[1]).read_text(encoding="utf-8-sig")
-    else:
-        print(f"Fetching lookup from {SOURCE}")
-        csv_text = fetch_csv(SOURCE)
-
-    result = build(csv_text)
+    lsoa_arg = sys.argv[1] if len(sys.argv) > 1 else None
+    cauth_arg = sys.argv[2] if len(sys.argv) > 2 else None
+    lsoa_text = _read(lsoa_arg, LSOA_URL)
+    cauth_text = Path(cauth_arg).read_text(encoding="utf-8-sig") if cauth_arg else _fetch_cauth()
+    result = build(lsoa_text, cauth_text)
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     OUT_PATH.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
-
-    c, v = result["counts"], result["vintage"]
-    print(
-        f"Wrote {OUT_PATH.name}: {c['boroughs']} boroughs, {c['wards']} wards, "
-        f"{c['lsoas']} LSOAs  (vintage LSOA{v['lsoa']} / WD{v['ward']} / LAD{v['lad']})"
-    )
-    if c["boroughs"] != 33:
-        print(f"  WARNING: expected 33 London boroughs, got {c['boroughs']}.")
+    print(f"Wrote geography.json: {len(result['boroughs'])} LADs across "
+          f"{len(result['cities'])} cities, {len(result['lsoa_to_lad'])} LSOAs")
+    for c in result["cities"]:
+        flag = "" if c["lad_count"] else "  <-- WARNING: 0 LADs matched"
+        print(f"  {c['name']}: {c['lad_count']} LADs{flag}")
 
 
 if __name__ == "__main__":
