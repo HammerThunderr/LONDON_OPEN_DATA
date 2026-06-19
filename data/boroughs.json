@@ -1,6 +1,6 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-15T10:40:12+00:00",
+  "scraped_at": "2026-06-19T22:10:12+00:00",
   "metrics": [
     "crime",
     "rent",
@@ -10,10 +10,17 @@
     "green_space",
     "schools"
   ],
+  "cities": [
+    {
+      "id": "london",
+      "name": "London"
+    }
+  ],
   "boroughs": [
     {
       "code": "E09000002",
       "name": "Barking and Dagenham",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 92.3,
@@ -55,6 +62,7 @@
     {
       "code": "E09000003",
       "name": "Barnet",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 75.5,
@@ -96,6 +104,7 @@
     {
       "code": "E09000004",
       "name": "Bexley",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 64.6,
@@ -137,6 +146,7 @@
     {
       "code": "E09000005",
       "name": "Brent",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 98.6,
@@ -178,6 +188,7 @@
     {
       "code": "E09000006",
       "name": "Bromley",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 72.8,
@@ -219,6 +230,7 @@
     {
       "code": "E09000007",
       "name": "Camden",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 189.6,
@@ -260,6 +272,7 @@
     {
       "code": "E09000001",
       "name": "City of London",
+      "city": "london",
       "metrics": {
         "council_tax": {
           "raw": 1329.56,
@@ -286,6 +299,7 @@
     {
       "code": "E09000008",
       "name": "Croydon",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 87.8,
@@ -327,6 +341,7 @@
     {
       "code": "E09000009",
       "name": "Ealing",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 88.9,
@@ -368,6 +383,7 @@
     {
       "code": "E09000010",
       "name": "Enfield",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 88.6,
@@ -409,6 +425,7 @@
     {
       "code": "E09000011",
       "name": "Greenwich",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 95.4,
@@ -450,6 +467,7 @@
     {
       "code": "E09000012",
       "name": "Hackney",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 127.5,
@@ -491,6 +509,7 @@
     {
       "code": "E09000013",
       "name": "Hammersmith and Fulham",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 114.7,
@@ -532,6 +551,7 @@
     {
       "code": "E09000014",
       "name": "Haringey",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 107.8,
@@ -573,6 +593,7 @@
     {
       "code": "E09000015",
       "name": "Harrow",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 65.3,
@@ -614,6 +635,7 @@
     {
       "code": "E09000016",
       "name": "Havering",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 74.9,
@@ -655,6 +677,7 @@
     {
       "code": "E09000017",
       "name": "Hillingdon",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 102.1,
@@ -696,6 +719,7 @@
     {
       "code": "E09000018",
       "name": "Hounslow",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 94.7,
@@ -737,6 +761,7 @@
     {
       "code": "E09000019",
       "name": "Islington",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 142.7,
@@ -778,6 +803,7 @@
     {
       "code": "E09000020",
       "name": "Kensington and Chelsea",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 153.0,
@@ -819,6 +845,7 @@
     {
       "code": "E09000021",
       "name": "Kingston upon Thames",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 71.4,
@@ -860,6 +887,7 @@
     {
       "code": "E09000022",
       "name": "Lambeth",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 120.8,
@@ -901,6 +929,7 @@
     {
       "code": "E09000023",
       "name": "Lewisham",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 99.7,
@@ -942,6 +971,7 @@
     {
       "code": "E09000024",
       "name": "Merton",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 61.8,
@@ -983,6 +1013,7 @@
     {
       "code": "E09000025",
       "name": "Newham",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 116.1,
@@ -1024,6 +1055,7 @@
     {
       "code": "E09000026",
       "name": "Redbridge",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 80.7,
@@ -1065,6 +1097,7 @@
     {
       "code": "E09000027",
       "name": "Richmond upon Thames",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 58.7,
@@ -1106,6 +1139,7 @@
     {
       "code": "E09000028",
       "name": "Southwark",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 129.2,
@@ -1147,6 +1181,7 @@
     {
       "code": "E09000029",
       "name": "Sutton",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 63.7,
@@ -1188,6 +1223,7 @@
     {
       "code": "E09000030",
       "name": "Tower Hamlets",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 116.4,
@@ -1229,6 +1265,7 @@
     {
       "code": "E09000031",
       "name": "Waltham Forest",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 83.6,
@@ -1270,6 +1307,7 @@
     {
       "code": "E09000032",
       "name": "Wandsworth",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 82.7,
@@ -1311,6 +1349,7 @@
     {
       "code": "E09000033",
       "name": "Westminster",
+      "city": "london",
       "metrics": {
         "crime": {
           "raw": 379.1,

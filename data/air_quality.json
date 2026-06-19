@@ -1,6 +1,6 @@
 {
   "source": "https://uk-air.defra.gov.uk/datastore/pcm/popwmpm252024byUKlocalauthority.csv",
-  "scraped_at": "2026-06-13T07:49:45+00:00",
+  "scraped_at": "2026-06-19T22:10:12+00:00",
   "year": 2024,
   "note": "Defra PCM model: population-weighted annual mean PM2.5 (total), µg/m³. Weighted to where residents live.",
   "boroughs": [
