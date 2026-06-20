@@ -30,7 +30,18 @@ import pandas as pd
 import requests
 
 PAGE = ("https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/"
-        "datasets/recordedcrimedataatcommunitysafetypartnershiplocalauthoritylevel")
+        "datasets/recordedcrimedatabycommunitysafetypartnershiparea")
+# Pinned latest LA-level edition (year ending March 2024). ONS discontinued the
+# standalone CSP/LA release — breakdowns moved into the Police Force Area tables,
+# which only go to force level, not local authority. So we use the last
+# published LA-level file: crime rankings move little year to year, and it's the
+# only source giving one comparable per-LAD rate. If ONS resumes LA-level
+# publication, prepend the newer xlsx URL here.
+FALLBACK_FILES = [
+    "https://www.ons.gov.uk/file?uri=/peoplepopulationandcommunity/crimeandjustice/"
+    "datasets/recordedcrimedatabycommunitysafetypartnershiparea/yearendingmarch2024/"
+    "csptablesyemar24correction.xlsx",
+]
 HEADERS = {"User-Agent": "LONDON_OPEN_DATA pipeline (github.com/HammerThunderr)",
            "Accept": "application/json"}
 
@@ -77,7 +88,11 @@ def find_download_url() -> str:
         except (requests.RequestException, ValueError):
             continue
     print(f"  page JSON keys: {list(payload.keys())}")
-    raise SystemExit("No data file found via the ONS dataset page JSON.")
+    # ONS discontinued the live file; use the pinned latest LA-level edition.
+    for url in FALLBACK_FILES:
+        print(f"  using pinned edition: {url}")
+        return url
+    raise SystemExit("No data file found and no pinned fallback configured.")
 
 
 def parse(content: bytes, geography: dict) -> tuple[dict[str, float], str]:
