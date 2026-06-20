@@ -1,6 +1,6 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-20T09:06:43+00:00",
+  "scraped_at": "2026-06-20T09:10:50+00:00",
   "metrics": [
     "crime",
     "rent",
@@ -34,6 +34,11 @@
       "name": "Bolton",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 424.0,
+          "unit": "per 1,000",
+          "percentile": 12.5
+        },
         "air_quality": {
           "raw": 6.87,
           "unit": "µg/m³ PM2.5",
@@ -46,6 +51,11 @@
       "name": "Bury",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 222.0,
+          "unit": "per 1,000",
+          "percentile": 87.5
+        },
         "air_quality": {
           "raw": 7.11,
           "unit": "µg/m³ PM2.5",
@@ -70,6 +80,11 @@
       "name": "Oldham",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 368.0,
+          "unit": "per 1,000",
+          "percentile": 62.5
+        },
         "air_quality": {
           "raw": 7.51,
           "unit": "µg/m³ PM2.5",
@@ -82,6 +97,11 @@
       "name": "Rochdale",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 391.0,
+          "unit": "per 1,000",
+          "percentile": 37.5
+        },
         "air_quality": {
           "raw": 7.08,
           "unit": "µg/m³ PM2.5",
@@ -94,6 +114,11 @@
       "name": "Salford",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 615.0,
+          "unit": "per 1,000",
+          "percentile": 0.0
+        },
         "air_quality": {
           "raw": 7.46,
           "unit": "µg/m³ PM2.5",
@@ -106,6 +131,11 @@
       "name": "Stockport",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 301.0,
+          "unit": "per 1,000",
+          "percentile": 75.0
+        },
         "air_quality": {
           "raw": 7.29,
           "unit": "µg/m³ PM2.5",
@@ -118,6 +148,11 @@
       "name": "Tameside",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 388.0,
+          "unit": "per 1,000",
+          "percentile": 50.0
+        },
         "air_quality": {
           "raw": 7.61,
           "unit": "µg/m³ PM2.5",
@@ -130,6 +165,11 @@
       "name": "Trafford",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 202.0,
+          "unit": "per 1,000",
+          "percentile": 100.0
+        },
         "air_quality": {
           "raw": 7.11,
           "unit": "µg/m³ PM2.5",
@@ -142,6 +182,11 @@
       "name": "Wigan",
       "city": "greater_manchester",
       "metrics": {
+        "crime": {
+          "raw": 400.0,
+          "unit": "per 1,000",
+          "percentile": 25.0
+        },
         "air_quality": {
           "raw": 6.69,
           "unit": "µg/m³ PM2.5",
@@ -155,9 +200,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 92.3,
+          "raw": 173.0,
           "unit": "per 1,000",
-          "percentile": 51.6
+          "percentile": 53.1
         },
         "rent": {
           "raw": 1690.0,
@@ -197,9 +242,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 75.5,
+          "raw": 161.0,
           "unit": "per 1,000",
-          "percentile": 74.2
+          "percentile": 68.8
         },
         "rent": {
           "raw": 1934.0,
@@ -239,9 +284,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 64.6,
+          "raw": 139.0,
           "unit": "per 1,000",
-          "percentile": 90.3
+          "percentile": 75.0
         },
         "rent": {
           "raw": 1528.0,
@@ -281,9 +326,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 98.6,
+          "raw": 224.0,
           "unit": "per 1,000",
-          "percentile": 41.9
+          "percentile": 34.4
         },
         "rent": {
           "raw": 2005.0,
@@ -323,9 +368,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 72.8,
+          "raw": 184.0,
           "unit": "per 1,000",
-          "percentile": 80.6
+          "percentile": 46.9
         },
         "rent": {
           "raw": 1675.0,
@@ -365,9 +410,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 189.6,
+          "raw": 161.0,
           "unit": "per 1,000",
-          "percentile": 3.2
+          "percentile": 68.8
         },
         "rent": {
           "raw": 2759.0,
@@ -406,6 +451,11 @@
       "name": "City of London",
       "city": "london",
       "metrics": {
+        "crime": {
+          "raw": 57.0,
+          "unit": "per 1,000",
+          "percentile": 96.9
+        },
         "council_tax": {
           "raw": 1329.56,
           "unit": "£ Band D",
@@ -434,9 +484,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 87.8,
+          "raw": 322.0,
           "unit": "per 1,000",
-          "percentile": 61.3
+          "percentile": 6.2
         },
         "rent": {
           "raw": 1572.0,
@@ -476,9 +526,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 88.9,
+          "raw": 176.0,
           "unit": "per 1,000",
-          "percentile": 54.8
+          "percentile": 50.0
         },
         "rent": {
           "raw": 2060.0,
@@ -518,9 +568,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 88.6,
+          "raw": 267.0,
           "unit": "per 1,000",
-          "percentile": 58.1
+          "percentile": 18.8
         },
         "rent": {
           "raw": 1788.0,
@@ -560,9 +610,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 95.4,
+          "raw": 248.0,
           "unit": "per 1,000",
-          "percentile": 45.2
+          "percentile": 28.1
         },
         "rent": {
           "raw": 1952.0,
@@ -602,9 +652,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 127.5,
+          "raw": 240.0,
           "unit": "per 1,000",
-          "percentile": 16.1
+          "percentile": 31.2
         },
         "rent": {
           "raw": 2622.0,
@@ -644,9 +694,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 114.7,
+          "raw": 161.0,
           "unit": "per 1,000",
-          "percentile": 29.0
+          "percentile": 68.8
         },
         "rent": {
           "raw": 2770.0,
@@ -686,9 +736,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 107.8,
+          "raw": 257.0,
           "unit": "per 1,000",
-          "percentile": 32.3
+          "percentile": 21.9
         },
         "rent": {
           "raw": 2212.0,
@@ -728,9 +778,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 65.3,
+          "raw": 110.0,
           "unit": "per 1,000",
-          "percentile": 87.1
+          "percentile": 81.2
         },
         "rent": {
           "raw": 1759.0,
@@ -770,9 +820,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 74.9,
+          "raw": 194.0,
           "unit": "per 1,000",
-          "percentile": 77.4
+          "percentile": 43.8
         },
         "rent": {
           "raw": 1564.0,
@@ -812,9 +862,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 102.1,
+          "raw": 126.0,
           "unit": "per 1,000",
-          "percentile": 35.5
+          "percentile": 78.1
         },
         "rent": {
           "raw": 1557.0,
@@ -854,9 +904,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 94.7,
+          "raw": 168.0,
           "unit": "per 1,000",
-          "percentile": 48.4
+          "percentile": 59.4
         },
         "rent": {
           "raw": 1933.0,
@@ -896,9 +946,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 142.7,
+          "raw": 213.0,
           "unit": "per 1,000",
-          "percentile": 9.7
+          "percentile": 37.5
         },
         "rent": {
           "raw": 2828.0,
@@ -938,9 +988,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 153.0,
+          "raw": 105.0,
           "unit": "per 1,000",
-          "percentile": 6.5
+          "percentile": 87.5
         },
         "rent": {
           "raw": 3591.0,
@@ -980,9 +1030,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 71.4,
+          "raw": 93.0,
           "unit": "per 1,000",
-          "percentile": 83.9
+          "percentile": 92.2
         },
         "rent": {
           "raw": 1803.0,
@@ -1022,9 +1072,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 120.8,
+          "raw": 333.0,
           "unit": "per 1,000",
-          "percentile": 19.4
+          "percentile": 3.1
         },
         "rent": {
           "raw": 2527.0,
@@ -1064,9 +1114,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 99.7,
+          "raw": 254.0,
           "unit": "per 1,000",
-          "percentile": 38.7
+          "percentile": 25.0
         },
         "rent": {
           "raw": 1821.0,
@@ -1106,9 +1156,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 61.8,
+          "raw": 93.0,
           "unit": "per 1,000",
-          "percentile": 96.8
+          "percentile": 92.2
         },
         "rent": {
           "raw": 2114.0,
@@ -1148,9 +1198,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 116.1,
+          "raw": 280.0,
           "unit": "per 1,000",
-          "percentile": 25.8
+          "percentile": 10.9
         },
         "rent": {
           "raw": 1923.0,
@@ -1190,9 +1240,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 80.7,
+          "raw": 172.0,
           "unit": "per 1,000",
-          "percentile": 71.0
+          "percentile": 56.2
         },
         "rent": {
           "raw": 1725.0,
@@ -1232,7 +1282,7 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 58.7,
+          "raw": 48.0,
           "unit": "per 1,000",
           "percentile": 100.0
         },
@@ -1274,9 +1324,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 129.2,
+          "raw": 271.0,
           "unit": "per 1,000",
-          "percentile": 12.9
+          "percentile": 15.6
         },
         "rent": {
           "raw": 2394.0,
@@ -1316,9 +1366,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 63.7,
+          "raw": 108.0,
           "unit": "per 1,000",
-          "percentile": 93.5
+          "percentile": 84.4
         },
         "rent": {
           "raw": 1550.0,
@@ -1358,9 +1408,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 116.4,
+          "raw": 280.0,
           "unit": "per 1,000",
-          "percentile": 22.6
+          "percentile": 10.9
         },
         "rent": {
           "raw": 2419.0,
@@ -1400,9 +1450,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 83.6,
+          "raw": 210.0,
           "unit": "per 1,000",
-          "percentile": 64.5
+          "percentile": 40.6
         },
         "rent": {
           "raw": 1763.0,
@@ -1442,9 +1492,9 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 82.7,
+          "raw": 164.0,
           "unit": "per 1,000",
-          "percentile": 67.7
+          "percentile": 62.5
         },
         "rent": {
           "raw": 2599.0,
@@ -1484,7 +1534,7 @@
       "city": "london",
       "metrics": {
         "crime": {
-          "raw": 379.1,
+          "raw": 448.0,
           "unit": "per 1,000",
           "percentile": 0.0
         },
@@ -1537,6 +1587,11 @@
       "name": "Coventry",
       "city": "west_midlands",
       "metrics": {
+        "crime": {
+          "raw": 792.0,
+          "unit": "per 1,000",
+          "percentile": 0.0
+        },
         "air_quality": {
           "raw": 7.52,
           "unit": "µg/m³ PM2.5",
@@ -1549,6 +1604,11 @@
       "name": "Dudley",
       "city": "west_midlands",
       "metrics": {
+        "crime": {
+          "raw": 545.0,
+          "unit": "per 1,000",
+          "percentile": 80.0
+        },
         "air_quality": {
           "raw": 7.31,
           "unit": "µg/m³ PM2.5",
@@ -1561,6 +1621,11 @@
       "name": "Sandwell",
       "city": "west_midlands",
       "metrics": {
+        "crime": {
+          "raw": 730.0,
+          "unit": "per 1,000",
+          "percentile": 20.0
+        },
         "air_quality": {
           "raw": 8.02,
           "unit": "µg/m³ PM2.5",
@@ -1573,6 +1638,11 @@
       "name": "Solihull",
       "city": "west_midlands",
       "metrics": {
+        "crime": {
+          "raw": 356.0,
+          "unit": "per 1,000",
+          "percentile": 100.0
+        },
         "air_quality": {
           "raw": 7.37,
           "unit": "µg/m³ PM2.5",
@@ -1585,6 +1655,11 @@
       "name": "Walsall",
       "city": "west_midlands",
       "metrics": {
+        "crime": {
+          "raw": 585.0,
+          "unit": "per 1,000",
+          "percentile": 60.0
+        },
         "air_quality": {
           "raw": 8.04,
           "unit": "µg/m³ PM2.5",
@@ -1597,6 +1672,11 @@
       "name": "Wolverhampton",
       "city": "west_midlands",
       "metrics": {
+        "crime": {
+          "raw": 640.0,
+          "unit": "per 1,000",
+          "percentile": 40.0
+        },
         "air_quality": {
           "raw": 7.4,
           "unit": "µg/m³ PM2.5",
@@ -1609,6 +1689,11 @@
       "name": "Bradford",
       "city": "west_yorkshire",
       "metrics": {
+        "crime": {
+          "raw": 620.0,
+          "unit": "per 1,000",
+          "percentile": 0.0
+        },
         "air_quality": {
           "raw": 6.92,
           "unit": "µg/m³ PM2.5",
@@ -1621,6 +1706,11 @@
       "name": "Calderdale",
       "city": "west_yorkshire",
       "metrics": {
+        "crime": {
+          "raw": 204.0,
+          "unit": "per 1,000",
+          "percentile": 100.0
+        },
         "air_quality": {
           "raw": 6.59,
           "unit": "µg/m³ PM2.5",
@@ -1633,6 +1723,11 @@
       "name": "Kirklees",
       "city": "west_yorkshire",
       "metrics": {
+        "crime": {
+          "raw": 503.0,
+          "unit": "per 1,000",
+          "percentile": 33.3
+        },
         "air_quality": {
           "raw": 7.02,
           "unit": "µg/m³ PM2.5",
@@ -1657,6 +1752,11 @@
       "name": "Wakefield",
       "city": "west_yorkshire",
       "metrics": {
+        "crime": {
+          "raw": 325.0,
+          "unit": "per 1,000",
+          "percentile": 66.7
+        },
         "air_quality": {
           "raw": 7.14,
           "unit": "µg/m³ PM2.5",
