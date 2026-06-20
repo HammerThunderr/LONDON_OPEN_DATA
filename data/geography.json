@@ -3,7 +3,7 @@
     "lsoa": "https://open-geography-portalx-ons.hub.arcgis.com/api/download/v1/items/f29a49574cc84f6d8e6e59ce2d8efb18/csv?layers=0",
     "cauth": "https://ckan.publishing.service.gov.uk/dataset/local-authority-district-to-combined-authority-may-2024-lookup-in-en/resource/b7b39ed9-e6b2-4036-87b5-d8c40b9ff057/download"
   },
-  "scraped_at": "2026-06-19T22:20:45+00:00",
+  "scraped_at": "2026-06-20T09:11:47+00:00",
   "cities": [
     {
       "id": "london",
