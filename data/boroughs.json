@@ -1,6 +1,6 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-20T09:14:14+00:00",
+  "scraped_at": "2026-06-20T09:15:04+00:00",
   "metrics": [
     "crime",
     "rent",
@@ -43,6 +43,11 @@
           "raw": 6.87,
           "unit": "µg/m³ PM2.5",
           "percentile": 88.9
+        },
+        "schools": {
+          "raw": 46.7,
+          "unit": "Attainment 8",
+          "percentile": 55.6
         }
       }
     },
@@ -60,6 +65,11 @@
           "raw": 7.11,
           "unit": "µg/m³ PM2.5",
           "percentile": 61.1
+        },
+        "schools": {
+          "raw": 49.4,
+          "unit": "Attainment 8",
+          "percentile": 77.8
         }
       }
     },
@@ -72,6 +82,11 @@
           "raw": 7.71,
           "unit": "µg/m³ PM2.5",
           "percentile": 0.0
+        },
+        "schools": {
+          "raw": 47.7,
+          "unit": "Attainment 8",
+          "percentile": 66.7
         }
       }
     },
@@ -89,6 +104,11 @@
           "raw": 7.51,
           "unit": "µg/m³ PM2.5",
           "percentile": 22.2
+        },
+        "schools": {
+          "raw": 42.6,
+          "unit": "Attainment 8",
+          "percentile": 5.6
         }
       }
     },
@@ -106,6 +126,11 @@
           "raw": 7.08,
           "unit": "µg/m³ PM2.5",
           "percentile": 77.8
+        },
+        "schools": {
+          "raw": 46.2,
+          "unit": "Attainment 8",
+          "percentile": 33.3
         }
       }
     },
@@ -123,6 +148,11 @@
           "raw": 7.46,
           "unit": "µg/m³ PM2.5",
           "percentile": 33.3
+        },
+        "schools": {
+          "raw": 42.6,
+          "unit": "Attainment 8",
+          "percentile": 5.6
         }
       }
     },
@@ -140,6 +170,11 @@
           "raw": 7.29,
           "unit": "µg/m³ PM2.5",
           "percentile": 44.4
+        },
+        "schools": {
+          "raw": 52.7,
+          "unit": "Attainment 8",
+          "percentile": 88.9
         }
       }
     },
@@ -157,6 +192,11 @@
           "raw": 7.61,
           "unit": "µg/m³ PM2.5",
           "percentile": 11.1
+        },
+        "schools": {
+          "raw": 45.8,
+          "unit": "Attainment 8",
+          "percentile": 22.2
         }
       }
     },
@@ -174,6 +214,11 @@
           "raw": 7.11,
           "unit": "µg/m³ PM2.5",
           "percentile": 61.1
+        },
+        "schools": {
+          "raw": 60.2,
+          "unit": "Attainment 8",
+          "percentile": 100.0
         }
       }
     },
@@ -191,6 +236,11 @@
           "raw": 6.69,
           "unit": "µg/m³ PM2.5",
           "percentile": 100.0
+        },
+        "schools": {
+          "raw": 46.4,
+          "unit": "Attainment 8",
+          "percentile": 44.4
         }
       }
     },
@@ -1579,6 +1629,11 @@
           "raw": 7.89,
           "unit": "µg/m³ PM2.5",
           "percentile": 33.3
+        },
+        "schools": {
+          "raw": 50.1,
+          "unit": "Attainment 8",
+          "percentile": 100.0
         }
       }
     },
@@ -1596,6 +1651,11 @@
           "raw": 7.52,
           "unit": "µg/m³ PM2.5",
           "percentile": 50.0
+        },
+        "schools": {
+          "raw": 44.8,
+          "unit": "Attainment 8",
+          "percentile": 33.3
         }
       }
     },
@@ -1613,6 +1673,11 @@
           "raw": 7.31,
           "unit": "µg/m³ PM2.5",
           "percentile": 100.0
+        },
+        "schools": {
+          "raw": 47.6,
+          "unit": "Attainment 8",
+          "percentile": 66.7
         }
       }
     },
@@ -1630,6 +1695,11 @@
           "raw": 8.02,
           "unit": "µg/m³ PM2.5",
           "percentile": 16.7
+        },
+        "schools": {
+          "raw": 44.4,
+          "unit": "Attainment 8",
+          "percentile": 0.0
         }
       }
     },
@@ -1646,6 +1716,11 @@
         "air_quality": {
           "raw": 7.37,
           "unit": "µg/m³ PM2.5",
+          "percentile": 83.3
+        },
+        "schools": {
+          "raw": 48.2,
+          "unit": "Attainment 8",
           "percentile": 83.3
         }
       }
@@ -1664,6 +1739,11 @@
           "raw": 8.04,
           "unit": "µg/m³ PM2.5",
           "percentile": 0.0
+        },
+        "schools": {
+          "raw": 44.5,
+          "unit": "Attainment 8",
+          "percentile": 16.7
         }
       }
     },
@@ -1681,6 +1761,11 @@
           "raw": 7.4,
           "unit": "µg/m³ PM2.5",
           "percentile": 66.7
+        },
+        "schools": {
+          "raw": 46.3,
+          "unit": "Attainment 8",
+          "percentile": 50.0
         }
       }
     },
@@ -1698,6 +1783,11 @@
           "raw": 6.92,
           "unit": "µg/m³ PM2.5",
           "percentile": 75.0
+        },
+        "schools": {
+          "raw": 43.2,
+          "unit": "Attainment 8",
+          "percentile": 0.0
         }
       }
     },
@@ -1714,6 +1804,11 @@
         "air_quality": {
           "raw": 6.59,
           "unit": "µg/m³ PM2.5",
+          "percentile": 100.0
+        },
+        "schools": {
+          "raw": 52.2,
+          "unit": "Attainment 8",
           "percentile": 100.0
         }
       }
@@ -1732,6 +1827,11 @@
           "raw": 7.02,
           "unit": "µg/m³ PM2.5",
           "percentile": 50.0
+        },
+        "schools": {
+          "raw": 46.5,
+          "unit": "Attainment 8",
+          "percentile": 25.0
         }
       }
     },
@@ -1744,6 +1844,11 @@
           "raw": 7.36,
           "unit": "µg/m³ PM2.5",
           "percentile": 0.0
+        },
+        "schools": {
+          "raw": 49.2,
+          "unit": "Attainment 8",
+          "percentile": 75.0
         }
       }
     },
@@ -1761,6 +1866,11 @@
           "raw": 7.14,
           "unit": "µg/m³ PM2.5",
           "percentile": 25.0
+        },
+        "schools": {
+          "raw": 47.0,
+          "unit": "Attainment 8",
+          "percentile": 50.0
         }
       }
     }

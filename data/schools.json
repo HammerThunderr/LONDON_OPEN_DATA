@@ -1,7 +1,7 @@
 {
   "source": "https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/ce0ff638-7b30-45d3-b264-34ecf5cddb9b/csv",
   "dataset": "KS4 local authority data (ce0ff638-7b30-45d3-b264-34ecf5cddb9b)",
-  "scraped_at": "2026-06-19T22:12:09+00:00",
+  "scraped_at": "2026-06-20T09:15:04+00:00",
   "period": "202021",
   "note": "DfE Key Stage 4: average Attainment 8 per pupil, state-funded schools. City of London has no state secondary schools.",
   "boroughs": [
@@ -21,6 +21,21 @@
       "attainment8": 54.0
     },
     {
+      "code": "E08000025",
+      "name": "Birmingham",
+      "attainment8": 50.1
+    },
+    {
+      "code": "E08000001",
+      "name": "Bolton",
+      "attainment8": 46.7
+    },
+    {
+      "code": "E08000032",
+      "name": "Bradford",
+      "attainment8": 43.2
+    },
+    {
       "code": "E09000005",
       "name": "Brent",
       "attainment8": 51.4
@@ -31,14 +46,34 @@
       "attainment8": 55.2
     },
     {
+      "code": "E08000002",
+      "name": "Bury",
+      "attainment8": 49.4
+    },
+    {
+      "code": "E08000033",
+      "name": "Calderdale",
+      "attainment8": 52.2
+    },
+    {
       "code": "E09000007",
       "name": "Camden",
       "attainment8": 48.0
     },
     {
+      "code": "E08000026",
+      "name": "Coventry",
+      "attainment8": 44.8
+    },
+    {
       "code": "E09000008",
       "name": "Croydon",
       "attainment8": 46.1
+    },
+    {
+      "code": "E08000027",
+      "name": "Dudley",
+      "attainment8": 47.6
     },
     {
       "code": "E09000009",
@@ -106,14 +141,29 @@
       "attainment8": 61.4
     },
     {
+      "code": "E08000034",
+      "name": "Kirklees",
+      "attainment8": 46.5
+    },
+    {
       "code": "E09000022",
       "name": "Lambeth",
       "attainment8": 48.6
     },
     {
+      "code": "E08000035",
+      "name": "Leeds",
+      "attainment8": 49.2
+    },
+    {
       "code": "E09000023",
       "name": "Lewisham",
       "attainment8": 49.1
+    },
+    {
+      "code": "E08000003",
+      "name": "Manchester",
+      "attainment8": 47.7
     },
     {
       "code": "E09000024",
@@ -126,6 +176,11 @@
       "attainment8": 52.0
     },
     {
+      "code": "E08000004",
+      "name": "Oldham",
+      "attainment8": 42.6
+    },
+    {
       "code": "E09000026",
       "name": "Redbridge",
       "attainment8": 56.8
@@ -136,9 +191,34 @@
       "attainment8": 55.2
     },
     {
+      "code": "E08000005",
+      "name": "Rochdale",
+      "attainment8": 46.2
+    },
+    {
+      "code": "E08000006",
+      "name": "Salford",
+      "attainment8": 42.6
+    },
+    {
+      "code": "E08000028",
+      "name": "Sandwell",
+      "attainment8": 44.4
+    },
+    {
+      "code": "E08000029",
+      "name": "Solihull",
+      "attainment8": 48.2
+    },
+    {
       "code": "E09000028",
       "name": "Southwark",
       "attainment8": 52.4
+    },
+    {
+      "code": "E08000007",
+      "name": "Stockport",
+      "attainment8": 52.7
     },
     {
       "code": "E09000029",
@@ -146,9 +226,29 @@
       "attainment8": 62.0
     },
     {
+      "code": "E08000008",
+      "name": "Tameside",
+      "attainment8": 45.8
+    },
+    {
       "code": "E09000030",
       "name": "Tower Hamlets",
       "attainment8": 51.7
+    },
+    {
+      "code": "E08000009",
+      "name": "Trafford",
+      "attainment8": 60.2
+    },
+    {
+      "code": "E08000036",
+      "name": "Wakefield",
+      "attainment8": 47.0
+    },
+    {
+      "code": "E08000030",
+      "name": "Walsall",
+      "attainment8": 44.5
     },
     {
       "code": "E09000031",
@@ -164,6 +264,16 @@
       "code": "E09000033",
       "name": "Westminster",
       "attainment8": 57.6
+    },
+    {
+      "code": "E08000010",
+      "name": "Wigan",
+      "attainment8": 46.4
+    },
+    {
+      "code": "E08000031",
+      "name": "Wolverhampton",
+      "attainment8": 46.3
     }
   ]
 }
