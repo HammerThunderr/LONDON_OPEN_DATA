@@ -1,7 +1,7 @@
 {
   "source": "https://gis-tfl.opendata.arcgis.com/api/download/v1/items/a1ac85edd51a42c9a7f86e2763bb7bdf/csv?layers=30",
   "dataset": "LSOA aggregated PTAL stats 2023",
-  "scraped_at": "2026-06-19T22:15:36+00:00",
+  "scraped_at": "2026-06-20T09:13:17+00:00",
   "note": "Mean PTAL per borough: unweighted mean of LSOA mean values (grades mapped 1a=1, 1b=1.5, ... 6a=6, 6b=6.5). TfL WebCAT.",
   "boroughs": [
     {
