@@ -1,6 +1,6 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-19T22:15:36+00:00",
+  "scraped_at": "2026-06-20T08:04:32+00:00",
   "metrics": [
     "crime",
     "rent",
@@ -14,9 +14,81 @@
     {
       "id": "london",
       "name": "London"
+    },
+    {
+      "id": "greater_manchester",
+      "name": "Greater Manchester"
+    },
+    {
+      "id": "west_midlands",
+      "name": "West Midlands"
+    },
+    {
+      "id": "west_yorkshire",
+      "name": "West Yorkshire"
     }
   ],
   "boroughs": [
+    {
+      "code": "E08000001",
+      "name": "Bolton",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000002",
+      "name": "Bury",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000003",
+      "name": "Manchester",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000004",
+      "name": "Oldham",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000005",
+      "name": "Rochdale",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000006",
+      "name": "Salford",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000007",
+      "name": "Stockport",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000008",
+      "name": "Tameside",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000009",
+      "name": "Trafford",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
+    {
+      "code": "E08000010",
+      "name": "Wigan",
+      "city": "greater_manchester",
+      "metrics": {}
+    },
     {
       "code": "E09000002",
       "name": "Barking and Dagenham",
@@ -28,7 +100,7 @@
           "percentile": 51.6
         },
         "rent": {
-          "raw": 1688.0,
+          "raw": 1690.0,
           "unit": "£/month",
           "percentile": 80.6
         },
@@ -70,7 +142,7 @@
           "percentile": 74.2
         },
         "rent": {
-          "raw": 1931.0,
+          "raw": 1934.0,
           "unit": "£/month",
           "percentile": 51.6
         },
@@ -112,7 +184,7 @@
           "percentile": 90.3
         },
         "rent": {
-          "raw": 1525.0,
+          "raw": 1528.0,
           "unit": "£/month",
           "percentile": 100.0
         },
@@ -154,7 +226,7 @@
           "percentile": 41.9
         },
         "rent": {
-          "raw": 1990.0,
+          "raw": 2005.0,
           "unit": "£/month",
           "percentile": 45.2
         },
@@ -196,7 +268,7 @@
           "percentile": 80.6
         },
         "rent": {
-          "raw": 1673.0,
+          "raw": 1675.0,
           "unit": "£/month",
           "percentile": 83.9
         },
@@ -238,7 +310,7 @@
           "percentile": 3.2
         },
         "rent": {
-          "raw": 2724.0,
+          "raw": 2759.0,
           "unit": "£/month",
           "percentile": 12.9
         },
@@ -307,9 +379,9 @@
           "percentile": 61.3
         },
         "rent": {
-          "raw": 1565.0,
+          "raw": 1572.0,
           "unit": "£/month",
-          "percentile": 88.7
+          "percentile": 87.1
         },
         "council_tax": {
           "raw": 2599.91,
@@ -349,7 +421,7 @@
           "percentile": 54.8
         },
         "rent": {
-          "raw": 2057.0,
+          "raw": 2060.0,
           "unit": "£/month",
           "percentile": 41.9
         },
@@ -391,7 +463,7 @@
           "percentile": 58.1
         },
         "rent": {
-          "raw": 1775.0,
+          "raw": 1788.0,
           "unit": "£/month",
           "percentile": 67.7
         },
@@ -433,7 +505,7 @@
           "percentile": 45.2
         },
         "rent": {
-          "raw": 1949.0,
+          "raw": 1952.0,
           "unit": "£/month",
           "percentile": 48.4
         },
@@ -475,7 +547,7 @@
           "percentile": 16.1
         },
         "rent": {
-          "raw": 2615.0,
+          "raw": 2622.0,
           "unit": "£/month",
           "percentile": 16.1
         },
@@ -517,7 +589,7 @@
           "percentile": 29.0
         },
         "rent": {
-          "raw": 2755.0,
+          "raw": 2770.0,
           "unit": "£/month",
           "percentile": 9.7
         },
@@ -559,7 +631,7 @@
           "percentile": 32.3
         },
         "rent": {
-          "raw": 2214.0,
+          "raw": 2212.0,
           "unit": "£/month",
           "percentile": 35.5
         },
@@ -601,7 +673,7 @@
           "percentile": 87.1
         },
         "rent": {
-          "raw": 1755.0,
+          "raw": 1759.0,
           "unit": "£/month",
           "percentile": 74.2
         },
@@ -643,9 +715,9 @@
           "percentile": 77.4
         },
         "rent": {
-          "raw": 1565.0,
+          "raw": 1564.0,
           "unit": "£/month",
-          "percentile": 88.7
+          "percentile": 90.3
         },
         "council_tax": {
           "raw": 2424.66,
@@ -685,7 +757,7 @@
           "percentile": 35.5
         },
         "rent": {
-          "raw": 1553.0,
+          "raw": 1557.0,
           "unit": "£/month",
           "percentile": 93.5
         },
@@ -727,7 +799,7 @@
           "percentile": 48.4
         },
         "rent": {
-          "raw": 1922.0,
+          "raw": 1933.0,
           "unit": "£/month",
           "percentile": 54.8
         },
@@ -769,7 +841,7 @@
           "percentile": 9.7
         },
         "rent": {
-          "raw": 2811.0,
+          "raw": 2828.0,
           "unit": "£/month",
           "percentile": 6.5
         },
@@ -811,7 +883,7 @@
           "percentile": 6.5
         },
         "rent": {
-          "raw": 3597.0,
+          "raw": 3591.0,
           "unit": "£/month",
           "percentile": 0.0
         },
@@ -853,7 +925,7 @@
           "percentile": 83.9
         },
         "rent": {
-          "raw": 1799.0,
+          "raw": 1803.0,
           "unit": "£/month",
           "percentile": 64.5
         },
@@ -895,7 +967,7 @@
           "percentile": 19.4
         },
         "rent": {
-          "raw": 2529.0,
+          "raw": 2527.0,
           "unit": "£/month",
           "percentile": 22.6
         },
@@ -937,7 +1009,7 @@
           "percentile": 38.7
         },
         "rent": {
-          "raw": 1816.0,
+          "raw": 1821.0,
           "unit": "£/month",
           "percentile": 61.3
         },
@@ -979,7 +1051,7 @@
           "percentile": 96.8
         },
         "rent": {
-          "raw": 2097.0,
+          "raw": 2114.0,
           "unit": "£/month",
           "percentile": 38.7
         },
@@ -1021,7 +1093,7 @@
           "percentile": 25.8
         },
         "rent": {
-          "raw": 1918.0,
+          "raw": 1923.0,
           "unit": "£/month",
           "percentile": 58.1
         },
@@ -1063,7 +1135,7 @@
           "percentile": 71.0
         },
         "rent": {
-          "raw": 1724.0,
+          "raw": 1725.0,
           "unit": "£/month",
           "percentile": 77.4
         },
@@ -1105,7 +1177,7 @@
           "percentile": 100.0
         },
         "rent": {
-          "raw": 2307.0,
+          "raw": 2305.0,
           "unit": "£/month",
           "percentile": 32.3
         },
@@ -1147,7 +1219,7 @@
           "percentile": 12.9
         },
         "rent": {
-          "raw": 2395.0,
+          "raw": 2394.0,
           "unit": "£/month",
           "percentile": 29.0
         },
@@ -1189,7 +1261,7 @@
           "percentile": 93.5
         },
         "rent": {
-          "raw": 1547.0,
+          "raw": 1550.0,
           "unit": "£/month",
           "percentile": 96.8
         },
@@ -1231,7 +1303,7 @@
           "percentile": 22.6
         },
         "rent": {
-          "raw": 2410.0,
+          "raw": 2419.0,
           "unit": "£/month",
           "percentile": 25.8
         },
@@ -1273,7 +1345,7 @@
           "percentile": 64.5
         },
         "rent": {
-          "raw": 1758.0,
+          "raw": 1763.0,
           "unit": "£/month",
           "percentile": 71.0
         },
@@ -1357,7 +1429,7 @@
           "percentile": 0.0
         },
         "rent": {
-          "raw": 3149.0,
+          "raw": 3163.0,
           "unit": "£/month",
           "percentile": 3.2
         },
@@ -1387,6 +1459,78 @@
           "percentile": 87.1
         }
       }
+    },
+    {
+      "code": "E08000025",
+      "name": "Birmingham",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000026",
+      "name": "Coventry",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000027",
+      "name": "Dudley",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000028",
+      "name": "Sandwell",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000029",
+      "name": "Solihull",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000030",
+      "name": "Walsall",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000031",
+      "name": "Wolverhampton",
+      "city": "west_midlands",
+      "metrics": {}
+    },
+    {
+      "code": "E08000032",
+      "name": "Bradford",
+      "city": "west_yorkshire",
+      "metrics": {}
+    },
+    {
+      "code": "E08000033",
+      "name": "Calderdale",
+      "city": "west_yorkshire",
+      "metrics": {}
+    },
+    {
+      "code": "E08000034",
+      "name": "Kirklees",
+      "city": "west_yorkshire",
+      "metrics": {}
+    },
+    {
+      "code": "E08000035",
+      "name": "Leeds",
+      "city": "west_yorkshire",
+      "metrics": {}
+    },
+    {
+      "code": "E08000036",
+      "name": "Wakefield",
+      "city": "west_yorkshire",
+      "metrics": {}
     }
   ]
 }

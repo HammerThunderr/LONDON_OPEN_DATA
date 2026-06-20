@@ -1,158 +1,158 @@
 {
   "source": "https://www.ons.gov.uk/economy/inflationandpriceindices/datasets/priceindexofprivaterentsukmonthlypricestatistics",
-  "scraped_at": "2026-06-13T07:46:22+00:00",
-  "value_label": "Rental price (Apr 2026)",
+  "scraped_at": "2026-06-20T08:04:32+00:00",
+  "value_label": "Rental price (May 2026)",
   "note": "ONS Price Index of Private Rents (PIPR): average monthly private rent, all categories. City of London not published by ONS (low sample).",
   "boroughs": [
     {
       "code": "E09000002",
       "name": "Barking and Dagenham",
-      "monthly_rent": 1688.0
+      "monthly_rent": 1690.0
     },
     {
       "code": "E09000003",
       "name": "Barnet",
-      "monthly_rent": 1931.0
+      "monthly_rent": 1934.0
     },
     {
       "code": "E09000004",
       "name": "Bexley",
-      "monthly_rent": 1525.0
+      "monthly_rent": 1528.0
     },
     {
       "code": "E09000005",
       "name": "Brent",
-      "monthly_rent": 1990.0
+      "monthly_rent": 2005.0
     },
     {
       "code": "E09000006",
       "name": "Bromley",
-      "monthly_rent": 1673.0
+      "monthly_rent": 1675.0
     },
     {
       "code": "E09000007",
       "name": "Camden",
-      "monthly_rent": 2724.0
+      "monthly_rent": 2759.0
     },
     {
       "code": "E09000008",
       "name": "Croydon",
-      "monthly_rent": 1565.0
+      "monthly_rent": 1572.0
     },
     {
       "code": "E09000009",
       "name": "Ealing",
-      "monthly_rent": 2057.0
+      "monthly_rent": 2060.0
     },
     {
       "code": "E09000010",
       "name": "Enfield",
-      "monthly_rent": 1775.0
+      "monthly_rent": 1788.0
     },
     {
       "code": "E09000011",
       "name": "Greenwich",
-      "monthly_rent": 1949.0
+      "monthly_rent": 1952.0
     },
     {
       "code": "E09000012",
       "name": "Hackney",
-      "monthly_rent": 2615.0
+      "monthly_rent": 2622.0
     },
     {
       "code": "E09000013",
       "name": "Hammersmith and Fulham",
-      "monthly_rent": 2755.0
+      "monthly_rent": 2770.0
     },
     {
       "code": "E09000014",
       "name": "Haringey",
-      "monthly_rent": 2214.0
+      "monthly_rent": 2212.0
     },
     {
       "code": "E09000015",
       "name": "Harrow",
-      "monthly_rent": 1755.0
+      "monthly_rent": 1759.0
     },
     {
       "code": "E09000016",
       "name": "Havering",
-      "monthly_rent": 1565.0
+      "monthly_rent": 1564.0
     },
     {
       "code": "E09000017",
       "name": "Hillingdon",
-      "monthly_rent": 1553.0
+      "monthly_rent": 1557.0
     },
     {
       "code": "E09000018",
       "name": "Hounslow",
-      "monthly_rent": 1922.0
+      "monthly_rent": 1933.0
     },
     {
       "code": "E09000019",
       "name": "Islington",
-      "monthly_rent": 2811.0
+      "monthly_rent": 2828.0
     },
     {
       "code": "E09000020",
       "name": "Kensington and Chelsea",
-      "monthly_rent": 3597.0
+      "monthly_rent": 3591.0
     },
     {
       "code": "E09000021",
       "name": "Kingston upon Thames",
-      "monthly_rent": 1799.0
+      "monthly_rent": 1803.0
     },
     {
       "code": "E09000022",
       "name": "Lambeth",
-      "monthly_rent": 2529.0
+      "monthly_rent": 2527.0
     },
     {
       "code": "E09000023",
       "name": "Lewisham",
-      "monthly_rent": 1816.0
+      "monthly_rent": 1821.0
     },
     {
       "code": "E09000024",
       "name": "Merton",
-      "monthly_rent": 2097.0
+      "monthly_rent": 2114.0
     },
     {
       "code": "E09000025",
       "name": "Newham",
-      "monthly_rent": 1918.0
+      "monthly_rent": 1923.0
     },
     {
       "code": "E09000026",
       "name": "Redbridge",
-      "monthly_rent": 1724.0
+      "monthly_rent": 1725.0
     },
     {
       "code": "E09000027",
       "name": "Richmond upon Thames",
-      "monthly_rent": 2307.0
+      "monthly_rent": 2305.0
     },
     {
       "code": "E09000028",
       "name": "Southwark",
-      "monthly_rent": 2395.0
+      "monthly_rent": 2394.0
     },
     {
       "code": "E09000029",
       "name": "Sutton",
-      "monthly_rent": 1547.0
+      "monthly_rent": 1550.0
     },
     {
       "code": "E09000030",
       "name": "Tower Hamlets",
-      "monthly_rent": 2410.0
+      "monthly_rent": 2419.0
     },
     {
       "code": "E09000031",
       "name": "Waltham Forest",
-      "monthly_rent": 1758.0
+      "monthly_rent": 1763.0
     },
     {
       "code": "E09000032",
@@ -162,7 +162,7 @@
     {
       "code": "E09000033",
       "name": "Westminster",
-      "monthly_rent": 3149.0
+      "monthly_rent": 3163.0
     }
   ]
 }
