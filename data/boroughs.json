@@ -1,6 +1,6 @@
 {
   "source": "https://github.com/HammerThunderr/LONDON_OPEN_DATA",
-  "scraped_at": "2026-06-20T08:04:32+00:00",
+  "scraped_at": "2026-06-20T09:05:15+00:00",
   "metrics": [
     "crime",
     "rent",
@@ -33,61 +33,121 @@
       "code": "E08000001",
       "name": "Bolton",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 6.87,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 88.9
+        }
+      }
     },
     {
       "code": "E08000002",
       "name": "Bury",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.11,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 61.1
+        }
+      }
     },
     {
       "code": "E08000003",
       "name": "Manchester",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.71,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 0.0
+        }
+      }
     },
     {
       "code": "E08000004",
       "name": "Oldham",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.51,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 22.2
+        }
+      }
     },
     {
       "code": "E08000005",
       "name": "Rochdale",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.08,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 77.8
+        }
+      }
     },
     {
       "code": "E08000006",
       "name": "Salford",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.46,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 33.3
+        }
+      }
     },
     {
       "code": "E08000007",
       "name": "Stockport",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.29,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 44.4
+        }
+      }
     },
     {
       "code": "E08000008",
       "name": "Tameside",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.61,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 11.1
+        }
+      }
     },
     {
       "code": "E08000009",
       "name": "Trafford",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.11,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 61.1
+        }
+      }
     },
     {
       "code": "E08000010",
       "name": "Wigan",
       "city": "greater_manchester",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 6.69,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 100.0
+        }
+      }
     },
     {
       "code": "E09000002",
@@ -1464,73 +1524,145 @@
       "code": "E08000025",
       "name": "Birmingham",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.89,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 33.3
+        }
+      }
     },
     {
       "code": "E08000026",
       "name": "Coventry",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.52,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 50.0
+        }
+      }
     },
     {
       "code": "E08000027",
       "name": "Dudley",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.31,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 100.0
+        }
+      }
     },
     {
       "code": "E08000028",
       "name": "Sandwell",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 8.02,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 16.7
+        }
+      }
     },
     {
       "code": "E08000029",
       "name": "Solihull",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.37,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 83.3
+        }
+      }
     },
     {
       "code": "E08000030",
       "name": "Walsall",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 8.04,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 0.0
+        }
+      }
     },
     {
       "code": "E08000031",
       "name": "Wolverhampton",
       "city": "west_midlands",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.4,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 66.7
+        }
+      }
     },
     {
       "code": "E08000032",
       "name": "Bradford",
       "city": "west_yorkshire",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 6.92,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 75.0
+        }
+      }
     },
     {
       "code": "E08000033",
       "name": "Calderdale",
       "city": "west_yorkshire",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 6.59,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 100.0
+        }
+      }
     },
     {
       "code": "E08000034",
       "name": "Kirklees",
       "city": "west_yorkshire",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.02,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 50.0
+        }
+      }
     },
     {
       "code": "E08000035",
       "name": "Leeds",
       "city": "west_yorkshire",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.36,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 0.0
+        }
+      }
     },
     {
       "code": "E08000036",
       "name": "Wakefield",
       "city": "west_yorkshire",
-      "metrics": {}
+      "metrics": {
+        "air_quality": {
+          "raw": 7.14,
+          "unit": "µg/m³ PM2.5",
+          "percentile": 25.0
+        }
+      }
     }
   ]
 }

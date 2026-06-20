@@ -1,6 +1,6 @@
 {
   "source": "https://uk-air.defra.gov.uk/datastore/pcm/popwmpm252024byUKlocalauthority.csv",
-  "scraped_at": "2026-06-19T22:10:12+00:00",
+  "scraped_at": "2026-06-20T09:05:15+00:00",
   "year": 2024,
   "note": "Defra PCM model: population-weighted annual mean PM2.5 (total), µg/m³. Weighted to where residents live.",
   "boroughs": [
@@ -20,6 +20,21 @@
       "pm25_total": 8.51
     },
     {
+      "code": "E08000025",
+      "name": "Birmingham",
+      "pm25_total": 7.89
+    },
+    {
+      "code": "E08000001",
+      "name": "Bolton",
+      "pm25_total": 6.87
+    },
+    {
+      "code": "E08000032",
+      "name": "Bradford",
+      "pm25_total": 6.92
+    },
+    {
       "code": "E09000005",
       "name": "Brent",
       "pm25_total": 8.91
@@ -28,6 +43,16 @@
       "code": "E09000006",
       "name": "Bromley",
       "pm25_total": 8.13
+    },
+    {
+      "code": "E08000002",
+      "name": "Bury",
+      "pm25_total": 7.11
+    },
+    {
+      "code": "E08000033",
+      "name": "Calderdale",
+      "pm25_total": 6.59
     },
     {
       "code": "E09000007",
@@ -40,9 +65,19 @@
       "pm25_total": 10.96
     },
     {
+      "code": "E08000026",
+      "name": "Coventry",
+      "pm25_total": 7.52
+    },
+    {
       "code": "E09000008",
       "name": "Croydon",
       "pm25_total": 8.42
+    },
+    {
+      "code": "E08000027",
+      "name": "Dudley",
+      "pm25_total": 7.31
     },
     {
       "code": "E09000009",
@@ -110,14 +145,29 @@
       "pm25_total": 8.25
     },
     {
+      "code": "E08000034",
+      "name": "Kirklees",
+      "pm25_total": 7.02
+    },
+    {
       "code": "E09000022",
       "name": "Lambeth",
       "pm25_total": 9.28
     },
     {
+      "code": "E08000035",
+      "name": "Leeds",
+      "pm25_total": 7.36
+    },
+    {
       "code": "E09000023",
       "name": "Lewisham",
       "pm25_total": 9.02
+    },
+    {
+      "code": "E08000003",
+      "name": "Manchester",
+      "pm25_total": 7.71
     },
     {
       "code": "E09000024",
@@ -130,6 +180,11 @@
       "pm25_total": 9.64
     },
     {
+      "code": "E08000004",
+      "name": "Oldham",
+      "pm25_total": 7.51
+    },
+    {
       "code": "E09000026",
       "name": "Redbridge",
       "pm25_total": 8.97
@@ -140,9 +195,34 @@
       "pm25_total": 8.33
     },
     {
+      "code": "E08000005",
+      "name": "Rochdale",
+      "pm25_total": 7.08
+    },
+    {
+      "code": "E08000006",
+      "name": "Salford",
+      "pm25_total": 7.46
+    },
+    {
+      "code": "E08000028",
+      "name": "Sandwell",
+      "pm25_total": 8.02
+    },
+    {
+      "code": "E08000029",
+      "name": "Solihull",
+      "pm25_total": 7.37
+    },
+    {
       "code": "E09000028",
       "name": "Southwark",
       "pm25_total": 9.51
+    },
+    {
+      "code": "E08000007",
+      "name": "Stockport",
+      "pm25_total": 7.29
     },
     {
       "code": "E09000029",
@@ -150,9 +230,29 @@
       "pm25_total": 8.2
     },
     {
+      "code": "E08000008",
+      "name": "Tameside",
+      "pm25_total": 7.61
+    },
+    {
       "code": "E09000030",
       "name": "Tower Hamlets",
       "pm25_total": 9.81
+    },
+    {
+      "code": "E08000009",
+      "name": "Trafford",
+      "pm25_total": 7.11
+    },
+    {
+      "code": "E08000036",
+      "name": "Wakefield",
+      "pm25_total": 7.14
+    },
+    {
+      "code": "E08000030",
+      "name": "Walsall",
+      "pm25_total": 8.04
     },
     {
       "code": "E09000031",
@@ -168,6 +268,16 @@
       "code": "E09000033",
       "name": "Westminster",
       "pm25_total": 9.71
+    },
+    {
+      "code": "E08000010",
+      "name": "Wigan",
+      "pm25_total": 6.69
+    },
+    {
+      "code": "E08000031",
+      "name": "Wolverhampton",
+      "pm25_total": 7.4
     }
   ]
 }
