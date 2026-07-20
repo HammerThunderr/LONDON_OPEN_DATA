@@ -1,6 +1,6 @@
 {
   "source": "https://www.ons.gov.uk/peoplepopulationandcommunity/crimeandjustice/datasets/recordedcrimedatabycommunitysafetypartnershiparea",
-  "scraped_at": "2026-07-13T07:46:25+00:00",
+  "scraped_at": "2026-07-20T07:35:19+00:00",
   "value_label": "Possession of weapons offences / 960",
   "note": "ONS recorded crime by Community Safety Partnership (= local authority): total offences rate per 1,000 residents, latest year. One national source across all cities.",
   "boroughs": [
