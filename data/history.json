@@ -1,0 +1,127 @@
+[
+  {
+    "collected_at": "2026-09-05T12:56:12.911700+00:00",
+    "sectors": [
+      {
+        "tag": "accounting-finance-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "it-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "sales-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "customer-services-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "engineering-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "hr-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "healthcare-nursing-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "hospitality-catering-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "pr-advertising-marketing-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "logistics-warehouse-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "teaching-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "trade-construction-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "admin-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "legal-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "creative-design-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "graduate-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "retail-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "consultancy-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "manufacturing-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "scientific-qa-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "social-work-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "travel-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "energy-oil-gas-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "property-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "charity-voluntary-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "domestic-help-cleaning-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "maintenance-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "part-time-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "other-general-jobs",
+        "regional_vacancies": []
+      },
+      {
+        "tag": "unknown",
+        "regional_vacancies": []
+      }
+    ]
+  }
+]

@@ -1,0 +1,215 @@
+{
+  "collected_at": "2026-09-05T12:56:12.911700+00:00",
+  "sectors": [
+    {
+      "label": "Accounting & Finance Jobs",
+      "tag": "accounting-finance-jobs",
+      "representative_title": "Accounting & Finance",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "IT Jobs",
+      "tag": "it-jobs",
+      "representative_title": "IT",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Sales Jobs",
+      "tag": "sales-jobs",
+      "representative_title": "Sales",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Customer Services Jobs",
+      "tag": "customer-services-jobs",
+      "representative_title": "Customer Services",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Engineering Jobs",
+      "tag": "engineering-jobs",
+      "representative_title": "Engineering",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "HR & Recruitment Jobs",
+      "tag": "hr-jobs",
+      "representative_title": "HR & Recruitment",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Healthcare & Nursing Jobs",
+      "tag": "healthcare-nursing-jobs",
+      "representative_title": "Healthcare & Nursing",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Hospitality & Catering Jobs",
+      "tag": "hospitality-catering-jobs",
+      "representative_title": "Hospitality & Catering",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "PR, Advertising & Marketing Jobs",
+      "tag": "pr-advertising-marketing-jobs",
+      "representative_title": "PR, Advertising & Marketing",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Logistics & Warehouse Jobs",
+      "tag": "logistics-warehouse-jobs",
+      "representative_title": "Logistics & Warehouse",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Teaching Jobs",
+      "tag": "teaching-jobs",
+      "representative_title": "Teaching",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Trade & Construction Jobs",
+      "tag": "trade-construction-jobs",
+      "representative_title": "Trade & Construction",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Admin Jobs",
+      "tag": "admin-jobs",
+      "representative_title": "Admin",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Legal Jobs",
+      "tag": "legal-jobs",
+      "representative_title": "Legal",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Creative & Design Jobs",
+      "tag": "creative-design-jobs",
+      "representative_title": "Creative & Design",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Graduate Jobs",
+      "tag": "graduate-jobs",
+      "representative_title": "Graduate",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Retail Jobs",
+      "tag": "retail-jobs",
+      "representative_title": "Retail",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Consultancy Jobs",
+      "tag": "consultancy-jobs",
+      "representative_title": "Consultancy",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Manufacturing Jobs",
+      "tag": "manufacturing-jobs",
+      "representative_title": "Manufacturing",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Scientific & QA Jobs",
+      "tag": "scientific-qa-jobs",
+      "representative_title": "Scientific & QA",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Social work Jobs",
+      "tag": "social-work-jobs",
+      "representative_title": "Social work",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Travel Jobs",
+      "tag": "travel-jobs",
+      "representative_title": "Travel",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Energy, Oil & Gas Jobs",
+      "tag": "energy-oil-gas-jobs",
+      "representative_title": "Energy, Oil & Gas",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Property Jobs",
+      "tag": "property-jobs",
+      "representative_title": "Property",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Charity & Voluntary Jobs",
+      "tag": "charity-voluntary-jobs",
+      "representative_title": "Charity & Voluntary",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Domestic help & Cleaning Jobs",
+      "tag": "domestic-help-cleaning-jobs",
+      "representative_title": "Domestic help & Cleaning",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Maintenance Jobs",
+      "tag": "maintenance-jobs",
+      "representative_title": "Maintenance",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Part time Jobs",
+      "tag": "part-time-jobs",
+      "representative_title": "Part time",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Other/General Jobs",
+      "tag": "other-general-jobs",
+      "representative_title": "Other/General",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    },
+    {
+      "label": "Unknown",
+      "tag": "unknown",
+      "representative_title": "Unknown",
+      "regional_vacancies": [],
+      "salary_trend": {}
+    }
+  ]
+}
