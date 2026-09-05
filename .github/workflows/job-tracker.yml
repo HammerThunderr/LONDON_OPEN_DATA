@@ -26,7 +26,7 @@ jobs:
         env:
           ADZUNA_APP_ID: ${{ secrets.ADZUNA_APP_ID }}
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
-        run: python adzuna_uk_tracker.py
+        run: python script/adzuna_uk_tracker.py
 
       - name: Commit updated data
         run: |
