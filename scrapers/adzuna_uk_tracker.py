@@ -2,23 +2,27 @@
 """
 UK Job Market Tracker — Adzuna data collector
 
-Fetches sector categories and, for each one, a real monthly average-salary
-trend (UK-wide) via Adzuna's jobs/{country}/history endpoint. Writes a
-dated snapshot and updates a rolling history file that the Flutter app
-will read.
+For each sector category, collects two different things:
 
-Confirmed response shape for jobs/gb/history?category=X&location0=UK:
-    {
-      "month": {"2026-08": 68397.91, "2026-07": 67645.79, ...},
-      "location": {"display_name": "UK", "area": ["UK"]},
-      "__CLASS__": "Adzuna::API::Response::HistoricalSalary"
-    }
-There is no separate salary endpoint and no "locations" list when a
-category is included — that was the bug in the previous version.
+  1. SALARY TREND — a 12-month average-salary series, via
+     jobs/{country}/history. Confirmed response shape:
+        {"month": {"2026-08": 68397.91, ...}, "location": {...}}
+     Note there is no separate salary endpoint, and no "locations" list
+     comes back when a category is included.
+
+  2. VACANCY COUNT — how many jobs are currently advertised, via
+     jobs/{country}/search/1 with results_per_page=1, reading the
+     top-level "count" field.
+
+Both matter and they move independently: a sector's average salary can
+rise precisely because hiring collapsed and only senior roles are left
+advertised. Salary alone is a pay-level signal, not a demand signal.
+
+Collected for both UK-wide and London, so a London-focused app can show
+local figures and the national comparison side by side.
 
 Credentials come from environment variables — never hardcode them here,
-especially since this repo is likely going to be public (GitHub Pages
-free tier requires a public repo).
+this repo is public.
 
 Required env vars:
     ADZUNA_APP_ID
@@ -28,10 +32,6 @@ Local run:
     export ADZUNA_APP_ID=xxxx
     export ADZUNA_APP_KEY=xxxx
     python adzuna_uk_tracker.py
-
-In GitHub Actions, set these as repo secrets (Settings > Secrets and
-variables > Actions) and pass them into the job's `env:` block — see
-job-tracker.yml.
 """
 
 import os
@@ -47,12 +47,23 @@ APP_KEY = os.environ.get("ADZUNA_APP_KEY")
 COUNTRY = "gb"
 BASE = f"https://api.adzuna.com/v1/api/jobs/{COUNTRY}"
 
-# Region-level breakdown (category x region) is NOT fetched yet — that's
-# 30 categories x ~12 regions = 300+ extra calls per run, and we haven't
-# confirmed the free-tier daily call limit on this account. Flip this on
-# once that's checked, and the fetch_category_trend() calls below can be
-# looped per-region using the list fetch_uk_regions() returns.
-INCLUDE_REGIONAL_BREAKDOWN = False
+# Areas to collect for. None = UK-wide (no location1 filter).
+# ~30 categories x 2 areas x 2 calls each = ~120 calls per run, which is
+# comfortably inside the free tier's few-hundred-per-day allowance.
+AREAS = [
+    ("uk", None),
+    ("london", "London"),
+]
+
+# Fail the run if more than this fraction of sector fetches come back
+# empty. Two earlier runs of this script reported success while
+# collecting nothing at all, because every failure was caught and logged
+# rather than raised — this guard makes that show up as a red build.
+MAX_EMPTY_FRACTION = 0.33
+
+# Keep only the N most recent dated snapshot files; latest.json and
+# history.json are what the app actually reads.
+KEEP_SNAPSHOTS = 12
 
 DATA_DIR = Path("data")
 HISTORY_FILE = DATA_DIR / "history.json"
@@ -89,19 +100,8 @@ def fetch_categories():
     return [{"label": c["label"], "tag": c["tag"]} for c in data.get("results", [])]
 
 
-def fetch_uk_regions():
-    """
-    Top-level UK regions. Only works with NO category filter — adding
-    category switches the response to a salary-trend dict instead of a
-    locations list (see module docstring).
-    """
-    data = get(f"{BASE}/history", {"location0": "UK"})
-    locations = data.get("locations", [])
-    return [loc["location"]["display_name"] for loc in locations]
-
-
-def fetch_category_trend(category_tag, location1=None):
-    """Monthly average-salary trend for a category, UK-wide or one region."""
+def fetch_salary_trend(category_tag, location1=None):
+    """Monthly average-salary series for a category, UK-wide or one area."""
     params = {"category": category_tag, "location0": "UK"}
     if location1:
         params["location1"] = location1
@@ -109,47 +109,91 @@ def fetch_category_trend(category_tag, location1=None):
     return data.get("month", {})
 
 
+def fetch_vacancy_count(category_tag, location1=None):
+    """
+    Current number of advertised vacancies for a category.
+
+    Uses the search endpoint with results_per_page=1 — we only want the
+    top-level "count", not the listings themselves.
+
+    NOT verified live from the dev sandbox (api.adzuna.com is
+    unreachable there), so smoke-test one URL by hand before trusting a
+    scheduled run — see the note in the handoff.
+    """
+    params = {
+        "category": category_tag,
+        "location0": "UK",
+        "results_per_page": 1,
+    }
+    if location1:
+        params["location1"] = location1
+    data = get(f"{BASE}/search/1", params)
+    return data.get("count")
+
+
 def build_snapshot():
     categories = fetch_categories()
-    regions = []
-    try:
-        regions = fetch_uk_regions()
-    except requests.RequestException as e:
-        print(f"region list fetch failed: {e}")
+    if not categories:
+        sys.exit("No categories returned — aborting rather than writing an empty snapshot.")
 
     snapshot = {
         "collected_at": datetime.now(timezone.utc).isoformat(),
-        "uk_regions": regions,
+        "areas": [name for name, _ in AREAS],
         "sectors": [],
     }
 
+    empty_sectors = 0
+
     for cat in categories:
         print(f"Fetching {cat['label']} ({cat['tag']}) ...")
-        try:
-            uk_trend = fetch_category_trend(cat["tag"])
-        except requests.RequestException as e:
-            print(f"  trend fetch failed: {e}")
-            uk_trend = {}
+        entry = {"label": cat["label"], "tag": cat["tag"], "areas": {}}
+        got_something = False
 
-        sector_entry = {
-            "label": cat["label"],
-            "tag": cat["tag"],
-            "salary_trend_uk": uk_trend,
-        }
+        for area_name, location1 in AREAS:
+            area_data = {}
 
-        if INCLUDE_REGIONAL_BREAKDOWN:
-            sector_entry["salary_trend_by_region"] = {}
-            for region in regions:
-                try:
-                    sector_entry["salary_trend_by_region"][region] = fetch_category_trend(
-                        cat["tag"], location1=region
-                    )
-                except requests.RequestException as e:
-                    print(f"  {region} trend fetch failed: {e}")
+            try:
+                area_data["salary_trend"] = fetch_salary_trend(cat["tag"], location1)
+            except requests.RequestException as e:
+                print(f"  [{area_name}] salary trend failed: {e}")
+                area_data["salary_trend"] = {}
 
-        snapshot["sectors"].append(sector_entry)
+            try:
+                area_data["vacancy_count"] = fetch_vacancy_count(cat["tag"], location1)
+            except requests.RequestException as e:
+                print(f"  [{area_name}] vacancy count failed: {e}")
+                area_data["vacancy_count"] = None
+
+            if area_data["salary_trend"] or area_data["vacancy_count"]:
+                got_something = True
+
+            entry["areas"][area_name] = area_data
+
+        if not got_something:
+            empty_sectors += 1
+            print(f"  !! nothing collected for {cat['label']}")
+
+        snapshot["sectors"].append(entry)
+
+    fraction_empty = empty_sectors / len(categories)
+    print(f"\n{empty_sectors}/{len(categories)} sectors came back empty "
+          f"({fraction_empty:.0%})")
+    if fraction_empty > MAX_EMPTY_FRACTION:
+        sys.exit(
+            f"Too many empty sectors ({fraction_empty:.0%} > "
+            f"{MAX_EMPTY_FRACTION:.0%}) — failing the run rather than "
+            f"committing a snapshot full of holes. Check the log above "
+            f"for the underlying API errors."
+        )
 
     return snapshot
+
+
+def prune_old_snapshots():
+    snapshots = sorted(DATA_DIR.glob("snapshot_*.json"))
+    for old in snapshots[:-KEEP_SNAPSHOTS]:
+        old.unlink()
+        print(f"Pruned {old}")
 
 
 def save_snapshot(snapshot):
@@ -163,17 +207,27 @@ def save_snapshot(snapshot):
     if HISTORY_FILE.exists():
         history = json.loads(HISTORY_FILE.read_text())
 
+    # Vacancy counts are point-in-time — this accumulating record is the
+    # ONLY way to get a demand trend over time, since Adzuna gives a
+    # current count but no vacancy history.
     history.append(
         {
             "collected_at": snapshot["collected_at"],
             "sectors": [
-                {"tag": s["tag"], "salary_trend_uk": s["salary_trend_uk"]}
+                {
+                    "tag": s["tag"],
+                    "vacancy_counts": {
+                        area: data.get("vacancy_count")
+                        for area, data in s["areas"].items()
+                    },
+                }
                 for s in snapshot["sectors"]
             ],
         }
     )
     HISTORY_FILE.write_text(json.dumps(history, indent=2))
 
+    prune_old_snapshots()
     print(f"Saved {dated_file}, updated {LATEST_FILE} and {HISTORY_FILE}")
 
 
