@@ -1,302 +1,1062 @@
 {
-  "generated_at": "2026-09-05T15:33:14.384506+00:00",
-  "method": "linear trend over available months, threshold-classified; forecast is a naive one-step linear extrapolation, not a validated model",
+  "generated_at": "2026-09-05T16:00:42.865970+00:00",
+  "method": "median-based trend classification with Theil-Sen slope; forecast is a naive one-step extrapolation, not a validated model. Salary figures are nominal \u2014 not adjusted for inflation.",
   "sectors": [
     {
       "label": "Accounting & Finance Jobs",
       "tag": "accounting-finance-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 2.22,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 51063.28,
-      "naive_next_month_forecast": 50951.46
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 2.22,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 51063.28,
+            "naive_next_month_forecast": 50951.46
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 30239
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 3.61,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 66559.63,
+            "naive_next_month_forecast": 65344.13
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 9192
+          }
+        }
+      }
     },
     {
       "label": "IT Jobs",
       "tag": "it-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 10.59,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 68397.91,
-      "naive_next_month_forecast": 69201.88
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 10.59,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 68397.91,
+            "naive_next_month_forecast": 69201.88
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 49002
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 8.54,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 84938,
+            "naive_next_month_forecast": 85519.44
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 19016
+          }
+        }
+      }
     },
     {
       "label": "Sales Jobs",
       "tag": "sales-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 5.51,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 43038.12,
-      "naive_next_month_forecast": 43236.85
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 5.51,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 43038.12,
+            "naive_next_month_forecast": 43236.85
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 35357
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 7.1,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 51929.77,
+            "naive_next_month_forecast": 51913.53
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 8543
+          }
+        }
+      }
     },
     {
       "label": "Customer Services Jobs",
       "tag": "customer-services-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 3.21,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 49181.88,
-      "naive_next_month_forecast": 31722.2
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 3.21,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 49181.88,
+            "naive_next_month_forecast": 31722.2
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 9108
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 3.82,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 64432.07,
+            "naive_next_month_forecast": 36235.08
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1133
+          }
+        }
+      }
     },
     {
       "label": "Engineering Jobs",
       "tag": "engineering-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 4.25,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 49672.38,
-      "naive_next_month_forecast": 49658.74
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 4.25,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 49672.38,
+            "naive_next_month_forecast": 49658.74
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 62372
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 6.58,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 56057.27,
+            "naive_next_month_forecast": 56060.06
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 7278
+          }
+        }
+      }
     },
     {
       "label": "HR & Recruitment Jobs",
       "tag": "hr-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 7.81,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 44548.39,
-      "naive_next_month_forecast": 46648.81
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 7.81,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 44548.39,
+            "naive_next_month_forecast": 46648.81
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 6877
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 6.65,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 54521.77,
+            "naive_next_month_forecast": 55753.73
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1736
+          }
+        }
+      }
     },
     {
       "label": "Healthcare & Nursing Jobs",
       "tag": "healthcare-nursing-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 4.59,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 52704.41,
-      "naive_next_month_forecast": 53368.54
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 4.59,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 52704.41,
+            "naive_next_month_forecast": 53368.54
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 29996
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 5.44,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 51379.02,
+            "naive_next_month_forecast": 53401.5
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 3365
+          }
+        }
+      }
     },
     {
       "label": "Hospitality & Catering Jobs",
       "tag": "hospitality-catering-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 3.22,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 32002.54,
-      "naive_next_month_forecast": 32300.4
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 3.22,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 32002.54,
+            "naive_next_month_forecast": 32300.4
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 45157
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 2.51,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 35715.67,
+            "naive_next_month_forecast": 36256.02
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 10971
+          }
+        }
+      }
     },
     {
       "label": "PR, Advertising & Marketing Jobs",
       "tag": "pr-advertising-marketing-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 5.54,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 43858.96,
-      "naive_next_month_forecast": 45506.19
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 5.54,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 43858.96,
+            "naive_next_month_forecast": 45506.19
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 9236
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 8.6,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 51244.86,
+            "naive_next_month_forecast": 51372.23
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 4450
+          }
+        }
+      }
     },
     {
       "label": "Logistics & Warehouse Jobs",
       "tag": "logistics-warehouse-jobs",
-      "months_available": 12,
-      "pct_change_over_window": -1.7,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 35635.42,
-      "naive_next_month_forecast": 35148.07
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -1.7,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 35635.42,
+            "naive_next_month_forecast": 35148.07
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 34719
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -1.69,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 38025.88,
+            "naive_next_month_forecast": 38594.07
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 2221
+          }
+        }
+      }
     },
     {
       "label": "Teaching Jobs",
       "tag": "teaching-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 4.4,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 37396.71,
-      "naive_next_month_forecast": 38587.38
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 4.4,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 37396.71,
+            "naive_next_month_forecast": 38587.38
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 187781
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 4.63,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 38336.47,
+            "naive_next_month_forecast": 40531.47
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 35926
+          }
+        }
+      }
     },
     {
       "label": "Trade & Construction Jobs",
       "tag": "trade-construction-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 3.99,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 55936.66,
-      "naive_next_month_forecast": 56025.23
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 3.99,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 55936.66,
+            "naive_next_month_forecast": 56025.23
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 66297
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 4.73,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 62306.91,
+            "naive_next_month_forecast": 62719.14
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 9016
+          }
+        }
+      }
     },
     {
       "label": "Admin Jobs",
       "tag": "admin-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 2.45,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 31645.45,
-      "naive_next_month_forecast": 31867.93
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 2.45,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 31645.45,
+            "naive_next_month_forecast": 31867.93
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 14711
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 1.81,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 37418.61,
+            "naive_next_month_forecast": 37533.79
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 2689
+          }
+        }
+      }
     },
     {
       "label": "Legal Jobs",
       "tag": "legal-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 1.25,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 58509.59,
-      "naive_next_month_forecast": 56988.34
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 1.25,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 58509.59,
+            "naive_next_month_forecast": 56988.34
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 11527
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -4.06,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 76341.97,
+            "naive_next_month_forecast": 73399.22
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 2576
+          }
+        }
+      }
     },
     {
       "label": "Creative & Design Jobs",
       "tag": "creative-design-jobs",
-      "months_available": 12,
-      "pct_change_over_window": -1.09,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 42489.51,
-      "naive_next_month_forecast": 41421.05
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -1.09,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 42489.51,
+            "naive_next_month_forecast": 41421.05
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 2406
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 5.0,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 48699.38,
+            "naive_next_month_forecast": 47538.71
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1129
+          }
+        }
+      }
     },
     {
       "label": "Graduate Jobs",
       "tag": "graduate-jobs",
-      "months_available": 12,
-      "pct_change_over_window": -0.0,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 30894.67,
-      "naive_next_month_forecast": 30496.47
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -0.0,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 30894.67,
+            "naive_next_month_forecast": 30496.47
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 4200
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -0.43,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 33699.42,
+            "naive_next_month_forecast": 33046.46
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1168
+          }
+        }
+      }
     },
     {
       "label": "Retail Jobs",
       "tag": "retail-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 4.45,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 33516.92,
-      "naive_next_month_forecast": 34865.71
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 4.45,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 33516.92,
+            "naive_next_month_forecast": 34865.71
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 14931
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 7.6,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 41941.25,
+            "naive_next_month_forecast": 42399.25
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1866
+          }
+        }
+      }
     },
     {
       "label": "Consultancy Jobs",
       "tag": "consultancy-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 12.87,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 52561.21,
-      "naive_next_month_forecast": 49615.01
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 12.87,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 52561.21,
+            "naive_next_month_forecast": 49615.01
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 5490
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 12.41,
+            "trend": "rising",
+            "latest_month": "2026-08",
+            "latest_salary": 58109.89,
+            "naive_next_month_forecast": 55609.22
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Manufacturing Jobs",
       "tag": "manufacturing-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 2.36,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 35382.35,
-      "naive_next_month_forecast": 35639.18
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Scientific & QA Jobs",
       "tag": "scientific-qa-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 4.01,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 47445.31,
-      "naive_next_month_forecast": 44037.84
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Social work Jobs",
       "tag": "social-work-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 3.54,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 37589.57,
-      "naive_next_month_forecast": 38298.37
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Travel Jobs",
       "tag": "travel-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 7.98,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 32740.81,
-      "naive_next_month_forecast": 33929.07
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Energy, Oil & Gas Jobs",
       "tag": "energy-oil-gas-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 0.5,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 47821.31,
-      "naive_next_month_forecast": 48934.8
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1326
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Property Jobs",
       "tag": "property-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 1.2,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 46204.4,
-      "naive_next_month_forecast": 46335.03
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 793
+          }
+        }
+      }
     },
     {
       "label": "Charity & Voluntary Jobs",
       "tag": "charity-voluntary-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 3.08,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 37811.64,
-      "naive_next_month_forecast": 39882.73
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 3.08,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 37811.64,
+            "naive_next_month_forecast": 39882.73
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 171
+          }
+        }
+      }
     },
     {
       "label": "Domestic help & Cleaning Jobs",
       "tag": "domestic-help-cleaning-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 9.22,
-      "trend": "rising",
-      "latest_month": "2026-08",
-      "latest_salary": 30969.75,
-      "naive_next_month_forecast": 31459.71
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 1704
+          }
+        }
+      }
     },
     {
       "label": "Maintenance Jobs",
       "tag": "maintenance-jobs",
-      "months_available": 12,
-      "pct_change_over_window": -0.67,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 37241.16,
-      "naive_next_month_forecast": 36807.4
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -0.67,
+            "trend": "stable",
+            "latest_month": "2026-08",
+            "latest_salary": 37241.16,
+            "naive_next_month_forecast": 36807.4
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 5369
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     },
     {
       "label": "Part time Jobs",
       "tag": "part-time-jobs",
-      "months_available": 0,
-      "trend": "insufficient_data"
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 50162
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 6143
+          }
+        }
+      }
     },
     {
       "label": "Other/General Jobs",
       "tag": "other-general-jobs",
-      "months_available": 12,
-      "pct_change_over_window": 4.94,
-      "trend": "stable",
-      "latest_month": "2026-08",
-      "latest_salary": 39020.17,
-      "naive_next_month_forecast": 41107.86
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 557
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 111
+          }
+        }
+      }
     },
     {
       "label": "Unknown",
       "tag": "unknown",
-      "months_available": 8,
-      "pct_change_over_window": -89.18,
-      "trend": "falling",
-      "latest_month": "2026-08",
-      "latest_salary": -3881.97,
-      "naive_next_month_forecast": -9128.92
+      "areas": {
+        "uk": {
+          "salary": {
+            "months_available": 8,
+            "pct_change": -89.18,
+            "trend": "falling",
+            "latest_month": "2026-08",
+            "latest_salary": -3881.97,
+            "naive_next_month_forecast": -9128.92
+          },
+          "demand": {
+            "snapshots_available": 1,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": 7
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 0,
+            "trend": "insufficient_data"
+          },
+          "demand": {
+            "snapshots_available": 0,
+            "trend": "accumulating",
+            "note": "needs 4 snapshots before a demand trend means anything",
+            "latest_count": null
+          }
+        }
+      }
     }
   ]
 }
