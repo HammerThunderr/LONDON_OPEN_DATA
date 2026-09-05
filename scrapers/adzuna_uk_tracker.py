@@ -2,9 +2,19 @@
 """
 UK Job Market Tracker — Adzuna data collector
 
-Fetches sector categories, current regional vacancy breakdown per sector,
-and historical salary trend per sector, then writes a dated snapshot and
-updates a rolling history file that the Flutter app will read.
+Fetches sector categories and, for each one, a real monthly average-salary
+trend (UK-wide) via Adzuna's jobs/{country}/history endpoint. Writes a
+dated snapshot and updates a rolling history file that the Flutter app
+will read.
+
+Confirmed response shape for jobs/gb/history?category=X&location0=UK:
+    {
+      "month": {"2026-08": 68397.91, "2026-07": 67645.79, ...},
+      "location": {"display_name": "UK", "area": ["UK"]},
+      "__CLASS__": "Adzuna::API::Response::HistoricalSalary"
+    }
+There is no separate salary endpoint and no "locations" list when a
+category is included — that was the bug in the previous version.
 
 Credentials come from environment variables — never hardcode them here,
 especially since this repo is likely going to be public (GitHub Pages
@@ -36,7 +46,13 @@ APP_ID = os.environ.get("ADZUNA_APP_ID")
 APP_KEY = os.environ.get("ADZUNA_APP_KEY")
 COUNTRY = "gb"
 BASE = f"https://api.adzuna.com/v1/api/jobs/{COUNTRY}"
-SALARY_BASE = f"https://api.adzuna.com/v1/api/salary/{COUNTRY}"
+
+# Region-level breakdown (category x region) is NOT fetched yet — that's
+# 30 categories x ~12 regions = 300+ extra calls per run, and we haven't
+# confirmed the free-tier daily call limit on this account. Flip this on
+# once that's checked, and the fetch_category_trend() calls below can be
+# looped per-region using the list fetch_uk_regions() returns.
+INCLUDE_REGIONAL_BREAKDOWN = False
 
 DATA_DIR = Path("data")
 HISTORY_FILE = DATA_DIR / "history.json"
@@ -73,64 +89,65 @@ def fetch_categories():
     return [{"label": c["label"], "tag": c["tag"]} for c in data.get("results", [])]
 
 
-def fetch_regional_breakdown(category_tag):
+def fetch_uk_regions():
     """
-    Current vacancy counts by top-level UK region, for one category.
-
-    NOTE: per Adzuna's published "Regional data" docs this uses the
-    /history path with location0=UK (not a separate /geodata endpoint) —
-    it returns child locations of "UK" with their job counts. This
-    hasn't been live-tested from this environment (api.adzuna.com isn't
-    reachable from this sandbox), so smoke-test one call by hand before
-    relying on the scheduled run — check developer.adzuna.com/activedocs
-    if the shape doesn't match.
+    Top-level UK regions. Only works with NO category filter — adding
+    category switches the response to a salary-trend dict instead of a
+    locations list (see module docstring).
     """
-    data = get(f"{BASE}/history", {"category": category_tag, "location0": "UK"})
+    data = get(f"{BASE}/history", {"location0": "UK"})
     locations = data.get("locations", [])
-    return [
-        {"region": loc["location"]["display_name"], "count": loc["count"]}
-        for loc in locations
-    ]
+    return [loc["location"]["display_name"] for loc in locations]
 
 
-def fetch_salary_trend(title):
-    """Historical average salary trend for a representative job title."""
-    data = get(f"{SALARY_BASE}/history", {"title_only": title})
-    return data.get("month", data)
+def fetch_category_trend(category_tag, location1=None):
+    """Monthly average-salary trend for a category, UK-wide or one region."""
+    params = {"category": category_tag, "location0": "UK"}
+    if location1:
+        params["location1"] = location1
+    data = get(f"{BASE}/history", params)
+    return data.get("month", {})
 
 
 def build_snapshot():
     categories = fetch_categories()
+    regions = []
+    try:
+        regions = fetch_uk_regions()
+    except requests.RequestException as e:
+        print(f"region list fetch failed: {e}")
+
     snapshot = {
         "collected_at": datetime.now(timezone.utc).isoformat(),
+        "uk_regions": regions,
         "sectors": [],
     }
 
     for cat in categories:
-        rep_title = cat["label"].replace(" Jobs", "").strip()
         print(f"Fetching {cat['label']} ({cat['tag']}) ...")
-
         try:
-            regional = fetch_regional_breakdown(cat["tag"])
+            uk_trend = fetch_category_trend(cat["tag"])
         except requests.RequestException as e:
-            print(f"  regional fetch failed: {e}")
-            regional = []
+            print(f"  trend fetch failed: {e}")
+            uk_trend = {}
 
-        try:
-            salary_trend = fetch_salary_trend(rep_title)
-        except requests.RequestException as e:
-            print(f"  salary fetch failed: {e}")
-            salary_trend = {}
+        sector_entry = {
+            "label": cat["label"],
+            "tag": cat["tag"],
+            "salary_trend_uk": uk_trend,
+        }
 
-        snapshot["sectors"].append(
-            {
-                "label": cat["label"],
-                "tag": cat["tag"],
-                "representative_title": rep_title,
-                "regional_vacancies": regional,
-                "salary_trend": salary_trend,
-            }
-        )
+        if INCLUDE_REGIONAL_BREAKDOWN:
+            sector_entry["salary_trend_by_region"] = {}
+            for region in regions:
+                try:
+                    sector_entry["salary_trend_by_region"][region] = fetch_category_trend(
+                        cat["tag"], location1=region
+                    )
+                except requests.RequestException as e:
+                    print(f"  {region} trend fetch failed: {e}")
+
+        snapshot["sectors"].append(sector_entry)
 
     return snapshot
 
@@ -150,7 +167,7 @@ def save_snapshot(snapshot):
         {
             "collected_at": snapshot["collected_at"],
             "sectors": [
-                {"tag": s["tag"], "regional_vacancies": s["regional_vacancies"]}
+                {"tag": s["tag"], "salary_trend_uk": s["salary_trend_uk"]}
                 for s in snapshot["sectors"]
             ],
         }
