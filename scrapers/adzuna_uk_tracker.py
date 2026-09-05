@@ -15,8 +15,8 @@ Required env vars:
     ADZUNA_APP_KEY
 
 Local run:
-    export ADZUNA_APP_ID=xxxx
-    export ADZUNA_APP_KEY=xxxx
+    export ADZUNA_APP_ID=d29b54a5
+    export ADZUNA_APP_KEY=cc9007ac1a9e262c15315550386ce309
     python adzuna_uk_tracker.py
 
 In GitHub Actions, set these as repo secrets (Settings > Secrets and
