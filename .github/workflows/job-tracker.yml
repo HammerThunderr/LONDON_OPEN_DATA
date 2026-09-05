@@ -2,9 +2,13 @@
 name: UK Job Market Tracker
 
 on:
+  # Monthly, not weekly. Adzuna's salary series is month-keyed, so weekly
+  # runs collected near-identical data 51 weeks out of 52 and filled
+  # history.json with duplicates. Vacancy counts do change week to week,
+  # but monthly is the sensible cadence for both signals together.
   schedule:
-    - cron: '0 6 * * 1'  # every Monday at 06:00 UTC
-  workflow_dispatch: {}   # lets you trigger a run manually from the Actions tab
+    - cron: '0 6 2 * *'  # 06:00 UTC on the 2nd of each month
+  workflow_dispatch: {}   # manual trigger from the Actions tab
 
 permissions:
   contents: write
@@ -36,5 +40,5 @@ jobs:
           git config user.name "job-tracker-bot"
           git config user.email "actions@github.com"
           git add data/
-          git diff --staged --quiet || git commit -m "Weekly job market snapshot $(date -u +%Y-%m-%d)"
+          git diff --staged --quiet || git commit -m "Job market snapshot $(date -u +%Y-%m-%d)"
           git push
