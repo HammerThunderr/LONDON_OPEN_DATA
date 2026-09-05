@@ -28,6 +28,9 @@ jobs:
           ADZUNA_APP_KEY: ${{ secrets.ADZUNA_APP_KEY }}
         run: python scrapers/adzuna_uk_tracker.py
 
+      - name: Run trend analysis
+        run: python scrapers/analyze_trends.py
+
       - name: Commit updated data
         run: |
           git config user.name "job-tracker-bot"
