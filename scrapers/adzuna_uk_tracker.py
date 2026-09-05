@@ -55,11 +55,12 @@ AREAS = [
     ("london", "London"),
 ]
 
-# Fail the run if more than this fraction of sector fetches come back
-# empty. Two earlier runs of this script reported success while
-# collecting nothing at all, because every failure was caught and logged
-# rather than raised — this guard makes that show up as a red build.
-MAX_EMPTY_FRACTION = 0.33
+# Fail the run if more than this fraction of individual data cells come
+# back empty. Measured per cell (sector x area x metric), NOT per sector:
+# an earlier version counted only sectors where absolutely everything
+# failed, so a run missing ~30% of its cells still passed at "13% empty"
+# and committed a snapshot full of holes.
+MAX_EMPTY_FRACTION = 0.15
 
 # Keep only the N most recent dated snapshot files; latest.json and
 # history.json are what the app actually reads.
@@ -69,7 +70,14 @@ DATA_DIR = Path("data")
 HISTORY_FILE = DATA_DIR / "history.json"
 LATEST_FILE = DATA_DIR / "latest.json"
 
-REQUEST_DELAY = 1.0  # be polite to the API between calls
+REQUEST_DELAY = 2.0  # base pause between calls
+
+# Adzuna rate-limits with 503s once a run gets long — a ~120-call run at
+# 1s intervals hit them steadily through its back half, leaving roughly a
+# third of cells empty. These are transient, so retry rather than give up.
+MAX_RETRIES = 4
+BACKOFF_BASE = 3.0  # seconds: 3, 6, 12, 24
+RETRY_STATUSES = {429, 500, 502, 503, 504}
 
 
 def require_credentials():
@@ -88,10 +96,29 @@ def get(url, params):
         "app_key": APP_KEY,
         "content-type": "application/json",
     }
-    resp = requests.get(url, params=params, timeout=30)
-    resp.raise_for_status()
-    time.sleep(REQUEST_DELAY)
-    return resp.json()
+
+    last_error = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = requests.get(url, params=params, timeout=30)
+            if resp.status_code in RETRY_STATUSES:
+                wait = BACKOFF_BASE * (2 ** attempt)
+                print(f"    HTTP {resp.status_code}, retrying in {wait:.0f}s "
+                      f"(attempt {attempt + 1}/{MAX_RETRIES})")
+                last_error = requests.HTTPError(f"HTTP {resp.status_code}")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            time.sleep(REQUEST_DELAY)
+            return resp.json()
+        except requests.Timeout as e:
+            wait = BACKOFF_BASE * (2 ** attempt)
+            print(f"    timeout, retrying in {wait:.0f}s "
+                  f"(attempt {attempt + 1}/{MAX_RETRIES})")
+            last_error = e
+            time.sleep(wait)
+
+    raise last_error or requests.RequestException("request failed after retries")
 
 
 def fetch_categories():
@@ -142,12 +169,12 @@ def build_snapshot():
         "sectors": [],
     }
 
-    empty_sectors = 0
+    total_cells = 0
+    empty_cells = 0
 
     for cat in categories:
         print(f"Fetching {cat['label']} ({cat['tag']}) ...")
         entry = {"label": cat["label"], "tag": cat["tag"], "areas": {}}
-        got_something = False
 
         for area_name, location1 in AREAS:
             area_data = {}
@@ -164,26 +191,25 @@ def build_snapshot():
                 print(f"  [{area_name}] vacancy count failed: {e}")
                 area_data["vacancy_count"] = None
 
-            if area_data["salary_trend"] or area_data["vacancy_count"]:
-                got_something = True
+            total_cells += 2
+            if not area_data["salary_trend"]:
+                empty_cells += 1
+            if area_data["vacancy_count"] is None:
+                empty_cells += 1
 
             entry["areas"][area_name] = area_data
 
-        if not got_something:
-            empty_sectors += 1
-            print(f"  !! nothing collected for {cat['label']}")
-
         snapshot["sectors"].append(entry)
 
-    fraction_empty = empty_sectors / len(categories)
-    print(f"\n{empty_sectors}/{len(categories)} sectors came back empty "
-          f"({fraction_empty:.0%})")
+    fraction_empty = empty_cells / total_cells if total_cells else 1.0
+    print(f"\n{empty_cells}/{total_cells} data cells empty ({fraction_empty:.0%})")
     if fraction_empty > MAX_EMPTY_FRACTION:
         sys.exit(
-            f"Too many empty sectors ({fraction_empty:.0%} > "
-            f"{MAX_EMPTY_FRACTION:.0%}) — failing the run rather than "
-            f"committing a snapshot full of holes. Check the log above "
-            f"for the underlying API errors."
+            f"Too many empty cells ({fraction_empty:.0%} > "
+            f"{MAX_EMPTY_FRACTION:.0%}) — failing rather than committing a "
+            f"snapshot full of holes. Check the log above; if it's mostly "
+            f"503s, the run is being rate-limited and REQUEST_DELAY / "
+            f"BACKOFF_BASE need raising."
         )
 
     return snapshot
