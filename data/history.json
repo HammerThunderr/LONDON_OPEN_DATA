@@ -1334,5 +1334,220 @@
         }
       }
     ]
+  },
+  {
+    "collected_at": "2026-09-05T20:44:31.896965+00:00",
+    "sectors": [
+      {
+        "tag": "accounting-finance-jobs",
+        "vacancy_counts": {
+          "uk": 30057,
+          "london": 9118
+        }
+      },
+      {
+        "tag": "it-jobs",
+        "vacancy_counts": {
+          "uk": 48549,
+          "london": 18813
+        }
+      },
+      {
+        "tag": "sales-jobs",
+        "vacancy_counts": {
+          "uk": 35130,
+          "london": 8470
+        }
+      },
+      {
+        "tag": "customer-services-jobs",
+        "vacancy_counts": {
+          "uk": 8979,
+          "london": 1120
+        }
+      },
+      {
+        "tag": "engineering-jobs",
+        "vacancy_counts": {
+          "uk": 62046,
+          "london": 7235
+        }
+      },
+      {
+        "tag": "hr-jobs",
+        "vacancy_counts": {
+          "uk": 6817,
+          "london": 1720
+        }
+      },
+      {
+        "tag": "healthcare-nursing-jobs",
+        "vacancy_counts": {
+          "uk": 29841,
+          "london": 3354
+        }
+      },
+      {
+        "tag": "hospitality-catering-jobs",
+        "vacancy_counts": {
+          "uk": 44776,
+          "london": 10903
+        }
+      },
+      {
+        "tag": "pr-advertising-marketing-jobs",
+        "vacancy_counts": {
+          "uk": 9135,
+          "london": 4387
+        }
+      },
+      {
+        "tag": "logistics-warehouse-jobs",
+        "vacancy_counts": {
+          "uk": 34399,
+          "london": 2199
+        }
+      },
+      {
+        "tag": "teaching-jobs",
+        "vacancy_counts": {
+          "uk": 187420,
+          "london": 35811
+        }
+      },
+      {
+        "tag": "trade-construction-jobs",
+        "vacancy_counts": {
+          "uk": 66182,
+          "london": 8991
+        }
+      },
+      {
+        "tag": "admin-jobs",
+        "vacancy_counts": {
+          "uk": 14567,
+          "london": 2661
+        }
+      },
+      {
+        "tag": "legal-jobs",
+        "vacancy_counts": {
+          "uk": 11462,
+          "london": 2563
+        }
+      },
+      {
+        "tag": "creative-design-jobs",
+        "vacancy_counts": {
+          "uk": 2381,
+          "london": 1117
+        }
+      },
+      {
+        "tag": "graduate-jobs",
+        "vacancy_counts": {
+          "uk": 4158,
+          "london": 1154
+        }
+      },
+      {
+        "tag": "retail-jobs",
+        "vacancy_counts": {
+          "uk": 14615,
+          "london": 1840
+        }
+      },
+      {
+        "tag": "consultancy-jobs",
+        "vacancy_counts": {
+          "uk": 5455,
+          "london": 1676
+        }
+      },
+      {
+        "tag": "manufacturing-jobs",
+        "vacancy_counts": {
+          "uk": 11055,
+          "london": 440
+        }
+      },
+      {
+        "tag": "scientific-qa-jobs",
+        "vacancy_counts": {
+          "uk": 5042,
+          "london": 856
+        }
+      },
+      {
+        "tag": "social-work-jobs",
+        "vacancy_counts": {
+          "uk": 25473,
+          "london": 1988
+        }
+      },
+      {
+        "tag": "travel-jobs",
+        "vacancy_counts": {
+          "uk": 19383,
+          "london": 609
+        }
+      },
+      {
+        "tag": "energy-oil-gas-jobs",
+        "vacancy_counts": {
+          "uk": 1322,
+          "london": 227
+        }
+      },
+      {
+        "tag": "property-jobs",
+        "vacancy_counts": {
+          "uk": 3062,
+          "london": 789
+        }
+      },
+      {
+        "tag": "charity-voluntary-jobs",
+        "vacancy_counts": {
+          "uk": 655,
+          "london": 168
+        }
+      },
+      {
+        "tag": "domestic-help-cleaning-jobs",
+        "vacancy_counts": {
+          "uk": 18537,
+          "london": 1693
+        }
+      },
+      {
+        "tag": "maintenance-jobs",
+        "vacancy_counts": {
+          "uk": 5335,
+          "london": 808
+        }
+      },
+      {
+        "tag": "part-time-jobs",
+        "vacancy_counts": {
+          "uk": 50145,
+          "london": 6143
+        }
+      },
+      {
+        "tag": "other-general-jobs",
+        "vacancy_counts": {
+          "uk": 554,
+          "london": 111
+        }
+      },
+      {
+        "tag": "unknown",
+        "vacancy_counts": {
+          "uk": 7,
+          "london": 2
+        }
+      }
+    ]
   }
 ]
