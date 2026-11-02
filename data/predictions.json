@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T12:08:47.884704+00:00",
+  "generated_at": "2026-11-02T15:04:09.576964+00:00",
   "method": "median-based trend classification with Theil-Sen slope; forecast is a naive one-step extrapolation, not a validated model. Salary figures are nominal \u2014 not adjusted for inflation.",
   "sectors": [
     {
@@ -9,33 +9,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 3.33,
+            "pct_change": 3.05,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 51643.18,
-            "naive_next_month_forecast": 51340.45
+            "latest_month": "2026-10",
+            "latest_salary": 51348.06,
+            "naive_next_month_forecast": 51507.3
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 30735
+            "snapshots_available": 4,
+            "pct_change": -10.4,
+            "trend": "falling",
+            "latest_count": 23288
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 6.08,
+            "pct_change": 5.76,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 66539.83,
-            "naive_next_month_forecast": 65719.79
+            "latest_month": "2026-10",
+            "latest_salary": 65520.3,
+            "naive_next_month_forecast": 65799.8
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 9062
+            "snapshots_available": 4,
+            "pct_change": -9.79,
+            "trend": "stable",
+            "latest_count": 7455
           }
         }
       }
@@ -47,33 +47,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 9.17,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 60757.56,
-            "naive_next_month_forecast": 69544.68
+            "pct_change": -0.35,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 62577.3,
+            "naive_next_month_forecast": 69845.08
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 53524
+            "snapshots_available": 4,
+            "pct_change": 1.01,
+            "trend": "stable",
+            "latest_count": 45014
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 6.6,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 80892.95,
-            "naive_next_month_forecast": 85402.08
+            "pct_change": 4.79,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 84329.49,
+            "naive_next_month_forecast": 85902.57
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 18825
+            "snapshots_available": 4,
+            "pct_change": -4.72,
+            "trend": "stable",
+            "latest_count": 17220
           }
         }
       }
@@ -85,33 +85,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 5.64,
+            "pct_change": 6.41,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 43145.05,
-            "naive_next_month_forecast": 43481.3
+            "latest_month": "2026-10",
+            "latest_salary": 43597.48,
+            "naive_next_month_forecast": 43852.49
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 36427
+            "snapshots_available": 4,
+            "pct_change": -0.68,
+            "trend": "stable",
+            "latest_count": 33584
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 8.53,
+            "pct_change": 10.48,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 52861.8,
-            "naive_next_month_forecast": 52637.57
+            "latest_month": "2026-10",
+            "latest_salary": 53390.71,
+            "naive_next_month_forecast": 53681.45
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 8326
+            "snapshots_available": 4,
+            "pct_change": -4.19,
+            "trend": "stable",
+            "latest_count": 7975
           }
         }
       }
@@ -125,31 +125,31 @@
             "months_available": 12,
             "pct_change": 39.68,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 42265.75,
-            "naive_next_month_forecast": 32222.24
+            "latest_month": "2026-10",
+            "latest_salary": 41653.75,
+            "naive_next_month_forecast": 33352.93
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 9179
+            "snapshots_available": 4,
+            "pct_change": -0.44,
+            "trend": "stable",
+            "latest_count": 8828
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 19.17,
+            "pct_change": 22.09,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 40586.78,
-            "naive_next_month_forecast": 37073.24
+            "latest_month": "2026-10",
+            "latest_salary": 41580.9,
+            "naive_next_month_forecast": 40759.3
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1167
+            "snapshots_available": 4,
+            "pct_change": -4.04,
+            "trend": "stable",
+            "latest_count": 995
           }
         }
       }
@@ -161,33 +161,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 5.04,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 49759.34,
-            "naive_next_month_forecast": 49944.72
+            "pct_change": 4.03,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 49436.61,
+            "naive_next_month_forecast": 50062.21
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 67438
+            "snapshots_available": 4,
+            "pct_change": 5.42,
+            "trend": "stable",
+            "latest_count": 63721
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 6.09,
+            "pct_change": 6.24,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 56531.41,
-            "naive_next_month_forecast": 56641.59
+            "latest_month": "2026-10",
+            "latest_salary": 56597.7,
+            "naive_next_month_forecast": 57006.36
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 7489
+            "snapshots_available": 4,
+            "pct_change": 2.34,
+            "trend": "stable",
+            "latest_count": 7364
           }
         }
       }
@@ -199,33 +199,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 4.28,
+            "pct_change": -1.26,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 43343.49,
-            "naive_next_month_forecast": 46227.15
+            "latest_month": "2026-10",
+            "latest_salary": 43098.89,
+            "naive_next_month_forecast": 44850.17
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 7410
+            "snapshots_available": 4,
+            "pct_change": -0.62,
+            "trend": "stable",
+            "latest_count": 6199
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 6.56,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 52664.28,
-            "naive_next_month_forecast": 55416.86
+            "pct_change": 0.23,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 52592.73,
+            "naive_next_month_forecast": 55061.59
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1793
+            "snapshots_available": 4,
+            "pct_change": -2.6,
+            "trend": "stable",
+            "latest_count": 1573
           }
         }
       }
@@ -237,33 +237,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 5.8,
+            "pct_change": 5.3,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 53408.45,
-            "naive_next_month_forecast": 53804.33
+            "latest_month": "2026-10",
+            "latest_salary": 52505.62,
+            "naive_next_month_forecast": 53874.82
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 33612
+            "snapshots_available": 4,
+            "pct_change": 20.57,
+            "trend": "rising",
+            "latest_count": 38534
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 6.18,
+            "pct_change": 9.28,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 54403.58,
-            "naive_next_month_forecast": 54966.88
+            "latest_month": "2026-10",
+            "latest_salary": 56472.56,
+            "naive_next_month_forecast": 55875.81
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 3991
+            "snapshots_available": 4,
+            "pct_change": 31.46,
+            "trend": "rising",
+            "latest_count": 4842
           }
         }
       }
@@ -275,33 +275,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 3.01,
+            "pct_change": 1.38,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 31467.28,
-            "naive_next_month_forecast": 32312.43
+            "latest_month": "2026-10",
+            "latest_salary": 31573.06,
+            "naive_next_month_forecast": 32191.09
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 47903
+            "snapshots_available": 4,
+            "pct_change": 3.23,
+            "trend": "stable",
+            "latest_count": 44935
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.45,
+            "pct_change": -0.86,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 35019.63,
-            "naive_next_month_forecast": 36119.95
+            "latest_month": "2026-10",
+            "latest_salary": 34861.92,
+            "naive_next_month_forecast": 35654.56
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 12216
+            "snapshots_available": 4,
+            "pct_change": 11.45,
+            "trend": "rising",
+            "latest_count": 12163
           }
         }
       }
@@ -313,17 +313,17 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 5.54,
+            "pct_change": 6.67,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 45473.16,
-            "naive_next_month_forecast": 45756.73
+            "latest_month": "2026-10",
+            "latest_salary": 45806.68,
+            "naive_next_month_forecast": 46029.14
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 8976
+            "snapshots_available": 4,
+            "pct_change": -7.63,
+            "trend": "stable",
+            "latest_count": 7993
           }
         },
         "london": {
@@ -331,15 +331,15 @@
             "months_available": 12,
             "pct_change": 12.15,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 52123.73,
-            "naive_next_month_forecast": 52438.34
+            "latest_month": "2026-10",
+            "latest_salary": 51210.59,
+            "naive_next_month_forecast": 52919.49
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 4242
+            "snapshots_available": 4,
+            "pct_change": -7.22,
+            "trend": "stable",
+            "latest_count": 3957
           }
         }
       }
@@ -351,17 +351,17 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": -1.38,
+            "pct_change": -1.28,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 35305.13,
-            "naive_next_month_forecast": 35260.76
+            "latest_month": "2026-10",
+            "latest_salary": 35147.39,
+            "naive_next_month_forecast": 35377.59
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 42226
+            "snapshots_available": 4,
+            "pct_change": 15.32,
+            "trend": "rising",
+            "latest_count": 37481
           }
         },
         "london": {
@@ -369,15 +369,15 @@
             "months_available": 12,
             "pct_change": -2.71,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 38078.78,
-            "naive_next_month_forecast": 38088.15
+            "latest_month": "2026-10",
+            "latest_salary": 38119.96,
+            "naive_next_month_forecast": 38040.14
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 2528
+            "snapshots_available": 4,
+            "pct_change": 5.27,
+            "trend": "stable",
+            "latest_count": 2125
           }
         }
       }
@@ -389,33 +389,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 3.39,
+            "pct_change": 3.14,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 36543.68,
-            "naive_next_month_forecast": 37711.29
+            "latest_month": "2026-10",
+            "latest_salary": 37048.19,
+            "naive_next_month_forecast": 37599.93
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 57377
+            "snapshots_available": 4,
+            "pct_change": -71.04,
+            "trend": "falling",
+            "latest_count": 51292
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 2.73,
+            "pct_change": 1.53,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 37291.04,
-            "naive_next_month_forecast": 39051.72
+            "latest_month": "2026-10",
+            "latest_salary": 38052.56,
+            "naive_next_month_forecast": 38654.4
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 10406
+            "snapshots_available": 4,
+            "pct_change": -72.12,
+            "trend": "falling",
+            "latest_count": 9592
           }
         }
       }
@@ -427,33 +427,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 5.2,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 56442.75,
-            "naive_next_month_forecast": 56446.58
+            "pct_change": 4.76,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 56869.01,
+            "naive_next_month_forecast": 56801.36
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 65802
+            "snapshots_available": 4,
+            "pct_change": -1.86,
+            "trend": "stable",
+            "latest_count": 64208
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 3.51,
+            "pct_change": 2.26,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 63071.67,
-            "naive_next_month_forecast": 62972.35
+            "latest_month": "2026-10",
+            "latest_salary": 62996.52,
+            "naive_next_month_forecast": 62901.84
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 8725
+            "snapshots_available": 4,
+            "pct_change": -4.36,
+            "trend": "stable",
+            "latest_count": 8496
           }
         }
       }
@@ -465,33 +465,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.42,
+            "pct_change": 2.36,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 32049.55,
-            "naive_next_month_forecast": 31956.4
+            "latest_month": "2026-10",
+            "latest_salary": 32119.3,
+            "naive_next_month_forecast": 32032.35
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 14783
+            "snapshots_available": 4,
+            "pct_change": -2.59,
+            "trend": "stable",
+            "latest_count": 13737
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.07,
+            "pct_change": 1.04,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 37742.06,
-            "naive_next_month_forecast": 37664.4
+            "latest_month": "2026-10",
+            "latest_salary": 37681.93,
+            "naive_next_month_forecast": 37639.59
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 2478
+            "snapshots_available": 4,
+            "pct_change": -14.77,
+            "trend": "falling",
+            "latest_count": 2082
           }
         }
       }
@@ -503,33 +503,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 4.98,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 59288.72,
-            "naive_next_month_forecast": 57899.61
+            "pct_change": 6.05,
+            "trend": "rising",
+            "latest_month": "2026-10",
+            "latest_salary": 61587.74,
+            "naive_next_month_forecast": 59411.62
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 11424
+            "snapshots_available": 4,
+            "pct_change": -12.77,
+            "trend": "falling",
+            "latest_count": 8629
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 2.85,
+            "pct_change": 3.88,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 77401.38,
-            "naive_next_month_forecast": 75172.31
+            "latest_month": "2026-10",
+            "latest_salary": 80849.63,
+            "naive_next_month_forecast": 76941.09
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 2508
+            "snapshots_available": 4,
+            "pct_change": -9.53,
+            "trend": "stable",
+            "latest_count": 2141
           }
         }
       }
@@ -541,33 +541,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 0.94,
+            "pct_change": 2.63,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 42200.56,
-            "naive_next_month_forecast": 41620.16
+            "latest_month": "2026-10",
+            "latest_salary": 41725.49,
+            "naive_next_month_forecast": 41898.55
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 2320
+            "snapshots_available": 4,
+            "pct_change": -5.22,
+            "trend": "stable",
+            "latest_count": 2217
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 8.74,
+            "pct_change": 10.12,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 48955.63,
-            "naive_next_month_forecast": 48653.73
+            "latest_month": "2026-10",
+            "latest_salary": 47804.18,
+            "naive_next_month_forecast": 48711.1
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1079
+            "snapshots_available": 4,
+            "pct_change": -4.19,
+            "trend": "stable",
+            "latest_count": 1073
           }
         }
       }
@@ -579,17 +579,17 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 2.44,
+            "pct_change": 3.66,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 31304.61,
-            "naive_next_month_forecast": 30896.91
+            "latest_month": "2026-10",
+            "latest_salary": 31264.19,
+            "naive_next_month_forecast": 31090.95
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 5678
+            "snapshots_available": 4,
+            "pct_change": 33.2,
+            "trend": "rising",
+            "latest_count": 5455
           }
         },
         "london": {
@@ -597,15 +597,15 @@
             "months_available": 12,
             "pct_change": 4.81,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 34463.05,
-            "naive_next_month_forecast": 33848.71
+            "latest_month": "2026-10",
+            "latest_salary": 33579.47,
+            "naive_next_month_forecast": 33812.84
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1408
+            "snapshots_available": 4,
+            "pct_change": 11.71,
+            "trend": "rising",
+            "latest_count": 1186
           }
         }
       }
@@ -617,33 +617,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": -2.95,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 32283.32,
-            "naive_next_month_forecast": 34330.78
+            "pct_change": -9.55,
+            "trend": "falling",
+            "latest_month": "2026-10",
+            "latest_salary": 31816.95,
+            "naive_next_month_forecast": 33330.06
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 15495
+            "snapshots_available": 4,
+            "pct_change": 4.24,
+            "trend": "stable",
+            "latest_count": 15303
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 3.28,
+            "pct_change": -4.32,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 40226.83,
-            "naive_next_month_forecast": 41900.8
+            "latest_month": "2026-10",
+            "latest_salary": 39898.51,
+            "naive_next_month_forecast": 41161.22
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1876
+            "snapshots_available": 4,
+            "pct_change": -0.24,
+            "trend": "stable",
+            "latest_count": 1821
           }
         }
       }
@@ -655,33 +655,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 11.43,
+            "pct_change": 5.5,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 49765.38,
-            "naive_next_month_forecast": 50616.04
+            "latest_month": "2026-10",
+            "latest_salary": 48689.77,
+            "naive_next_month_forecast": 49853.15
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 5750
+            "snapshots_available": 4,
+            "pct_change": 1.85,
+            "trend": "stable",
+            "latest_count": 5397
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 12.41,
+            "pct_change": 10.22,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 56506.69,
-            "naive_next_month_forecast": 57184.79
+            "latest_month": "2026-10",
+            "latest_salary": 55139.13,
+            "naive_next_month_forecast": 56952.26
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1684
+            "latest_count": 1586
           }
         }
       }
@@ -693,33 +693,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.3,
+            "pct_change": 0.11,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 34831.23,
-            "naive_next_month_forecast": 35503.3
+            "latest_month": "2026-10",
+            "latest_salary": 34930.37,
+            "naive_next_month_forecast": 35338.05
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 12243
+            "latest_count": 11239
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.61,
+            "pct_change": 1.85,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 39800.88,
-            "naive_next_month_forecast": 40492.75
+            "latest_month": "2026-10",
+            "latest_salary": 40421.53,
+            "naive_next_month_forecast": 40640.98
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 372
+            "latest_count": 377
           }
         }
       }
@@ -731,33 +731,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 8.85,
+            "pct_change": 9.12,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 47903.16,
-            "naive_next_month_forecast": 44688.52
+            "latest_month": "2026-10",
+            "latest_salary": 45757.05,
+            "naive_next_month_forecast": 45761.09
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 5153
+            "latest_count": 4902
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 29.19,
+            "pct_change": 26.87,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 66445.22,
-            "naive_next_month_forecast": 64066.53
+            "latest_month": "2026-10",
+            "latest_salary": 61822.95,
+            "naive_next_month_forecast": 65270.63
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 874
+            "latest_count": 956
           }
         }
       }
@@ -769,33 +769,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 4.19,
+            "pct_change": 3.85,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 37465.38,
-            "naive_next_month_forecast": 38150.4
+            "latest_month": "2026-10",
+            "latest_salary": 37238.12,
+            "naive_next_month_forecast": 37940.47
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 26045
+            "latest_count": 25466
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.95,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 44170.51,
-            "naive_next_month_forecast": 45352.41
+            "pct_change": 5.23,
+            "trend": "rising",
+            "latest_month": "2026-10",
+            "latest_salary": 43957.58,
+            "naive_next_month_forecast": 44688.13
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1918
+            "latest_count": 1942
           }
         }
       }
@@ -807,33 +807,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 6.19,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 32470.36,
-            "naive_next_month_forecast": 33544.98
+            "pct_change": 4.91,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 32054.42,
+            "naive_next_month_forecast": 32816.65
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 18924
+            "latest_count": 18616
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 2.19,
+            "pct_change": 0.35,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 35443.01,
-            "naive_next_month_forecast": 36657.69
+            "latest_month": "2026-10",
+            "latest_salary": 34984.73,
+            "naive_next_month_forecast": 35733.79
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 628
+            "latest_count": 585
           }
         }
       }
@@ -845,33 +845,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 5.63,
-            "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 48196.17,
-            "naive_next_month_forecast": 48701.52
+            "pct_change": 4.81,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 46836.13,
+            "naive_next_month_forecast": 48144.4
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1369
+            "snapshots_available": 4,
+            "pct_change": 2.83,
+            "trend": "stable",
+            "latest_count": 1354
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 14.43,
+            "pct_change": 8.03,
             "trend": "rising",
-            "latest_month": "2026-09",
-            "latest_salary": 48594.44,
-            "naive_next_month_forecast": 53055.94
+            "latest_month": "2026-10",
+            "latest_salary": 49872.25,
+            "naive_next_month_forecast": 52790.6
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 266
+            "latest_count": 283
           }
         }
       }
@@ -883,33 +883,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.2,
+            "pct_change": 1.47,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 45734.7,
-            "naive_next_month_forecast": 46201.99
-          },
-          "demand": {
-            "snapshots_available": 2,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 3093
-          }
-        },
-        "london": {
-          "salary": {
-            "months_available": 12,
-            "pct_change": 0.18,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 51084.19,
-            "naive_next_month_forecast": 50191.8
+            "latest_month": "2026-10",
+            "latest_salary": 44839.13,
+            "naive_next_month_forecast": 45903.34
           },
           "demand": {
             "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 822
+            "latest_count": 2790
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 0.44,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 50250.23,
+            "naive_next_month_forecast": 50251.52
+          },
+          "demand": {
+            "snapshots_available": 4,
+            "pct_change": -5.37,
+            "trend": "stable",
+            "latest_count": 675
           }
         }
       }
@@ -921,33 +921,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": -3.05,
+            "pct_change": -3.51,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 37280.17,
-            "naive_next_month_forecast": 38289.22
-          },
-          "demand": {
-            "snapshots_available": 2,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 743
-          }
-        },
-        "london": {
-          "salary": {
-            "months_available": 12,
-            "pct_change": -2.45,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 41017.21,
-            "naive_next_month_forecast": 43682.56
+            "latest_month": "2026-10",
+            "latest_salary": 39610.41,
+            "naive_next_month_forecast": 38395.97
           },
           "demand": {
             "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 171
+            "latest_count": 720
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": -2.95,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 41939.63,
+            "naive_next_month_forecast": 42531.01
+          },
+          "demand": {
+            "snapshots_available": 4,
+            "pct_change": -4.72,
+            "trend": "stable",
+            "latest_count": 152
           }
         }
       }
@@ -959,33 +959,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 4.49,
+            "pct_change": 2.28,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 30786.59,
-            "naive_next_month_forecast": 31390.57
-          },
-          "demand": {
-            "snapshots_available": 2,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 19564
-          }
-        },
-        "london": {
-          "salary": {
-            "months_available": 12,
-            "pct_change": 3.44,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 29855.07,
-            "naive_next_month_forecast": 30124.47
+            "latest_month": "2026-10",
+            "latest_salary": 30760.09,
+            "naive_next_month_forecast": 31288.99
           },
           "demand": {
             "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1760
+            "latest_count": 19946
+          }
+        },
+        "london": {
+          "salary": {
+            "months_available": 12,
+            "pct_change": 2.53,
+            "trend": "stable",
+            "latest_month": "2026-10",
+            "latest_salary": 29887.12,
+            "naive_next_month_forecast": 29998.99
+          },
+          "demand": {
+            "snapshots_available": 4,
+            "pct_change": 2.8,
+            "trend": "stable",
+            "latest_count": 1732
           }
         }
       }
@@ -997,33 +997,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": -0.73,
+            "pct_change": -1.76,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 37318.66,
-            "naive_next_month_forecast": 36973.89
+            "latest_month": "2026-10",
+            "latest_salary": 37714.63,
+            "naive_next_month_forecast": 37150.54
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 5379
+            "snapshots_available": 4,
+            "pct_change": -4.16,
+            "trend": "stable",
+            "latest_count": 4880
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": 0.21,
+            "pct_change": -1.03,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 39355.77,
-            "naive_next_month_forecast": 38944.59
+            "latest_month": "2026-10",
+            "latest_salary": 39382.91,
+            "naive_next_month_forecast": 39124.66
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 724
+            "latest_count": 682
           }
         }
       }
@@ -1038,10 +1038,10 @@
             "trend": "insufficient_data"
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 10941
+            "snapshots_available": 4,
+            "pct_change": -79.05,
+            "trend": "falling",
+            "latest_count": 10074
           }
         },
         "london": {
@@ -1050,10 +1050,10 @@
             "trend": "insufficient_data"
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 1038
+            "snapshots_available": 4,
+            "pct_change": -84.11,
+            "trend": "falling",
+            "latest_count": 914
           }
         }
       }
@@ -1065,33 +1065,33 @@
         "uk": {
           "salary": {
             "months_available": 12,
-            "pct_change": 1.33,
+            "pct_change": -1.29,
             "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 40323.98,
-            "naive_next_month_forecast": 40606.72
+            "latest_month": "2026-10",
+            "latest_salary": 39027.41,
+            "naive_next_month_forecast": 40096.09
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 488
+            "snapshots_available": 4,
+            "pct_change": -20.25,
+            "trend": "falling",
+            "latest_count": 398
           }
         },
         "london": {
           "salary": {
             "months_available": 12,
-            "pct_change": -4.18,
-            "trend": "stable",
-            "latest_month": "2026-09",
-            "latest_salary": 46703.31,
-            "naive_next_month_forecast": 46537.69
+            "pct_change": -15.49,
+            "trend": "falling",
+            "latest_month": "2026-10",
+            "latest_salary": 41924.14,
+            "naive_next_month_forecast": 43051.6
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
-            "latest_count": 107
+            "snapshots_available": 4,
+            "pct_change": -13.96,
+            "trend": "falling",
+            "latest_count": 84
           }
         }
       }
@@ -1103,16 +1103,16 @@
         "uk": {
           "salary": {
             "months_available": 8,
-            "pct_change": -105.87,
+            "pct_change": -125.0,
             "trend": "falling",
-            "latest_month": "2026-09",
-            "latest_salary": -7869.88,
-            "naive_next_month_forecast": -15395.52
+            "latest_month": "2026-10",
+            "latest_salary": -25155,
+            "naive_next_month_forecast": -36690.24
           },
           "demand": {
-            "snapshots_available": 3,
-            "trend": "accumulating",
-            "note": "needs 4 snapshots before a demand trend means anything",
+            "snapshots_available": 4,
+            "pct_change": 0.0,
+            "trend": "stable",
             "latest_count": 7
           }
         },
@@ -1122,7 +1122,7 @@
             "trend": "insufficient_data"
           },
           "demand": {
-            "snapshots_available": 2,
+            "snapshots_available": 3,
             "trend": "accumulating",
             "note": "needs 4 snapshots before a demand trend means anything",
             "latest_count": 2
